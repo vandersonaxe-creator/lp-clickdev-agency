@@ -22,7 +22,8 @@ interface DataTableRowActionsProps<TData> {
 export function DataTableRowActions<TData>({
   row,
 }: DataTableRowActionsProps<TData>) {
-  const task = taskSchema.parse(row.original)
+  // Keep runtime validation of row data without storing an unused variable.
+  taskSchema.parse(row.original)
 
   return (
     <DropdownMenu>
