@@ -47,7 +47,7 @@ export function SiteHeader() {
             </Button>
             <Button variant="ghost" asChild size="sm" className="hidden sm:flex">
               <a
-                href="/landing"
+                href="/"
                 rel="noopener noreferrer"
                 target="_blank"
                 className="dark:text-foreground"

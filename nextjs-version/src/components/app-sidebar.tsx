@@ -89,7 +89,7 @@ const data = {
       items: [
         {
           title: "Landing",
-          url: "/landing",
+          url: "/",
           target: "_blank",
           icon: LayoutTemplate,
         },

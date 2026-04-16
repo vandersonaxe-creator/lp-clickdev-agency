@@ -62,7 +62,7 @@ export function LandingNavbar() {
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-4">
           <Link
-            href="/landing"
+            href="/"
             className="flex items-center gap-2 shrink-0"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >

@@ -27,7 +27,7 @@ export default function DemoPage() {
               </a>
             </Button>
             <Button size="lg" variant="outline" className="cursor-pointer" asChild>
-              <Link href="/landing">
+              <Link href="/">
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Voltar para o site
               </Link>
