@@ -2,8 +2,9 @@
 
 import { useState, type ReactNode } from "react"
 import Link from "next/link"
-import { Menu } from "lucide-react"
+import { LayoutDashboard, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { BorderBeam } from "@/components/ui/border-beam"
 import {
   Sheet,
   SheetContent,
@@ -27,6 +28,48 @@ function smoothScrollTo(targetId: string) {
   if (!targetId.startsWith("#")) return
   const element = document.querySelector(targetId)
   element?.scrollIntoView({ behavior: "smooth", block: "start" })
+}
+
+function DashboardCtaLink({
+  className,
+  onClick,
+}: {
+  className?: string
+  onClick?: () => void
+}) {
+  return (
+    <Link
+      href="/dashboard"
+      onClick={onClick}
+      className={cn(
+        "group relative inline-flex min-h-11 items-center justify-center overflow-hidden rounded-xl",
+        "bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700",
+        "px-6 py-2.5 text-sm font-semibold tracking-[0.14em] text-white",
+        "shadow-[0_1px_0_0_rgba(255,255,255,0.12)_inset,0_8px_24px_-4px_rgba(234,88,12,0.45)]",
+        "ring-1 ring-white/15",
+        "transition-[transform,box-shadow,filter] duration-200 ease-out",
+        "hover:-translate-y-px hover:shadow-[0_1px_0_0_rgba(255,255,255,0.18)_inset,0_12px_32px_-6px_rgba(234,88,12,0.55)] hover:brightness-[1.04]",
+        "active:translate-y-0 active:scale-[0.99] active:brightness-[0.98]",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300/90 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+        className
+      )}
+    >
+      <BorderBeam
+        size={88}
+        duration={14}
+        colorFrom="#fef3c7"
+        colorTo="#fb923c"
+        borderWidth={2}
+      />
+      <span className="relative z-10 flex items-center gap-2">
+        <LayoutDashboard
+          className="size-4 shrink-0 opacity-95 transition-transform duration-200 group-hover:rotate-[-8deg]"
+          aria-hidden
+        />
+        VER DASHBOARD
+      </span>
+    </Link>
+  )
 }
 
 function NavAnchor({
@@ -87,12 +130,7 @@ export function LandingNavbar() {
               Disponível para novos projetos
             </span>
             <ModeToggle variant="ghost" />
-            <Link
-              href="/dashboard"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2 transition-colors text-sm"
-            >
-              VER DASHBOARD
-            </Link>
+            <DashboardCtaLink />
           </div>
 
           <div className="flex md:hidden items-center gap-2">
@@ -125,13 +163,10 @@ export function LandingNavbar() {
                       </NavAnchor>
                     ))}
                   </div>
-                  <Link
-                    href="/dashboard"
-                    className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-xl font-semibold text-center transition-colors"
+                  <DashboardCtaLink
+                    className="w-full"
                     onClick={() => setMobileOpen(false)}
-                  >
-                    VER DASHBOARD
-                  </Link>
+                  />
                 </div>
               </SheetContent>
             </Sheet>
