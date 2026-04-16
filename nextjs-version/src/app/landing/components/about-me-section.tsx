@@ -4,6 +4,8 @@ import Image from "next/image"
 
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
+import { cn } from "@/lib/utils"
+import { marketingSectionTitle } from "@/lib/marketing-typography"
 
 export function AboutMeSection() {
   return (
@@ -14,7 +16,7 @@ export function AboutMeSection() {
             <Badge variant="outline" className="mb-4">
               Quem sou eu
             </Badge>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className={cn(marketingSectionTitle, "text-balance")}>
               Vanderson Machado: Da Turbina Eólica à Digitalização Industrial.
             </h2>
           </div>

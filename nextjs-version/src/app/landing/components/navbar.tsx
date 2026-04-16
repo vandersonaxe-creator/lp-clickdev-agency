@@ -12,6 +12,8 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet"
 import { ModeToggle } from "@/components/mode-toggle"
+import { cn } from "@/lib/utils"
+import { marketingWordmark } from "@/lib/marketing-typography"
 import { CLICKDEV_WHATSAPP_HREF } from "../landing-copy"
 
 const navLinks = [
@@ -66,7 +68,7 @@ export function LandingNavbar() {
             className="flex items-center gap-2 shrink-0"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <span className="text-2xl font-bold text-orange-600">Click Dev</span>
+            <span className={cn(marketingWordmark, "text-orange-600")}>Click Dev</span>
           </Link>
 
           <div className="hidden md:flex flex-1 items-center justify-center gap-8 text-sm font-medium text-foreground">
@@ -106,7 +108,7 @@ export function LandingNavbar() {
               </SheetTrigger>
               <SheetContent side="right" className="w-full sm:max-w-sm">
                 <SheetHeader className="text-left border-b pb-4">
-                  <SheetTitle className="text-orange-600 font-bold text-xl">
+                  <SheetTitle className={cn(marketingWordmark, "text-orange-600")}>
                     Click Dev
                   </SheetTitle>
                 </SheetHeader>

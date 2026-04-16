@@ -3,6 +3,8 @@
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { MessageCircle } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { marketingCtaTitle, marketingSectionLead } from '@/lib/marketing-typography'
 import { CLICKDEV_WHATSAPP_HREF } from '../landing-copy'
 
 export function CTASection() {
@@ -26,11 +28,11 @@ export function CTASection() {
 
               {/* Main Content */}
               <div className='space-y-6'>
-                <h1 className='text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl'>
+                <h1 className={cn(marketingCtaTitle, 'text-balance')}>
                   Pronto para Levar sua Indústria ao Próximo Nível?
                 </h1>
 
-                <p className='text-muted-foreground mx-auto max-w-2xl text-balance lg:text-xl'>
+                <p className={cn(marketingSectionLead, 'mx-auto max-w-2xl text-balance')}>
                   Não deixe que a falta de controle e processos manuais limitem o crescimento da sua empresa. Fale
                   com um especialista da Click Dev e descubra como a digitalização pode transformar sua operação.
                   Invista em tecnologia que gera resultados reais e mensuráveis.

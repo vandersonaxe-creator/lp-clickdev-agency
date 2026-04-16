@@ -4,6 +4,8 @@ import { CircleHelp } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Badge } from '@/components/ui/badge'
+import { cn } from '@/lib/utils'
+import { marketingSectionLead, marketingSectionTitle } from '@/lib/marketing-typography'
 
 type FaqItem = {
   value: string
@@ -57,10 +59,10 @@ const FaqSection = () => {
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
           <Badge variant="outline" className="mb-4">Perguntas frequentes</Badge>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
+          <h2 className={cn(marketingSectionTitle, "mb-4")}>
             Desvendando a Digitalização Industrial
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className={marketingSectionLead}>
             Dúvidas comuns sobre sistemas industriais, implementação, suporte, segurança de dados (LGPD) e retorno
             sobre investimento.
           </p>

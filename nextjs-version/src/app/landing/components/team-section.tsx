@@ -6,6 +6,8 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { CardDecorator } from '@/components/ui/card-decorator'
 import { Github, Linkedin, Globe } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { marketingCardTitle, marketingSectionLead, marketingSectionTitle } from '@/lib/marketing-typography'
 
 
 const team = [
@@ -124,10 +126,10 @@ export function TeamSection() {
           <Badge variant="outline" className="mb-4">
             Our Team
           </Badge>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-6">
+          <h2 className={cn(marketingSectionTitle, "mb-6")}>
             Meet our team
           </h2>
-          <p className="text-lg text-muted-foreground mb-8">
+          <p className={cn(marketingSectionLead, "mb-8")}>
             We are a passionate team of innovators, builders, and problem-solvers dedicated to creating exceptional digital experiences that make a difference.
           </p>
         </div>
@@ -155,7 +157,7 @@ export function TeamSection() {
                   </div>
 
                   {/* Name and Role */}
-                  <h3 className="text-lg font-semibold text-foreground mb-1">
+                  <h3 className={cn(marketingCardTitle, "text-foreground mb-1")}>
                     {member.name}
                   </h3>
                   <p className="text-sm font-medium text-primary mb-3">

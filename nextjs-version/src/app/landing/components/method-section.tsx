@@ -3,6 +3,8 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { CheckCircle2, ClipboardList, Wrench, LifeBuoy } from "lucide-react"
+import { cn } from "@/lib/utils"
+import { marketingCardTitle, marketingSectionLead, marketingSectionTitle } from "@/lib/marketing-typography"
 
 const steps = [
   {
@@ -39,10 +41,10 @@ export function MethodSection() {
           <Badge variant="outline" className="mb-4">
             Método Click Dev
           </Badge>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
+          <h2 className={cn(marketingSectionTitle, "mb-4")}>
             Nosso Método: Digitalização Industrial Simples e Eficaz.
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className={marketingSectionLead}>
             Acreditamos que a transformação digital deve ser acessível e descomplicada. Nosso método é focado em
             resultados e na adaptação perfeita à sua realidade.
           </p>
@@ -55,7 +57,7 @@ export function MethodSection() {
                 <div className="mb-4 inline-flex items-center justify-center rounded-xl bg-primary/10 p-3">
                   <step.icon className="h-6 w-6 text-primary" aria-hidden />
                 </div>
-                <h3 className="font-semibold">{step.title}</h3>
+                <h3 className={marketingCardTitle}>{step.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{step.description}</p>
               </CardContent>
             </Card>

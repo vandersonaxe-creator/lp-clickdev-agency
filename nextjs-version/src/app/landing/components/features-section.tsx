@@ -10,6 +10,8 @@ import {
 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
+import { cn } from '@/lib/utils'
+import { marketingCardTitle, marketingSectionLead, marketingSectionTitle } from '@/lib/marketing-typography'
 
 const modules = [
   {
@@ -60,10 +62,10 @@ export function FeaturesSection() {
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
           <Badge variant="outline" className="mb-4">Soluções</Badge>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
+          <h2 className={cn(marketingSectionTitle, "mb-4")}>
             Soluções Inteligentes para a Gestão da sua Indústria.
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className={marketingSectionLead}>
             Oferecemos um portfólio de sistemas e dashboards desenvolvidos para otimizar os processos críticos da
             sua Pequena ou Média Empresa Industrial. Nossas soluções são construídas sob medida, garantindo que
             cada funcionalidade atenda às suas necessidades específicas.
@@ -71,7 +73,7 @@ export function FeaturesSection() {
         </div>
 
         <div className="mx-auto max-w-5xl space-y-10">
-          <p className="text-muted-foreground text-center text-base sm:text-lg">
+          <p className={cn(marketingSectionLead, "text-center max-w-3xl mx-auto")}>
             Com a Click Dev, você garante rastreabilidade total, conformidade com normas e a transição suave de
             planilhas para um sistema robusto e integrado.
           </p>
@@ -83,7 +85,7 @@ export function FeaturesSection() {
                   <div className="mb-4 inline-flex items-center justify-center rounded-xl bg-primary/10 p-3">
                     <module.icon className="h-6 w-6 text-primary" aria-hidden />
                   </div>
-                  <h3 className="font-semibold">{module.title}</h3>
+                  <h3 className={marketingCardTitle}>{module.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{module.description}</p>
                 </CardContent>
               </Card>
@@ -94,7 +96,7 @@ export function FeaturesSection() {
                   <div className="mb-4 inline-flex items-center justify-center rounded-xl bg-primary/10 p-3">
                     <module.icon className="h-6 w-6 text-primary" aria-hidden />
                   </div>
-                  <h3 className="font-semibold">{module.title}</h3>
+                  <h3 className={marketingCardTitle}>{module.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{module.description}</p>
                 </CardContent>
               </Card>

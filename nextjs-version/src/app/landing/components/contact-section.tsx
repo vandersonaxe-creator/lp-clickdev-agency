@@ -17,6 +17,8 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Mail, MessageCircle, Linkedin } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { marketingCardTitle, marketingSectionLead, marketingSectionTitle } from '@/lib/marketing-typography'
 import { CLICKDEV_WHATSAPP_HREF } from '../landing-copy'
 
 const contactFormSchema = z.object({
@@ -61,10 +63,10 @@ export function ContactSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center mb-16">
           <Badge variant="outline" className="mb-4">Contato</Badge>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
+          <h2 className={cn(marketingSectionTitle, "mb-4")}>
             Vamos conversar sobre sua operação?
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className={marketingSectionLead}>
             Escolha a melhor forma de falar com a Click Dev. Para diagnóstico gratuito, o caminho mais rápido é o WhatsApp.
           </p>
         </div>
@@ -74,7 +76,7 @@ export function ContactSection() {
           <div className="space-y-6 order-2 lg:order-1">
             <Card className="hover:shadow-md transition-shadow cursor-pointer">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+                <CardTitle className={cn(marketingCardTitle, "flex items-center gap-2")}>
                   <MessageCircle className="h-5 w-5 text-primary" />
                   WhatsApp (recomendado)
                 </CardTitle>
@@ -93,7 +95,7 @@ export function ContactSection() {
 
             <Card className="hover:shadow-md transition-shadow cursor-pointer">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+                <CardTitle className={cn(marketingCardTitle, "flex items-center gap-2")}>
                   <Mail className="h-5 w-5 text-primary" />
                   E-mail
                 </CardTitle>
@@ -112,7 +114,7 @@ export function ContactSection() {
 
             <Card className="hover:shadow-md transition-shadow cursor-pointer">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+                <CardTitle className={cn(marketingCardTitle, "flex items-center gap-2")}>
                   <Linkedin className="h-5 w-5 text-primary" />
                   LinkedIn
                 </CardTitle>
@@ -134,7 +136,7 @@ export function ContactSection() {
           <div className="lg:col-span-2 order-1 lg:order-2">
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+                <CardTitle className={cn(marketingCardTitle, "flex items-center gap-2")}>
                   <Mail className="h-5 w-5" />
                   Enviar mensagem
                 </CardTitle>

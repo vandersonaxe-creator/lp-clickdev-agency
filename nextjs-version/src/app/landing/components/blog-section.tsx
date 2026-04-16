@@ -4,6 +4,8 @@ import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { cn } from '@/lib/utils'
+import { marketingCardTitle, marketingSectionLead, marketingSectionTitle } from '@/lib/marketing-typography'
 
 const blogs = [
     {
@@ -39,10 +41,10 @@ export function BlogSection() {
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
           <Badge variant="outline" className="mb-4">Latest Insights</Badge>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
+          <h2 className={cn(marketingSectionTitle, "mb-4")}>
             From our blog
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className={marketingSectionLead}>
             Stay updated with the latest trends, best practices, and insights from our team of experts.
           </p>
         </div>
@@ -71,7 +73,7 @@ export function BlogSection() {
                     onClick={e => e.preventDefault()}
                     className="cursor-pointer"
                   >
-                    <h3 className="text-xl font-bold hover:text-primary transition-colors">{blog.title}</h3>
+                    <h3 className={cn(marketingCardTitle, "hover:text-primary transition-colors")}>{blog.title}</h3>
                   </a>
                   <p className="text-muted-foreground">{blog.description}</p>
                   <a

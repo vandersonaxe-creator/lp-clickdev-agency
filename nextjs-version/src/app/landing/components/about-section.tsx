@@ -4,6 +4,8 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { CardDecorator } from '@/components/ui/card-decorator'
 import { ShieldCheck, Factory, GitBranch, LineChart } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { marketingCardTitle, marketingSectionLead, marketingSectionTitle } from '@/lib/marketing-typography'
 
 const values = [
   {
@@ -37,10 +39,10 @@ export function AboutSection() {
           <Badge variant="outline" className="mb-4">
             Sobre a Click Dev
           </Badge>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-6">
+          <h2 className={cn(marketingSectionTitle, "mb-6 text-balance")}>
             Click Dev: Inovação Industrial Nascida da Experiência no Chão de Fábrica.
           </h2>
-          <p className="text-lg text-muted-foreground mb-8">
+          <p className={cn(marketingSectionLead, "mb-8 text-balance")}>
             Na Click Dev, entendemos os desafios da sua indústria porque vivemos eles. Com mais de uma década de
             experiência prática no chão de fábrica e na manutenção de turbinas eólicas, nosso fundador, Vanderson
             Machado, transformou a vivência em soluções. De OS perdidas a calibrações vencidas, cada problema
@@ -59,7 +61,7 @@ export function AboutSection() {
                   <CardDecorator>
                     <value.icon className='h-6 w-6' aria-hidden />
                   </CardDecorator>
-                  <h3 className='mt-6 font-medium text-balance'>{value.title}</h3>
+                  <h3 className={cn(marketingCardTitle, 'mt-6 text-balance')}>{value.title}</h3>
                   <p className='text-muted-foreground mt-3 text-sm'>{value.description}</p>
                 </div>
               </CardContent>

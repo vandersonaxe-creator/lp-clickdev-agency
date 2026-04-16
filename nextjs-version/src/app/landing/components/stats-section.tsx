@@ -8,6 +8,7 @@ import {
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { DotPattern } from '@/components/dot-pattern'
+import { marketingStatValue } from '@/lib/marketing-typography'
 
 
 const stats = [
@@ -59,7 +60,7 @@ export function StatsSection() {
                   </div>
                 </div>
                 <div className="space-y-1">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
+                  <h3 className={marketingStatValue}>
                     {stat.value}
                   </h3>
                   <p className="font-semibold text-foreground">{stat.label}</p>

@@ -6,6 +6,8 @@ import { ArrowRight, Play, Star } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { DotPattern } from '@/components/dot-pattern'
+import { cn } from '@/lib/utils'
+import { marketingHeroLead, marketingHeroTitle } from '@/lib/marketing-typography'
 import { CLICKDEV_WHATSAPP_HREF, DEMO_ROUTE } from '../landing-copy'
 
 export function HeroSection() {
@@ -29,7 +31,7 @@ export function HeroSection() {
           </div>
 
           {/* Main Headline */}
-          <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
+          <h1 className={cn(marketingHeroTitle, "mb-6 text-balance")}>
             Transforme sua Indústria com Dados em Tempo Real:
             <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
               {" "}Otimize Produção e Manutenção.
@@ -37,7 +39,7 @@ export function HeroSection() {
           </h1>
 
           {/* Subheading */}
-          <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground sm:text-xl">
+          <p className={cn(marketingHeroLead, "mx-auto mb-10 max-w-2xl text-balance")}>
             Dashboards e sistemas sob medida para Pequenas e Médias Empresas. Elimine planilhas confusas,
             reduza custos operacionais e tenha o controle total da sua produção e manutenção com soluções
             inteligentes e intuitivas. Resultados comprovados: redução de até 30% em paradas não planejadas

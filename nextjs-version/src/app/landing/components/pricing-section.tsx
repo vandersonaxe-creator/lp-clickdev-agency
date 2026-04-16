@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { useState } from 'react'
+import { cn } from '@/lib/utils'
+import { marketingHeading, marketingSectionLead, marketingSectionTitle } from '@/lib/marketing-typography'
 
 const plans = [
   {
@@ -70,10 +72,10 @@ export function PricingSection() {
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-12">
           <Badge variant="outline" className="mb-4">Pricing Plans</Badge>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
+          <h2 className={cn(marketingSectionTitle, "mb-4")}>
             Choose your plan
           </h2>
-          <p className="text-lg text-muted-foreground mb-8">
+          <p className={cn(marketingSectionLead, "mb-8")}>
             Start building with our free components or upgrade to Pro for access to premium templates and advanced features.
           </p>
 
@@ -120,13 +122,13 @@ export function PricingSection() {
                 >
                   {/* Plan Header */}
                   <div>
-                    <div className="text-lg font-medium tracking-tight mb-2">{plan.name}</div>
+                    <div className={cn(marketingHeading.h20, "mb-2")}>{plan.name}</div>
                     <div className="text-muted-foreground text-balance text-sm">{plan.description}</div>
                   </div>
 
                   {/* Pricing */}
                   <div>
-                    <div className="text-4xl font-bold mb-1">
+                    <div className={cn(marketingHeading.h48, "mb-1")}>
                       {plan.name === 'Lifetime' ? (
                         `$${plan.monthlyPrice}`
                       ) : plan.name === 'Free' ? (

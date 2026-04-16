@@ -15,6 +15,8 @@ import {
 } from "@/components/ui/form"
 import { Logo } from '@/components/logo'
 import { Linkedin, MessageCircle, Heart } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { marketingHeading, marketingSectionLead, marketingWordmark } from '@/lib/marketing-typography'
 import { CLICKDEV_WHATSAPP_HREF } from '../landing-copy'
 
 const newsletterSchema = z.object({
@@ -63,8 +65,8 @@ export function LandingFooter() {
         {/* Newsletter Section */}
         <div className="mb-16">
           <div className="mx-auto max-w-2xl text-center">
-            <h3 className="text-2xl font-bold mb-4">Receba novidades</h3>
-            <p className="text-muted-foreground mb-6">
+            <h3 className={cn(marketingHeading.h24, "mb-4")}>Receba novidades</h3>
+            <p className={cn(marketingSectionLead, "mb-6")}>
               Conteúdos sobre digitalização industrial, manutenção, produção e boas práticas de gestão.
             </p>
             <Form {...form}>
@@ -98,7 +100,7 @@ export function LandingFooter() {
             <div className="flex items-center space-x-2 mb-4 max-lg:justify-center">
               <a href="/" className="flex items-center space-x-2 cursor-pointer">
                 <Logo size={32} />
-                <span className="font-bold text-xl">Click Dev</span>
+                <span className={marketingWordmark}>Click Dev</span>
               </a>
             </div>
             <p className="text-muted-foreground mb-6 max-lg:text-center max-lg:flex max-lg:justify-center">
@@ -122,7 +124,7 @@ export function LandingFooter() {
 
           {/* Links Columns */}
           <div className='max-md:col-span-2 lg:col-span-1'>
-            <h4 className="font-semibold mb-4">Click Dev</h4>
+            <h4 className={cn(marketingHeading.h16, "mb-4")}>Click Dev</h4>
             <ul className="space-y-3">
               {footerLinks.clickdev.map((link) => (
                 <li key={link.name}>
@@ -138,7 +140,7 @@ export function LandingFooter() {
           </div>
 
           <div className='max-md:col-span-2 lg:col-span-1'>
-            <h4 className="font-semibold mb-4">Contato</h4>
+            <h4 className={cn(marketingHeading.h16, "mb-4")}>Contato</h4>
             <ul className="space-y-3">
               {footerLinks.contato.map((link) => (
                 <li key={link.name}>
