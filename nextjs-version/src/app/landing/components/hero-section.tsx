@@ -51,10 +51,10 @@ export function HeroSection() {
               </Link>
             </Button>
             <Button variant="outline" size="lg" className="text-base cursor-pointer" asChild>
-              <a href="#">
+              <Link href="/dashboard">
                 <Play className="mr-2 h-4 w-4" />
                 Ver demonstração
-              </a>
+              </Link>
             </Button>
           </div>
         </div>
