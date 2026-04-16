@@ -1,5 +1,7 @@
 "use client"
 
+import Image from "next/image"
+
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 
@@ -20,11 +22,15 @@ export function AboutMeSection() {
           <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-12">
             <Card className="overflow-hidden">
               <CardContent className="p-0">
-                <div className="bg-muted flex aspect-[4/5] w-full items-center justify-center">
-                  <div className="text-muted-foreground max-w-xs text-center text-sm">
-                    Placeholder da imagem do Vanderson trabalhando em uma turbina eólica (URL será inserida
-                    depois).
-                  </div>
+                <div className="bg-muted relative aspect-[4/5] w-full overflow-hidden">
+                  <Image
+                    src="/landing/vanderson-profile.png"
+                    alt="Vanderson Machado no Complexo Eólico Calangos, com capacete e equipamentos de segurança."
+                    fill
+                    className="object-cover object-[center_20%]"
+                    sizes="(max-width: 1024px) 100vw, 420px"
+                    priority
+                  />
                 </div>
               </CardContent>
             </Card>
