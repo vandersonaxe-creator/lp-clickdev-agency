@@ -7,9 +7,8 @@ import { motion } from "motion/react"
 
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { DotPattern } from "@/components/dot-pattern"
 import { BorderBeam } from "@/components/ui/border-beam"
-import { RetroGrid } from "@/components/ui/retro-grid"
+import { HyperspaceBackground } from "@/components/ui/hyperspace-background"
 import { ShimmerButton } from "@/components/ui/shimmer-button"
 import { cn } from "@/lib/utils"
 import { marketingHeroLead, marketingHeroTitle } from "@/lib/marketing-typography"
@@ -36,22 +35,22 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-gradient-to-b from-background to-background/80 pt-14 pb-12 sm:pt-20 sm:pb-16 md:pt-24"
+      className="relative overflow-hidden bg-background pt-14 pb-12 sm:pt-20 sm:pb-16 md:pt-24"
     >
-      <div className="pointer-events-none absolute inset-0 z-0 min-h-[420px]">
-        <RetroGrid
-          angle={65}
-          cellSize={56}
-          opacity={0.22}
-          className="h-full w-full border-0 [mask-image:linear-gradient(to_bottom,black_0%,black_55%,transparent_100%)]"
-          lightLineColor="oklch(0.65 0 0 / 0.35)"
-          darkLineColor="oklch(0.85 0 0 / 0.2)"
+      <div className="pointer-events-none absolute inset-0 z-0 min-h-[100%]">
+        <HyperspaceBackground
+          starTrailOpacity={0.52}
+          starSpeed={1.01}
+          starSize={0.45}
+          starColor="#ffffff"
+          className="[mask-image:linear-gradient(to_bottom,black_55%,black_85%,transparent_100%)]"
         />
       </div>
 
-      <div className="absolute inset-0 z-[1]">
-        <DotPattern className="opacity-50" size="md" fadeStyle="ellipse" />
-      </div>
+      <div
+        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-background/88 via-background/55 to-background/95 dark:from-background/75 dark:via-background/45 dark:to-background/95"
+        aria-hidden
+      />
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
