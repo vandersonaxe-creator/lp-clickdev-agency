@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@aliimam/logos':
+        specifier: ^1.0.3
+        version: 1.0.3(react@19.2.3)
       '@dnd-kit/core':
         specifier: ^6.3.1
         version: 6.3.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -185,6 +188,11 @@ importers:
         version: 5.9.3
 
 packages:
+
+  '@aliimam/logos@1.0.3':
+    resolution: {integrity: sha512-VvBvvbecxhD1hV8DfnrLzA/JoCc8N8lWaPwU5ndD58NF8xL3cdrdDuHJ/yzrkQif1EJ+gZ/wjpXyOC0PLradpA==}
+    peerDependencies:
+      react: '>=17'
 
   '@alloc/quick-lru@5.2.0':
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
@@ -3020,6 +3028,10 @@ packages:
         optional: true
 
 snapshots:
+
+  '@aliimam/logos@1.0.3(react@19.2.3)':
+    dependencies:
+      react: 19.2.3
 
   '@alloc/quick-lru@5.2.0': {}
 
