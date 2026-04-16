@@ -14,7 +14,6 @@ import {
 import { ModeToggle } from "@/components/mode-toggle"
 import { cn } from "@/lib/utils"
 import { marketingWordmark } from "@/lib/marketing-typography"
-import { CLICKDEV_WHATSAPP_HREF } from "../landing-copy"
 
 const navLinks = [
   { label: "Sobre", href: "#sobre" },
@@ -88,14 +87,12 @@ export function LandingNavbar() {
               Disponível para novos projetos
             </span>
             <ModeToggle variant="ghost" />
-            <a
-              href={CLICKDEV_WHATSAPP_HREF}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/dashboard"
               className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2 transition-colors text-sm"
             >
-              Diagnóstico Gratuito
-            </a>
+              VER DASHBOARD
+            </Link>
           </div>
 
           <div className="flex md:hidden items-center gap-2">
@@ -128,15 +125,13 @@ export function LandingNavbar() {
                       </NavAnchor>
                     ))}
                   </div>
-                  <a
-                    href={CLICKDEV_WHATSAPP_HREF}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href="/dashboard"
                     className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-xl font-semibold text-center transition-colors"
                     onClick={() => setMobileOpen(false)}
                   >
-                    Diagnóstico Gratuito
-                  </a>
+                    VER DASHBOARD
+                  </Link>
                 </div>
               </SheetContent>
             </Sheet>
