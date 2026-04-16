@@ -16,23 +16,24 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
-import { Mail, MessageCircle, Github, BookOpen } from 'lucide-react'
+import { Mail, MessageCircle, Linkedin } from 'lucide-react'
+import { CLICKDEV_WHATSAPP_HREF } from '../landing-copy'
 
 const contactFormSchema = z.object({
   firstName: z.string().min(2, {
-    message: "First name must be at least 2 characters.",
+    message: "Nome deve ter pelo menos 2 caracteres.",
   }),
   lastName: z.string().min(2, {
-    message: "Last name must be at least 2 characters.",
+    message: "Sobrenome deve ter pelo menos 2 caracteres.",
   }),
   email: z.string().email({
-    message: "Please enter a valid email address.",
+    message: "Informe um e-mail válido.",
   }),
   subject: z.string().min(5, {
-    message: "Subject must be at least 5 characters.",
+    message: "Assunto deve ter pelo menos 5 caracteres.",
   }),
   message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
+    message: "Mensagem deve ter pelo menos 10 caracteres.",
   }),
 })
 
@@ -59,12 +60,12 @@ export function ContactSection() {
     <section id="contact" className="py-24 sm:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center mb-16">
-          <Badge variant="outline" className="mb-4">Get In Touch</Badge>
+          <Badge variant="outline" className="mb-4">Contato</Badge>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
-            Need help or have questions?
+            Vamos conversar sobre sua operação?
           </h2>
           <p className="text-lg text-muted-foreground">
-            Our team is here to help you get the most out of ShadcnStore. Choose the best way to reach out to us.
+            Escolha a melhor forma de falar com a Click Dev. Para diagnóstico gratuito, o caminho mais rápido é o WhatsApp.
           </p>
         </div>
 
@@ -75,16 +76,16 @@ export function ContactSection() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <MessageCircle className="h-5 w-5 text-primary" />
-                  Discord Community
+                  WhatsApp (recomendado)
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-3">
-                  Join our active community for quick help and discussions with other developers.
+                  Fale direto com a Click Dev e agende seu diagnóstico gratuito.
                 </p>
                 <Button variant="outline" size="sm" className="cursor-pointer" asChild>
-                  <a href="https://discord.com/invite/XEQhPc9a6p" target="_blank" rel="noopener noreferrer">
-                    Join Discord
+                  <a href={CLICKDEV_WHATSAPP_HREF} target="_blank" rel="noopener noreferrer">
+                    Abrir WhatsApp
                   </a>
                 </Button>
               </CardContent>
@@ -93,17 +94,17 @@ export function ContactSection() {
             <Card className="hover:shadow-md transition-shadow cursor-pointer">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Github className="h-5 w-5 text-primary" />
-                  GitHub Issues
+                  <Mail className="h-5 w-5 text-primary" />
+                  E-mail
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-3">
-                  Report bugs, request features, or contribute to our open source repository.
+                  Envie uma mensagem com o contexto do seu desafio e o melhor horário para retorno.
                 </p>
                 <Button variant="outline" size="sm" className="cursor-pointer" asChild>
-                  <a href="https://github.com/silicondeck/shadcn-dashboard-landing-template/issues" target="_blank" rel="noopener noreferrer">
-                    View on GitHub
+                  <a href="mailto:contato@clickdev.com.br">
+                    Enviar e-mail
                   </a>
                 </Button>
               </CardContent>
@@ -112,17 +113,17 @@ export function ContactSection() {
             <Card className="hover:shadow-md transition-shadow cursor-pointer">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <BookOpen className="h-5 w-5 text-primary" />
-                  Documentation
+                  <Linkedin className="h-5 w-5 text-primary" />
+                  LinkedIn
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-3">
-                  Browse our comprehensive guides, tutorials, and component documentation.
+                  Conecte para acompanhar conteúdos e novidades sobre digitalização industrial.
                 </p>
                 <Button variant="outline" size="sm" className="cursor-pointer" asChild>
-                  <a href="#">
-                    View Docs
+                  <a href="#" target="_blank" rel="noopener noreferrer">
+                    Abrir LinkedIn
                   </a>
                 </Button>
               </CardContent>
@@ -135,7 +136,7 @@ export function ContactSection() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Mail className="h-5 w-5" />
-                  Send us a message
+                  Enviar mensagem
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -147,9 +148,9 @@ export function ContactSection() {
                         name="firstName"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>First name</FormLabel>
+                            <FormLabel>Nome</FormLabel>
                             <FormControl>
-                              <Input placeholder="John" {...field} />
+                              <Input placeholder="Seu nome" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -160,9 +161,9 @@ export function ContactSection() {
                         name="lastName"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Last name</FormLabel>
+                            <FormLabel>Sobrenome</FormLabel>
                             <FormControl>
-                              <Input placeholder="Doe" {...field} />
+                              <Input placeholder="Seu sobrenome" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -174,9 +175,9 @@ export function ContactSection() {
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Email</FormLabel>
+                          <FormLabel>E-mail</FormLabel>
                           <FormControl>
-                            <Input type="email" placeholder="john@example.com" {...field} />
+                            <Input type="email" placeholder="voce@empresa.com" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -187,9 +188,9 @@ export function ContactSection() {
                       name="subject"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Subject</FormLabel>
+                          <FormLabel>Assunto</FormLabel>
                           <FormControl>
-                            <Input placeholder="Component request, bug report, general inquiry..." {...field} />
+                            <Input placeholder="Diagnóstico, PCM, metrologia, dashboards..." {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -200,10 +201,10 @@ export function ContactSection() {
                       name="message"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Message</FormLabel>
+                          <FormLabel>Mensagem</FormLabel>
                           <FormControl>
                             <Textarea
-                              placeholder="Tell us how we can help you with ShadcnStore components..."
+                              placeholder="Conte rapidamente seu cenário (manutenção, produção, ativos, planilhas, dores atuais)..."
                               rows={10}
                               className="min-h-50"
                               {...field}
@@ -214,7 +215,7 @@ export function ContactSection() {
                       )}
                     />
                     <Button type="submit" className="w-full cursor-pointer">
-                      Send Message
+                      Enviar mensagem
                     </Button>
                   </form>
                 </Form>

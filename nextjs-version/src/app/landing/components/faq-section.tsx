@@ -14,39 +14,39 @@ type FaqItem = {
 const faqItems: FaqItem[] = [
   {
     value: 'item-1',
-    question: 'How do I integrate ShadcnStore components into my project?',
+    question: 'Como funciona a implementação na minha indústria?',
     answer:
-      'Integration is simple! All our components are built with shadcn/ui and work with React, Next.js, and Vite. Just copy the component code, install any required dependencies, and paste it into your project. Each component comes with detailed installation instructions and examples.',
+      'Começamos com um diagnóstico gratuito para entender seus processos e objetivos. Depois, criamos um protótipo para validação e seguimos para a implementação sob medida com treinamento e suporte contínuo.',
   },
   {
     value: 'item-2',
-    question: 'What\'s the difference between free and premium components?',
+    question: 'Vocês conseguem migrar minhas planilhas para o sistema?',
     answer:
-      'Free components include essential UI elements like buttons, forms, and basic layouts. Premium components offer advanced features like complex data tables, analytics dashboards, authentication flows, and complete admin templates. Premium also includes Figma files, priority support, and commercial licenses.',
+      'Sim. Estruturamos seus dados e processos para uma transição suave de planilhas para um sistema robusto e integrado, mantendo rastreabilidade e histórico.',
   },
   {
     value: 'item-3',
-    question: 'Can I use these components in commercial projects?',
+    question: 'Como a Click Dev garante a segurança dos dados e a LGPD?',
     answer:
-      'Yes! Free components come with an MIT license for unlimited use. Premium components include a commercial license that allows usage in client projects, SaaS applications, and commercial products without attribution requirements.',
+      'Nossas soluções são desenvolvidas com foco em segurança de dados, controle de acesso e boas práticas de proteção da informação. Apoiamos a conformidade com a LGPD de acordo com a necessidade do seu cenário.',
   },
   {
     value: 'item-4',
-    question: 'Do you provide support and updates?',
+    question: 'Quanto tempo leva para colocar a solução em produção?',
     answer:
-      'Absolutely! We provide community support for free components through our Discord server and GitHub issues. Premium subscribers get priority email support, regular component updates, and early access to new releases. We also maintain compatibility with the latest shadcn/ui versions.',
+      'Depende do escopo. Por isso usamos prototipagem e validação: você enxerga o sistema funcionando cedo e a evolução segue por etapas, reduzindo risco e retrabalho.',
   },
   {
     value: 'item-5',
-    question: 'What frameworks and tools do you support?',
+    question: 'Qual é o retorno sobre investimento (ROI)?',
     answer:
-      'Our components work with React 18+, Next.js 13+, and Vite. We use TypeScript, Tailwind CSS, and follow shadcn/ui conventions. Components are tested with popular tools like React Hook Form, TanStack Query, and Zustand for state management.',
+      'O ROI varia, mas normalmente vem de reduzir paradas não planejadas, melhorar rastreabilidade, evitar não conformidades e aumentar eficiência com dados em tempo real. Podemos estimar ganhos no diagnóstico.',
   },
   {
     value: 'item-6',
-    question: 'How often do you release new components?',
+    question: 'Vocês dão suporte após a entrega?',
     answer:
-      'We release new components and templates weekly. Premium subscribers get early access to new releases, while free components are updated regularly based on community feedback. You can track our roadmap and request specific components through our GitHub repository.',
+      'Sim. Oferecemos suporte contínuo e evoluímos o sistema conforme suas necessidades crescem, mantendo sua operação atualizada e otimizada.',
   },
 ]
 
@@ -56,12 +56,13 @@ const FaqSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
-          <Badge variant="outline" className="mb-4">FAQ</Badge>
+          <Badge variant="outline" className="mb-4">Perguntas frequentes</Badge>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
-            Frequently Asked Questions
+            Desvendando a Digitalização Industrial
           </h2>
           <p className="text-lg text-muted-foreground">
-            Everything you need to know about ShadcnStore components, licensing, and integration. Still have questions? We&apos;re here to help!
+            Dúvidas comuns sobre sistemas industriais, implementação, suporte, segurança de dados (LGPD) e retorno
+            sobre investimento.
           </p>
         </div>
 
@@ -90,11 +91,11 @@ const FaqSection = () => {
           {/* Contact Support CTA */}
           <div className="text-center mt-12">
             <p className="text-muted-foreground mb-4">
-              Still have questions? We&apos;re here to help.
+              Ainda ficou com alguma dúvida? Chame no WhatsApp.
             </p>
             <Button className='cursor-pointer' asChild>
               <a href="#contact">
-                Contact Support
+                Ver outras formas de contato
               </a>
             </Button>
           </div>

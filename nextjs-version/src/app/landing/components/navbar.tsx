@@ -12,9 +12,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet"
 import { ModeToggle } from "@/components/mode-toggle"
-
-const WHATSAPP_HREF =
-  "https://wa.me/5521979197180?text=Ol%C3%A1%20Vanderson%2C%20quero%20agendar%20meu%20Diagn%C3%B3stico%20Gratuito"
+import { CLICKDEV_WHATSAPP_HREF } from "../landing-copy"
 
 const navLinks = [
   { label: "Sobre", href: "#sobre" },
@@ -89,7 +87,7 @@ export function LandingNavbar() {
             </span>
             <ModeToggle variant="ghost" />
             <a
-              href={WHATSAPP_HREF}
+              href={CLICKDEV_WHATSAPP_HREF}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2 transition-colors text-sm"
@@ -129,7 +127,7 @@ export function LandingNavbar() {
                     ))}
                   </div>
                   <a
-                    href={WHATSAPP_HREF}
+                    href={CLICKDEV_WHATSAPP_HREF}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-xl font-semibold text-center transition-colors"

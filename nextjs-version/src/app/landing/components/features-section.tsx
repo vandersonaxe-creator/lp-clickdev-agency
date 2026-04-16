@@ -2,64 +2,56 @@
 
 import {
   BarChart3,
-  Zap,
-  Users,
-  ArrowRight,
-  Database,
-  Package,
-  Crown,
-  Layout,
-  Palette
+  Bell,
+  ClipboardList,
+  Ruler,
+  Settings,
+  Wrench
 } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Image3D } from '@/components/image-3d'
+import { Card, CardContent } from '@/components/ui/card'
 
-const mainFeatures = [
+const modules = [
   {
-    icon: Package,
-    title: 'Curated Component Library',
-    description: 'Hand-picked blocks and templates for quality and reliability.'
+    icon: Wrench,
+    title: 'PCM (Planejamento e Controle da Manutenção)',
+    description:
+      'Gerencie preventivas, corretivas e preditivas de forma eficiente, prolongando a vida útil dos seus ativos e minimizando paradas não planejadas.'
   },
   {
-    icon: Crown,
-    title: 'Free & Premium Options',
-    description: 'Start free, upgrade to premium collections when you need more.'
+    icon: Settings,
+    title: 'Gestão de Ativos',
+    description:
+      'Tenha um cadastro completo e organizado de todos os seus equipamentos, com histórico de manutenção, criticidade e localização.'
   },
   {
-    icon: Layout,
-    title: 'Ready-to-Use Templates',
-    description: 'Copy-paste components that just work out of the box.'
+    icon: Ruler,
+    title: 'Controle Metrológico',
+    description:
+      'Monitore calibrações, certificados e alertas de vencimento de instrumentos de medição, garantindo conformidade e qualidade.'
   },
-  {
-    icon: Zap,
-    title: 'Regular Updates',
-    description: 'New blocks and templates added weekly to keep you current.'
-  }
-]
-
-const secondaryFeatures = [
   {
     icon: BarChart3,
-    title: 'Multiple Frameworks',
-    description: 'React, Next.js, and Vite compatibility for flexible development.'
-  },
-  {
-    icon: Palette,
-    title: 'Modern Tech Stack',
-    description: 'Built with shadcn/ui, Tailwind CSS, and TypeScript.'
-  },
-  {
-    icon: Users,
-    title: 'Responsive Design',
-    description: 'Mobile-first components for all screen sizes and devices.'
-  },
-  {
-    icon: Database,
-    title: 'Developer-Friendly',
-    description: 'Clean code, well-documented, easy integration and customization.'
+    title: 'Dashboards de Produção',
+    description:
+      'Visualize em tempo real os KPIs mais importantes da sua operação, identifique gargalos e tome decisões baseadas em dados concretos.'
   }
 ]
+
+const addOns = [
+  {
+    icon: ClipboardList,
+    title: 'Ordens de Serviço Digitais',
+    description:
+      'Agilize a abertura, execução e fechamento de OS, eliminando o papel e centralizando as informações.'
+  },
+  {
+    icon: Bell,
+    title: 'Alertas Inteligentes',
+    description:
+      'Receba notificações automáticas por e-mail sobre preventivas próximas, calibrações a vencer e OS pendentes.'
+  }
+] as const
 
 export function FeaturesSection() {
   return (
@@ -67,115 +59,47 @@ export function FeaturesSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
-          <Badge variant="outline" className="mb-4">Marketplace Features</Badge>
+          <Badge variant="outline" className="mb-4">Soluções</Badge>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
-            Everything you need to build amazing web applications
+            Soluções Inteligentes para a Gestão da sua Indústria.
           </h2>
           <p className="text-lg text-muted-foreground">
-            Our marketplace provides curated blocks, templates, landing pages, and admin dashboards to help you build professional applications faster than ever.
+            Oferecemos um portfólio de sistemas e dashboards desenvolvidos para otimizar os processos críticos da
+            sua Pequena ou Média Empresa Industrial. Nossas soluções são construídas sob medida, garantindo que
+            cada funcionalidade atenda às suas necessidades específicas.
           </p>
         </div>
 
-        {/* First Feature Section */}
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-8 xl:gap-16 mb-24">
-          {/* Left Image */}
-          <Image3D
-            lightSrc="/feature-1-light.png"
-            darkSrc="/feature-1-dark.png"
-            alt="Analytics dashboard"
-            direction="left"
-          />
-          {/* Right Content */}
-          <div className="space-y-6">
-            <div className="space-y-4">
-              <h3 className="text-2xl font-semibold tracking-tight text-balance sm:text-3xl">
-                Components that accelerate development
-              </h3>
-              <p className="text-muted-foreground text-base text-pretty">
-                Our curated marketplace offers premium blocks and templates designed to save time and ensure consistency across your admin projects.
-              </p>
-            </div>
+        <div className="mx-auto max-w-5xl space-y-10">
+          <p className="text-muted-foreground text-center text-base sm:text-lg">
+            Com a Click Dev, você garante rastreabilidade total, conformidade com normas e a transição suave de
+            planilhas para um sistema robusto e integrado.
+          </p>
 
-            <ul className="grid gap-4 sm:grid-cols-2">
-              {mainFeatures.map((feature, index) => (
-                <li key={index} className="group hover:bg-accent/5 flex items-start gap-3 p-2 rounded-lg transition-colors">
-                  <div className="mt-0.5 flex shrink-0 items-center justify-center">
-                    <feature.icon className="size-5 text-primary" aria-hidden="true" />
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {modules.map((module) => (
+              <Card key={module.title} className="shadow-xs">
+                <CardContent className="p-6">
+                  <div className="mb-4 inline-flex items-center justify-center rounded-xl bg-primary/10 p-3">
+                    <module.icon className="h-6 w-6 text-primary" aria-hidden />
                   </div>
-                  <div>
-                    <h3 className="text-foreground font-medium">{feature.title}</h3>
-                    <p className="text-muted-foreground mt-1 text-sm">{feature.description}</p>
+                  <h3 className="font-semibold">{module.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{module.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+            {addOns.map((module) => (
+              <Card key={module.title} className="shadow-xs">
+                <CardContent className="p-6">
+                  <div className="mb-4 inline-flex items-center justify-center rounded-xl bg-primary/10 p-3">
+                    <module.icon className="h-6 w-6 text-primary" aria-hidden />
                   </div>
-                </li>
-              ))}
-            </ul>
-
-            <div className="flex flex-col sm:flex-row gap-4 pe-4 pt-2">
-              <Button size="lg" className="cursor-pointer">
-                <a href="https://shadcnstore.com/templates" className='flex items-center'>
-                  Browse Templates
-                  <ArrowRight className="ms-2 size-4" aria-hidden="true" />
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" className="cursor-pointer">
-                <a href="https://shadcnstore.com/blocks">
-                  View Components
-                </a>
-              </Button>
-            </div>
+                  <h3 className="font-semibold">{module.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{module.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-        </div>
-
-        {/* Second Feature Section - Flipped Layout */}
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-8 xl:gap-16">
-          {/* Left Content */}
-          <div className="space-y-6 order-2 lg:order-1">
-            <div className="space-y-4">
-              <h3 className="text-2xl font-semibold tracking-tight text-balance sm:text-3xl">
-                Built for modern development workflows
-              </h3>
-              <p className="text-muted-foreground text-base text-pretty">
-                Every component follows best practices with TypeScript, responsive design, and clean code architecture that integrates seamlessly into your projects.
-              </p>
-            </div>
-
-            <ul className="grid gap-4 sm:grid-cols-2">
-              {secondaryFeatures.map((feature, index) => (
-                <li key={index} className="group hover:bg-accent/5 flex items-start gap-3 p-2 rounded-lg transition-colors">
-                  <div className="mt-0.5 flex shrink-0 items-center justify-center">
-                    <feature.icon className="size-5 text-primary" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <h3 className="text-foreground font-medium">{feature.title}</h3>
-                    <p className="text-muted-foreground mt-1 text-sm">{feature.description}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-
-            <div className="flex flex-col sm:flex-row gap-4 pe-4 pt-2">
-              <Button size="lg" className="cursor-pointer">
-                <a href="#" className='flex items-center'>
-                  View Documentation
-                  <ArrowRight className="ms-2 size-4" aria-hidden="true" />
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" className="cursor-pointer">
-                <a href="https://github.com/silicondeck/shadcn-dashboard-landing-template" target="_blank" rel="noopener noreferrer">
-                  GitHub Repository
-                </a>
-              </Button>
-            </div>
-          </div>
-
-          {/* Right Image */}
-          <Image3D
-            lightSrc="/feature-2-light.png"
-            darkSrc="/feature-2-dark.png"
-            alt="Performance dashboard"
-            direction="right"
-            className="order-1 lg:order-2"
-          />
         </div>
       </div>
     </section>

@@ -3,18 +3,21 @@ import { LandingPageContent } from './landing-page-content'
 
 // Metadata for the landing page
 export const metadata: Metadata = {
-  title: 'ShadcnStore - Modern Admin Dashboard Template',
-  description: 'A beautiful and comprehensive admin dashboard template built with React, Next.js, TypeScript, and shadcn/ui. Perfect for building modern web applications.',
-  keywords: ['admin dashboard', 'react', 'nextjs', 'typescript', 'shadcn/ui', 'tailwind css'],
+  title: 'Click Dev — Digitalização Industrial sob medida',
+  description:
+    'Dashboards e sistemas sob medida para pequenas e médias indústrias. Produção, manutenção, ativos e metrologia com dados em tempo real.',
+  keywords: ['click dev', 'digitalização industrial', 'pcm', 'manutenção', 'metrologia', 'dashboards', 'pmes'],
   openGraph: {
-    title: 'ShadcnStore - Modern Admin Dashboard Template',
-    description: 'A beautiful and comprehensive admin dashboard template built with React, Next.js, TypeScript, and shadcn/ui.',
+    title: 'Click Dev — Digitalização Industrial sob medida',
+    description:
+      'Dashboards e sistemas sob medida para pequenas e médias indústrias. Produção, manutenção, ativos e metrologia com dados em tempo real.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ShadcnStore - Modern Admin Dashboard Template',
-    description: 'A beautiful and comprehensive admin dashboard template built with React, Next.js, TypeScript, and shadcn/ui.',
+    title: 'Click Dev — Digitalização Industrial sob medida',
+    description:
+      'Dashboards e sistemas sob medida para pequenas e médias indústrias. Produção, manutenção, ativos e metrologia com dados em tempo real.',
   },
 }
 

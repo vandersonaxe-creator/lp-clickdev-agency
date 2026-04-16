@@ -1,31 +1,30 @@
 "use client"
 
-import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { CardDecorator } from '@/components/ui/card-decorator'
-import { Github, Code, Palette, Layout, Crown } from 'lucide-react'
+import { ShieldCheck, Factory, GitBranch, LineChart } from 'lucide-react'
 
 const values = [
   {
-    icon: Code,
-    title: 'Developer First',
-    description: 'Every component is built with the developer experience in mind, ensuring clean code and easy integration.'
+    icon: Factory,
+    title: 'Vivência no chão de fábrica',
+    description: 'A gente entende a rotina industrial porque viveu os desafios de manutenção e operação na prática.'
   },
   {
-    icon: Palette,
-    title: 'Design Excellence',
-    description: 'We maintain the highest design standards, following shadcn/ui principles and modern UI patterns.'
+    icon: LineChart,
+    title: 'Decisão orientada por dados',
+    description: 'Dashboards e indicadores em tempo real para reduzir gargalos e aumentar eficiência operacional.'
   },
   {
-    icon: Layout,
-    title: 'Production Ready',
-    description: 'Battle-tested components used in real applications with proven performance and reliability across different environments.'
+    icon: GitBranch,
+    title: 'Sob medida, sem ruptura',
+    description: 'Transição suave de planilhas para um sistema robusto, integrado ao seu processo e ao seu time.'
   },
   {
-    icon: Crown,
-    title: 'Premium Quality',
-    description: 'Hand-crafted with attention to detail and performance optimization, ensuring exceptional user experience and accessibility.'
+    icon: ShieldCheck,
+    title: 'Segurança e LGPD',
+    description: 'Soluções com foco em segurança de dados e conformidade com a LGPD para proteger suas informações.'
   }
 ]
 
@@ -36,14 +35,18 @@ export function AboutSection() {
         {/* Section Header */}
         <div className="mx-auto max-w-4xl text-center mb-16">
           <Badge variant="outline" className="mb-4">
-            About ShadcnStore
+            Sobre a Click Dev
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-6">
-            Built for developers, by developers
+            Click Dev: Inovação Industrial Nascida da Experiência no Chão de Fábrica.
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
-            We&apos;re passionate about creating the best marketplace for shadcn/ui components and templates.
-            Our mission is to accelerate development and help developers build beautiful admin interfaces faster.
+            Na Click Dev, entendemos os desafios da sua indústria porque vivemos eles. Com mais de uma década de
+            experiência prática no chão de fábrica e na manutenção de turbinas eólicas, nosso fundador, Vanderson
+            Machado, transformou a vivência em soluções. De OS perdidas a calibrações vencidas, cada problema
+            enfrentado inspirou a criação de sistemas que realmente funcionam. Não vendemos software pronto;
+            construímos a inteligência que sua operação precisa para prosperar. Nossas soluções são desenvolvidas
+            com foco em segurança de dados e conformidade com a LGPD, garantindo a proteção das suas informações.
           </p>
         </div>
 
@@ -62,26 +65,6 @@ export function AboutSection() {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <span className="text-muted-foreground">❤️ Made with love for the developer community</span>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="cursor-pointer" asChild>
-              <a href="https://github.com/silicondeck/shadcn-dashboard-landing-template" target="_blank" rel="noopener noreferrer">
-                <Github className="mr-2 h-4 w-4" />
-                Star on GitHub
-              </a>
-            </Button>
-            <Button size="lg" variant="outline" className="cursor-pointer" asChild>
-              <a href="https://discord.com/invite/XEQhPc9a6p" target="_blank" rel="noopener noreferrer">
-                Join Discord Community
-              </a>
-            </Button>
-          </div>
         </div>
       </div>
     </section>
