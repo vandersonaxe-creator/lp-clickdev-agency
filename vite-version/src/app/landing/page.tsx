@@ -29,9 +29,9 @@ export default function LandingPage() {
       <main>
         <HeroSection />
         <LogoCarousel />
-        <StatsSection />
         <AboutSection />
         <FeaturesSection />
+        <StatsSection />
         <TeamSection />
         <PricingSection />
         <TestimonialsSection />

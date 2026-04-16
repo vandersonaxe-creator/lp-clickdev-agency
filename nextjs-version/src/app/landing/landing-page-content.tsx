@@ -29,9 +29,9 @@ export function LandingPageContent() {
       <main>
         <HeroSection />
         <LogoCarousel />
-        <StatsSection />
         <AboutSection />
         <FeaturesSection />
+        <StatsSection />
         <TeamSection />
         <PricingSection />
         <TestimonialsSection />

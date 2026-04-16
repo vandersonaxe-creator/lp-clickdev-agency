@@ -31,7 +31,7 @@ const values = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 sm:py-32">
+    <section id="sobre" className="py-24 sm:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-4xl text-center mb-16">

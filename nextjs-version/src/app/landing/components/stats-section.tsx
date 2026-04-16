@@ -39,7 +39,7 @@ const stats = [
 
 export function StatsSection() {
   return (
-    <section className="py-12 sm:py-16 relative">
+    <section id="metodo" className="py-12 sm:py-16 relative">
       {/* Background with transparency */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/8 via-transparent to-secondary/20" />
       <DotPattern className="opacity-75" size="md" fadeStyle="circle" />

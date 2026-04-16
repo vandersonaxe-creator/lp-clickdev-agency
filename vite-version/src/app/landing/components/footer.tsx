@@ -24,13 +24,13 @@ const newsletterSchema = z.object({
 
 const footerLinks = {
   product: [
-    { name: 'Features', href: '#features' },
+    { name: 'Features', href: '#solucoes' },
     { name: 'Pricing', href: '#pricing' },
     { name: 'API', href: '#api' },
     { name: 'Documentation', href: '#docs' },
   ],
   company: [
-    { name: 'About', href: '#about' },
+    { name: 'About', href: '#sobre' },
     { name: 'Blog', href: '#blog' },
     { name: 'Careers', href: '#careers' },
     { name: 'Press', href: '#press' },
