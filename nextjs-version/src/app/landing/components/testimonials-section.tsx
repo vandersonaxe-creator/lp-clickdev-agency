@@ -3,8 +3,10 @@
 import { Card, CardContent } from '@/components/ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
+import { BorderBeam } from '@/components/ui/border-beam'
 import { cn } from '@/lib/utils'
 import { marketingSectionLead, marketingSectionTitle } from '@/lib/marketing-typography'
+import { SectionReveal } from './section-reveal'
 
 type Testimonial = {
   name: string
@@ -38,8 +40,9 @@ const testimonials: Testimonial[] = [
 
 export function TestimonialsSection() {
   return (
-    <section id="depoimentos" className="py-24 sm:py-32">
-      <div className="container mx-auto px-8 sm:px-6">
+    <section id="depoimentos" className="py-16 sm:py-24 lg:py-32">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionReveal>
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
           <Badge variant="outline" className="mb-4">Resultados comprovados</Badge>
@@ -54,7 +57,16 @@ export function TestimonialsSection() {
         {/* Testimonials Masonry Grid */}
         <div className="columns-1 gap-4 md:columns-2 md:gap-6 lg:columns-3 lg:gap-4">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="mb-6 break-inside-avoid shadow-none lg:mb-4">
+            <Card
+              key={index}
+              className={cn(
+                'relative mb-6 break-inside-avoid overflow-hidden shadow-none lg:mb-4',
+                index === 0 && 'ring-1 ring-primary/20'
+              )}
+            >
+              {index === 0 ? (
+                <BorderBeam size={220} duration={10} delay={2} borderWidth={2} colorFrom="#f97316" colorTo="#a855f7" />
+              ) : null}
               <CardContent>
                 <div className="flex items-start gap-4">
                   <Avatar className="bg-muted size-12 shrink-0">
@@ -90,6 +102,7 @@ export function TestimonialsSection() {
             </Card>
           ))}
         </div>
+        </SectionReveal>
       </div>
     </section>
   )

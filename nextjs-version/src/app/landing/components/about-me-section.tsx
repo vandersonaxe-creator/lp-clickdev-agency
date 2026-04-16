@@ -6,10 +6,11 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 import { marketingSectionTitle } from "@/lib/marketing-typography"
+import { SectionReveal } from "./section-reveal"
 
 export function AboutMeSection() {
   return (
-    <section id="quem-sou-eu" className="py-24 sm:py-32">
+    <section id="quem-sou-eu" className="py-16 sm:py-24 lg:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <div className="mb-12 text-center">
@@ -22,22 +23,24 @@ export function AboutMeSection() {
           </div>
 
           <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-12">
-            <Card className="overflow-hidden">
-              <CardContent className="p-0">
-                <div className="bg-muted relative aspect-[4/5] w-full overflow-hidden">
-                  <Image
-                    src="/landing/vanderson-profile.png"
-                    alt="Vanderson Machado no Complexo Eólico Calangos, com capacete e equipamentos de segurança."
-                    fill
-                    className="object-cover object-[center_20%]"
-                    sizes="(max-width: 1024px) 100vw, 420px"
-                    priority
-                  />
-                </div>
-              </CardContent>
-            </Card>
+            <SectionReveal className="min-w-0">
+              <Card className="overflow-hidden">
+                <CardContent className="p-0">
+                  <div className="bg-muted relative aspect-[4/5] w-full overflow-hidden">
+                    <Image
+                      src="/landing/vanderson-profile.png"
+                      alt="Vanderson Machado no Complexo Eólico Calangos, com capacete e equipamentos de segurança."
+                      fill
+                      className="object-cover object-[center_20%]"
+                      sizes="(max-width: 1024px) 100vw, 420px"
+                      priority
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+            </SectionReveal>
 
-            <div className="space-y-5">
+            <SectionReveal className="min-w-0 space-y-5" delay={0.12}>
               <p className="text-muted-foreground text-base leading-relaxed text-pretty">
                 Minha jornada começou há mais de uma década no coração da indústria, no chão de fábrica e no topo
                 de turbinas eólicas. Como montador de estruturas metálicas e, posteriormente, técnico especialista
@@ -57,7 +60,7 @@ export function AboutMeSection() {
                 cada solução seja prática, eficiente e alinhada às necessidades reais do ambiente industrial, com
                 foco em resultados e retorno sobre o investimento.
               </p>
-            </div>
+            </SectionReveal>
           </div>
         </div>
       </div>

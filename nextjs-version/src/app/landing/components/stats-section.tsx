@@ -1,70 +1,92 @@
 "use client"
 
-import {
-  Package,
-  Download,
-  Users,
-  Star
-} from 'lucide-react'
-import { Card, CardContent } from '@/components/ui/card'
-import { DotPattern } from '@/components/dot-pattern'
-import { marketingStatValue } from '@/lib/marketing-typography'
+import { CalendarClock, TrendingDown, TrendingUp, Factory } from "lucide-react"
 
+import { Card, CardContent } from "@/components/ui/card"
+import { DotPattern } from "@/components/dot-pattern"
+import { NumberTicker } from "@/components/ui/number-ticker"
+import { cn } from "@/lib/utils"
+import { marketingStatValue } from "@/lib/marketing-typography"
 
 const stats = [
   {
-    icon: Package,
-    value: '500+',
-    label: 'Components',
-    description: 'Ready-to-use blocks'
+    icon: TrendingDown,
+    value: 30,
+    suffix: "%",
+    label: "Paradas não planejadas",
+    description: "Meta de redução após diagnóstico e digitalização do PCM.",
   },
   {
-    icon: Download,
-    value: '25K+',
-    label: 'Downloads',
-    description: 'Trusted worldwide'
+    icon: TrendingUp,
+    value: 15,
+    suffix: "%",
+    label: "Eficiência operacional",
+    description: "Ganho típico com dados em tempo real e menos retrabalho.",
   },
   {
-    icon: Users,
-    value: '10K+',
-    label: 'Developers',
-    description: 'Active community'
+    icon: CalendarClock,
+    value: 10,
+    suffix: "+",
+    label: "Anos em campo",
+    description: "Manutenção, eólica e chão de fábrica antes do software.",
   },
   {
-    icon: Star,
-    value: '4.9',
-    label: 'Rating',
-    description: 'User satisfaction'
-  }
-]
+    icon: Factory,
+    value: 100,
+    suffix: "%",
+    label: "Sob medida",
+    description: "Soluções alinhadas ao seu processo — sem pacote genérico.",
+  },
+] as const
+
+function StatFigure({
+  value,
+  suffix,
+  className,
+}: {
+  value: number
+  suffix: string
+  className?: string
+}) {
+  return (
+    <span
+      className={cn(
+        marketingStatValue,
+        "inline-flex items-baseline justify-center gap-0.5 text-foreground tabular-nums",
+        className
+      )}
+    >
+      <NumberTicker value={value} className="text-foreground dark:text-foreground" />
+      <span>{suffix}</span>
+    </span>
+  )
+}
 
 export function StatsSection() {
   return (
-    <section id="metodo" className="py-12 sm:py-16 relative">
-      {/* Background with transparency */}
+    <section id="resultados" className="relative py-12 sm:py-16 lg:py-20">
       <div className="absolute inset-0 bg-gradient-to-r from-primary/8 via-transparent to-secondary/20" />
       <DotPattern className="opacity-75" size="md" fadeStyle="circle" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {stats.map((stat, index) => (
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 gap-6 md:gap-8 lg:grid-cols-4">
+          {stats.map((stat) => (
             <Card
-              key={index}
-              className="text-center bg-background/60 backdrop-blur-sm border-border/50 py-0"
+              key={stat.label}
+              className="border-border/50 bg-background/60 py-0 text-center backdrop-blur-sm"
             >
-              <CardContent className="p-6">
-                <div className="flex justify-center mb-4">
-                  <div className="p-3 bg-primary/10 rounded-xl">
+              <CardContent className="p-5 sm:p-6">
+                <div className="mb-3 flex justify-center sm:mb-4">
+                  <div className="rounded-xl bg-primary/10 p-3">
                     <stat.icon className="h-6 w-6 text-primary" />
                   </div>
                 </div>
                 <div className="space-y-1">
-                  <h3 className={marketingStatValue}>
-                    {stat.value}
+                  <h3 className={cn("flex min-h-[2.5rem] items-center justify-center")}>
+                    <StatFigure value={stat.value} suffix={stat.suffix} />
                   </h3>
-                  <p className="font-semibold text-foreground">{stat.label}</p>
-                  <p className="text-sm text-muted-foreground">{stat.description}</p>
+                  <p className="font-semibold text-foreground text-sm sm:text-base">{stat.label}</p>
+                  <p className="text-xs text-muted-foreground leading-snug sm:text-sm">{stat.description}</p>
                 </div>
               </CardContent>
             </Card>

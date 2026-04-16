@@ -20,6 +20,7 @@ import { Mail, MessageCircle, Linkedin } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { marketingCardTitle, marketingSectionLead, marketingSectionTitle } from '@/lib/marketing-typography'
 import { CLICKDEV_WHATSAPP_HREF } from '../landing-copy'
+import { SectionReveal } from './section-reveal'
 
 const contactFormSchema = z.object({
   firstName: z.string().min(2, {
@@ -59,8 +60,9 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-24 sm:py-32">
+    <section id="contact" className="py-16 sm:py-24 lg:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionReveal>
         <div className="mx-auto max-w-2xl text-center mb-16">
           <Badge variant="outline" className="mb-4">Contato</Badge>
           <h2 className={cn(marketingSectionTitle, "mb-4")}>
@@ -225,6 +227,7 @@ export function ContactSection() {
             </Card>
           </div>
         </div>
+        </SectionReveal>
       </div>
     </section>
   )

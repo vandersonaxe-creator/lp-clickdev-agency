@@ -6,6 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 import { marketingSectionLead, marketingSectionTitle } from '@/lib/marketing-typography'
+import { SectionReveal } from './section-reveal'
 
 type FaqItem = {
   value: string
@@ -54,8 +55,9 @@ const faqItems: FaqItem[] = [
 
 const FaqSection = () => {
   return (
-    <section id="faq" className="py-24 sm:py-32">
+    <section id="faq" className="py-16 sm:py-24 lg:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionReveal>
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
           <Badge variant="outline" className="mb-4">Perguntas frequentes</Badge>
@@ -102,6 +104,7 @@ const FaqSection = () => {
             </Button>
           </div>
         </div>
+        </SectionReveal>
       </div>
     </section>
   )

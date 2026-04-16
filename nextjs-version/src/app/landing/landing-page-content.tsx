@@ -13,6 +13,8 @@ import { LandingThemeCustomizer, LandingThemeCustomizerTrigger } from './compone
 import { AboutSection } from './components/about-section'
 import { AboutMeSection } from './components/about-me-section'
 import { MethodSection } from './components/method-section'
+import { LogoCarousel } from './components/logo-carousel'
+import { StatsSection } from './components/stats-section'
 
 export function LandingPageContent() {
   const [themeCustomizerOpen, setThemeCustomizerOpen] = React.useState(false)
@@ -25,10 +27,12 @@ export function LandingPageContent() {
       {/* Main Content */}
       <main>
         <HeroSection />
+        <LogoCarousel />
         <AboutSection />
         <AboutMeSection />
         <FeaturesSection />
         <MethodSection />
+        <StatsSection />
         <TestimonialsSection />
         <FaqSection />
         <CTASection />

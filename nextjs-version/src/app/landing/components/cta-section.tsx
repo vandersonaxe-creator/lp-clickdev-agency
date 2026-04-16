@@ -6,11 +6,13 @@ import { MessageCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { marketingCtaTitle, marketingSectionLead } from '@/lib/marketing-typography'
 import { CLICKDEV_WHATSAPP_HREF } from '../landing-copy'
+import { SectionReveal } from './section-reveal'
 
 export function CTASection() {
   return (
-    <section className='py-16 lg:py-24 bg-muted/80'>
+    <section className='py-14 sm:py-20 lg:py-24 bg-muted/80'>
       <div className='container mx-auto px-4 lg:px-8'>
+        <SectionReveal>
         <div className='mx-auto max-w-4xl'>
           <div className='text-center'>
             <div className='space-y-8'>
@@ -66,6 +68,7 @@ export function CTASection() {
             </div>
           </div>
         </div>
+        </SectionReveal>
       </div>
     </section>
   )

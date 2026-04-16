@@ -6,6 +6,7 @@ import { CardDecorator } from '@/components/ui/card-decorator'
 import { ShieldCheck, Factory, GitBranch, LineChart } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { marketingCardTitle, marketingSectionLead, marketingSectionTitle } from '@/lib/marketing-typography'
+import { SectionReveal } from './section-reveal'
 
 const values = [
   {
@@ -32,8 +33,9 @@ const values = [
 
 export function AboutSection() {
   return (
-    <section id="sobre" className="py-24 sm:py-32">
+    <section id="sobre" className="py-16 sm:py-24 lg:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionReveal>
         {/* Section Header */}
         <div className="mx-auto max-w-4xl text-center mb-16">
           <Badge variant="outline" className="mb-4">
@@ -68,6 +70,7 @@ export function AboutSection() {
             </Card>
           ))}
         </div>
+        </SectionReveal>
       </div>
     </section>
   )

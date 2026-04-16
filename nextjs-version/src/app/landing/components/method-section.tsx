@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { CheckCircle2, ClipboardList, Wrench, LifeBuoy } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { marketingCardTitle, marketingSectionLead, marketingSectionTitle } from "@/lib/marketing-typography"
+import { SectionReveal } from "./section-reveal"
 
 const steps = [
   {
@@ -35,8 +36,9 @@ const steps = [
 
 export function MethodSection() {
   return (
-    <section id="metodo" className="py-24 sm:py-32 bg-muted/30">
+    <section id="metodo" className="py-16 sm:py-24 lg:py-32 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionReveal>
         <div className="mx-auto max-w-2xl text-center mb-16">
           <Badge variant="outline" className="mb-4">
             Método Click Dev
@@ -63,6 +65,7 @@ export function MethodSection() {
             </Card>
           ))}
         </div>
+        </SectionReveal>
       </div>
     </section>
   )
