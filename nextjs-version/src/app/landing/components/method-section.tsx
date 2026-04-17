@@ -36,10 +36,10 @@ const steps = [
 
 export function MethodSection() {
   return (
-    <section id="metodo" className="py-16 sm:py-24 lg:py-32 bg-muted/30">
+    <section id="metodo" className="py-12 sm:py-16 lg:py-20 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionReveal>
-        <div className="mx-auto max-w-2xl text-center mb-16">
+        <div className="mx-auto max-w-2xl text-center mb-8 sm:mb-10">
           <Badge variant="outline" className="mb-4">
             Método Click Dev
           </Badge>
@@ -52,7 +52,7 @@ export function MethodSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((step) => (
             <Card key={step.title} className="shadow-xs">
               <CardContent className="p-6">

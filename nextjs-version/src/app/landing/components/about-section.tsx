@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { CardDecorator } from '@/components/ui/card-decorator'
 import { ShieldCheck, Factory, GitBranch, LineChart } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { marketingCardTitle, marketingSectionLead, marketingSectionTitle } from '@/lib/marketing-typography'
+import { marketingCardTitle, marketingSectionTitle } from '@/lib/marketing-typography'
 import { SectionReveal } from './section-reveal'
 
 const values = [
@@ -33,29 +33,21 @@ const values = [
 
 export function AboutSection() {
   return (
-    <section id="sobre" className="py-16 sm:py-24 lg:py-32">
+    <section id="sobre" className="py-12 sm:py-16 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionReveal>
         {/* Section Header */}
-        <div className="mx-auto max-w-4xl text-center mb-16">
+        <div className="mx-auto max-w-4xl text-center mb-8 sm:mb-10">
           <Badge variant="outline" className="mb-4">
             Sobre a Click Dev
           </Badge>
-          <h2 className={cn(marketingSectionTitle, "mb-6 text-balance")}>
+          <h2 className={cn(marketingSectionTitle, "text-balance")}>
             Click Dev: Inovação Industrial Nascida da Experiência no Chão de Fábrica.
           </h2>
-          <p className={cn(marketingSectionLead, "mb-8 text-balance")}>
-            Na Click Dev, entendemos os desafios da sua indústria porque vivemos eles. Com mais de uma década de
-            experiência prática no chão de fábrica e na manutenção de turbinas eólicas, nosso fundador, Vanderson
-            Machado, transformou a vivência em soluções. De OS perdidas a calibrações vencidas, cada problema
-            enfrentado inspirou a criação de sistemas que realmente funcionam. Não vendemos software pronto;
-            construímos a inteligência que sua operação precisa para prosperar. Nossas soluções são desenvolvidas
-            com foco em segurança de dados e conformidade com a LGPD, garantindo a proteção das suas informações.
-          </p>
         </div>
 
         {/* Modern Values Grid with Enhanced Design */}
-        <div className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 xl:grid-cols-4 mb-12">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 xl:grid-cols-4 mb-8">
           {values.map((value, index) => (
             <Card key={index} className='group shadow-xs py-2'>
               <CardContent className='p-8'>

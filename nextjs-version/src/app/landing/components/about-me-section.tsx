@@ -52,10 +52,10 @@ export function AboutMeSection() {
   }, [api])
 
   return (
-    <section id="quem-sou-eu" className="py-16 sm:py-24 lg:py-32">
+    <section id="quem-sou-eu" className="py-12 sm:py-16 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
-          <div className="mb-12 text-center">
+          <div className="mb-8 text-center sm:mb-10">
             <Badge variant="outline" className="mb-4">
               Quem sou eu
             </Badge>
@@ -64,7 +64,7 @@ export function AboutMeSection() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-12">
+          <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-10">
             <SectionReveal className="min-w-0">
               <Card className="overflow-hidden">
                 <CardContent className="p-0">
@@ -107,7 +107,7 @@ export function AboutMeSection() {
                 ordens de serviço perdidas, calibrações vencidas e a fragmentação de informações cruciais. Essa
                 experiência me levou a assumir a responsabilidade técnica completa de manutenção e qualidade na
                 Serena Energia, onde coordenei equipes e planejei a manutenção de parques eólicos inteiros no
-                Brasil.
+                Brasil e na Costa Rica.
               </p>
 
               <p className="text-muted-foreground text-base leading-relaxed text-pretty">

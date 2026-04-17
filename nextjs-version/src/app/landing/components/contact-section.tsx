@@ -60,10 +60,10 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-16 sm:py-24 lg:py-32">
+    <section id="contact" className="py-12 sm:py-16 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionReveal>
-        <div className="mx-auto max-w-2xl text-center mb-16">
+        <div className="mx-auto max-w-2xl text-center mb-8 sm:mb-10">
           <Badge variant="outline" className="mb-4">Contato</Badge>
           <h2 className={cn(marketingSectionTitle, "mb-4")}>
             Vamos conversar sobre sua operação?
@@ -73,7 +73,7 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-3">
+        <div className="grid gap-6 lg:grid-cols-3">
           {/* Contact Options */}
           <div className="space-y-6 order-2 lg:order-1">
             <Card className="hover:shadow-md transition-shadow cursor-pointer">

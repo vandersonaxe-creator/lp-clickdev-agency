@@ -75,9 +75,9 @@ const cardItem = {
 
 export function FeaturesSection() {
   return (
-    <section id="solucoes" className="py-16 sm:py-24 lg:py-32 bg-muted/30">
+    <section id="solucoes" className="py-12 sm:py-16 lg:py-20 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center mb-12 sm:mb-16">
+        <div className="mx-auto max-w-2xl text-center mb-8 sm:mb-10">
           <Badge variant="outline" className="mb-4">
             Soluções
           </Badge>
@@ -91,14 +91,14 @@ export function FeaturesSection() {
           </p>
         </div>
 
-        <div className="mx-auto max-w-5xl space-y-8 sm:space-y-10">
+        <div className="mx-auto max-w-5xl space-y-6 sm:space-y-8">
           <p className={cn(marketingSectionLead, "text-center max-w-3xl mx-auto")}>
             Com a Click Dev, você garante rastreabilidade total, conformidade com normas e a transição suave de
             planilhas para um sistema robusto e integrado.
           </p>
 
           <motion.div
-            className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+            className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3"
             variants={cardStagger}
             initial="hidden"
             whileInView="show"

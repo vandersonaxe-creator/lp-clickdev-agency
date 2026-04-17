@@ -62,9 +62,9 @@ export function LandingFooter() {
 
   return (
     <footer className="border-t bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14">
         {/* Newsletter Section */}
-        <div className="mb-16">
+        <div className="mb-10 sm:mb-12">
           <div className="mx-auto max-w-2xl text-center">
             <h3 className={cn(marketingHeading.h24, "mb-4")}>Receba novidades</h3>
             <p className={cn(marketingSectionLead, "mb-6")}>

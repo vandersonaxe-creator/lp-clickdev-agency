@@ -165,13 +165,13 @@ export function TestimonialsVideoSection({
     <section
       id={id}
       className={cn(
-        "bg-white py-16 sm:py-24 lg:py-32",
+        "bg-white py-12 sm:py-16 lg:py-20",
         "dark:bg-background",
         className
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
+        <div className="mx-auto mb-8 max-w-3xl text-center sm:mb-10">
           <h2 className={cn(marketingSectionTitle, "text-balance")}>{title}</h2>
           <p className={cn(marketingSectionLead, "mt-3 text-balance")}>{subtitle}</p>
         </div>

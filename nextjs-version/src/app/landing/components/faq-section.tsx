@@ -55,11 +55,11 @@ const faqItems: FaqItem[] = [
 
 const FaqSection = () => {
   return (
-    <section id="faq" className="py-16 sm:py-24 lg:py-32">
+    <section id="faq" className="py-12 sm:py-16 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionReveal>
         {/* Section Header */}
-        <div className="mx-auto max-w-2xl text-center mb-16">
+        <div className="mx-auto max-w-2xl text-center mb-8 sm:mb-10">
           <Badge variant="outline" className="mb-4">Perguntas frequentes</Badge>
           <h2 className={cn(marketingSectionTitle, "mb-4")}>
             Desvendando a Digitalização Industrial

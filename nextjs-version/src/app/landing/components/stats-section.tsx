@@ -64,7 +64,7 @@ function StatFigure({
 
 export function StatsSection() {
   return (
-    <section id="resultados" className="relative py-12 sm:py-16 lg:py-20">
+    <section id="resultados" className="relative py-10 sm:py-12 lg:py-16">
       <div className="absolute inset-0 bg-gradient-to-r from-primary/8 via-transparent to-secondary/20" />
       <DotPattern className="opacity-75" size="md" fadeStyle="circle" />
 

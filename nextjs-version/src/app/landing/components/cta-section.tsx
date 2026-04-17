@@ -10,12 +10,12 @@ import { SectionReveal } from './section-reveal'
 
 export function CTASection() {
   return (
-    <section className='py-14 sm:py-20 lg:py-24 bg-muted/80'>
+    <section className='py-12 sm:py-16 lg:py-20 bg-muted/80'>
       <div className='container mx-auto px-4 lg:px-8'>
         <SectionReveal>
         <div className='mx-auto max-w-4xl'>
           <div className='text-center'>
-            <div className='space-y-8'>
+            <div className='space-y-6'>
               {/* Badge and Stats */}
               <div className='flex flex-col items-center gap-4'>
                 <Badge variant='outline' className='flex items-center gap-2'>

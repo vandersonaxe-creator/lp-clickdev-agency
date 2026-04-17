@@ -35,7 +35,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-background pt-14 pb-12 sm:pt-20 sm:pb-16 md:pt-24"
+      className="relative overflow-hidden bg-background pt-12 pb-10 sm:pt-16 sm:pb-12 md:pt-20"
     >
       <div className="pointer-events-none absolute inset-0 z-0 min-h-[100%]">
         <HyperspaceBackground
@@ -89,7 +89,7 @@ export function HeroSection() {
           </motion.h1>
 
           <motion.div variants={heroItem}>
-            <p className={cn(marketingHeroLead, "mx-auto mb-8 max-w-2xl text-balance sm:mb-10")}>
+            <p className={cn(marketingHeroLead, "mx-auto mb-6 max-w-2xl text-balance sm:mb-8")}>
               Sistemas e dashboards sob medida para PMEs. Menos paradas, mais controle e dados em tempo real na
               produção e na manutenção.
             </p>
@@ -135,7 +135,7 @@ export function HeroSection() {
         </motion.div>
 
         <motion.div
-          className="mx-auto mt-14 max-w-6xl sm:mt-20"
+          className="mx-auto mt-10 max-w-6xl sm:mt-14"
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] as const, delay: 0.35 }}
