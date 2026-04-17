@@ -60,7 +60,7 @@ export function AboutMeSection() {
               Quem sou eu
             </Badge>
             <h2 className={cn(marketingSectionTitle, "text-balance")}>
-              Vanderson Machado: Da Turbina Eólica à Digitalização Industrial.
+              Vanderson Machado: Tecnologia com Raiz Industrial.
             </h2>
           </div>
 
@@ -73,14 +73,19 @@ export function AboutMeSection() {
                       <CarouselContent>
                         {profileImages.map((img) => (
                           <CarouselItem key={img.src} className="p-0">
-                            <div className="relative aspect-[4/5] w-full overflow-hidden">
+                            <div className="relative aspect-[4/5] w-full overflow-hidden text-foreground">
                               <Image
                                 src={img.src}
                                 alt={img.alt}
                                 fill
-                                className="object-cover object-[center_20%]"
+                                className="z-0 object-cover object-[center_20%]"
                                 sizes="(max-width: 1024px) 100vw, 420px"
                                 priority={img.src === "/landing/vanderson-profile.png"}
+                              />
+                              <img
+                                src="/assinatura_vanderson.svg"
+                                alt="Assinatura Vanderson Machado"
+                                className="pointer-events-none absolute bottom-8 left-1/2 z-10 w-48 max-w-[85%] -translate-x-1/2 opacity-90"
                               />
                             </div>
                           </CarouselItem>
