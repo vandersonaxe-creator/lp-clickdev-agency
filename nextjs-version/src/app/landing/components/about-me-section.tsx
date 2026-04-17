@@ -1,14 +1,56 @@
 "use client"
 
 import Image from "next/image"
+import * as React from "react"
 
 import { Badge } from "@/components/ui/badge"
+import {
+  Carousel,
+  type CarouselApi,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 import { Card, CardContent } from "@/components/ui/card"
+import { Progress } from "@/components/ui/progress"
 import { cn } from "@/lib/utils"
 import { marketingSectionTitle } from "@/lib/marketing-typography"
 import { SectionReveal } from "./section-reveal"
 
+const profileImages = [
+  {
+    src: "/landing/vanderson-profile.png",
+    alt: "Vanderson Machado com equipamentos de segurança em campo.",
+  },
+  {
+    src: "/landing/vanderson-1.png",
+    alt: "Vanderson Machado em ambiente industrial.",
+  },
+  {
+    src: "/landing/vanderson-2.png",
+    alt: "Vanderson Machado em parque eólico, com capacete e EPI.",
+  },
+] as const
+
 export function AboutMeSection() {
+  const [api, setApi] = React.useState<CarouselApi>()
+  const [current, setCurrent] = React.useState(0)
+  const [count, setCount] = React.useState(0)
+
+  const progress = count ? (current * 100) / count : 0
+
+  React.useEffect(() => {
+    if (!api) return
+
+    setCount(api.scrollSnapList().length)
+    setCurrent(api.selectedScrollSnap() + 1)
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1)
+    })
+  }, [api])
+
   return (
     <section id="quem-sou-eu" className="py-16 sm:py-24 lg:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,15 +68,32 @@ export function AboutMeSection() {
             <SectionReveal className="min-w-0">
               <Card className="overflow-hidden">
                 <CardContent className="p-0">
-                  <div className="bg-muted relative aspect-[4/5] w-full overflow-hidden">
-                    <Image
-                      src="/landing/vanderson-profile.png"
-                      alt="Vanderson Machado no Complexo Eólico Calangos, com capacete e equipamentos de segurança."
-                      fill
-                      className="object-cover object-[center_20%]"
-                      sizes="(max-width: 1024px) 100vw, 420px"
-                      priority
-                    />
+                  <div className="bg-muted relative w-full overflow-hidden">
+                    <Carousel className="w-full" setApi={setApi} opts={{ loop: true }}>
+                      <CarouselContent>
+                        {profileImages.map((img) => (
+                          <CarouselItem key={img.src} className="p-0">
+                            <div className="relative aspect-[4/5] w-full overflow-hidden">
+                              <Image
+                                src={img.src}
+                                alt={img.alt}
+                                fill
+                                className="object-cover object-[center_20%]"
+                                sizes="(max-width: 1024px) 100vw, 420px"
+                                priority={img.src === "/landing/vanderson-profile.png"}
+                              />
+                            </div>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+
+                      <CarouselPrevious className="top-[calc(100%+0.75rem)] left-0 translate-y-0" />
+                      <CarouselNext className="top-[calc(100%+0.75rem)] left-2 translate-x-full translate-y-0" />
+                    </Carousel>
+
+                    <div className="flex items-center justify-end px-4 pb-4 pt-14">
+                      <Progress className="h-1.5 w-24" value={progress} />
+                    </div>
                   </div>
                 </CardContent>
               </Card>

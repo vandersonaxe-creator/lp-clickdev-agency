@@ -20,6 +20,8 @@ export type RotatingWordsProps = {
   y?: number
   /** Motion transition for word enter/exit. */
   transition?: Transition
+  /** Show underline under the current word. Default: true */
+  underline?: boolean
   /** Extra class for the outer wrapper */
   className?: string
   /** Extra class for the word itself */
@@ -33,6 +35,7 @@ export function RotatingWords({
   intervalMs = 2800,
   y = 18,
   transition = { duration: 0.38, ease: [0.22, 1, 0.36, 1] as const },
+  underline = true,
   className,
   wordClassName,
   underlineClassName,
@@ -64,7 +67,7 @@ export function RotatingWords({
       )}
       aria-live="polite"
     >
-      <span className="relative inline-block pb-[10px]">
+      <span className={cn("relative inline-block", underline ? "pb-[10px]" : "pb-0")}>
         <AnimatePresence mode="wait" initial={false}>
           <motion.span
             key={current}
@@ -81,39 +84,48 @@ export function RotatingWords({
           </motion.span>
         </AnimatePresence>
 
-        <motion.svg
-          key={`${current}-underline`}
-          aria-hidden
-          className={cn(
-            "pointer-events-none absolute left-0 w-full",
-            "bottom-[4px]",
-            "h-[10px] origin-left",
-            "drop-shadow-[0_0_10px_rgba(248,250,252,0.10)]",
-            underlineClassName
-          )}
-          viewBox="0 0 100 12"
-          preserveAspectRatio="none"
-          initial={{ scaleX: 0, opacity: 0.35 }}
-          animate={{ scaleX: 1, opacity: 0.95 }}
-          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] as const }}
-        >
-          <defs>
-            <linearGradient id="rotatingWordsUnderline" x1="0" y1="0" x2="100" y2="0" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stopColor="#D7D7D7" stopOpacity="0.95" />
-              <stop offset="50%" stopColor="#A8A8A8" stopOpacity="0.95" />
-              <stop offset="100%" stopColor="#F1F1F1" stopOpacity="0.95" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M0 8 C 12 5, 24 11, 36 8 S 60 5, 72 8 S 88 11, 100 8"
-            fill="none"
-            stroke="url(#rotatingWordsUnderline)"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            opacity="0.95"
-          />
-        </motion.svg>
+        {underline ? (
+          <motion.svg
+            key={`${current}-underline`}
+            aria-hidden
+            className={cn(
+              "pointer-events-none absolute left-0 w-full",
+              "bottom-[4px]",
+              "h-[10px] origin-left",
+              "drop-shadow-[0_0_10px_rgba(248,250,252,0.10)]",
+              underlineClassName
+            )}
+            viewBox="0 0 100 12"
+            preserveAspectRatio="none"
+            initial={{ scaleX: 0, opacity: 0.35 }}
+            animate={{ scaleX: 1, opacity: 0.95 }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] as const }}
+          >
+            <defs>
+              <linearGradient
+                id="rotatingWordsUnderline"
+                x1="0"
+                y1="0"
+                x2="100"
+                y2="0"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0%" stopColor="#D7D7D7" stopOpacity="0.95" />
+                <stop offset="50%" stopColor="#A8A8A8" stopOpacity="0.95" />
+                <stop offset="100%" stopColor="#F1F1F1" stopOpacity="0.95" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M0 8.2 C 10 6.6, 20 9.8, 30 8.2 S 50 6.6, 60 8.2 S 80 9.8, 100 8.2"
+              fill="none"
+              stroke="url(#rotatingWordsUnderline)"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              opacity="0.95"
+            />
+          </motion.svg>
+        ) : null}
       </span>
     </span>
   )

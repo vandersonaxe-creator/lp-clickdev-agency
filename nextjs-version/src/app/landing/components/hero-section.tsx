@@ -80,6 +80,7 @@ export function HeroSection() {
                   "eficiência",
                   "economia",
                 ]}
+                underline={false}
                 className="mx-1"
                 wordClassName="font-bold text-white"
               />
