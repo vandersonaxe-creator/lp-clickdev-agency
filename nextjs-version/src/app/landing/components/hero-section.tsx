@@ -61,7 +61,11 @@ export function HeroSection() {
           <motion.div className="mb-6 flex justify-center sm:mb-8" variants={heroItem} />
 
           <motion.h1
-            className={cn(marketingHeroTitle, "mb-5 text-balance sm:mb-6")}
+            className={cn(
+              marketingHeroTitle,
+              "mb-5 text-balance sm:mb-6",
+              "text-[34px] leading-tight sm:text-[56px] sm:leading-[1.1] lg:text-[72px] lg:leading-[1.1]"
+            )}
             variants={heroItem}
           >
             Dados em tempo real para sua indústria.
@@ -88,7 +92,9 @@ export function HeroSection() {
               rel="noopener noreferrer"
               className="min-h-12 px-8 text-base font-semibold"
               background="#ea580c"
-              shimmerColor="#fff7ed"
+              shimmerColor="#ffedd5"
+              shimmerSize="0.035em"
+              shimmerDuration="3.6s"
               borderRadius="0.75rem"
             >
               <span className="relative z-10 inline-flex items-center justify-center gap-2">
@@ -122,7 +128,7 @@ export function HeroSection() {
                 alt="Pré-visualização do painel — modo claro"
                 width={1200}
                 height={800}
-                className="block w-full rounded-xl object-cover dark:hidden"
+                className="block w-full rounded-xl object-contain md:object-cover max-h-[320px] sm:max-h-[420px] md:max-h-none dark:hidden"
                 priority
               />
 
@@ -131,7 +137,7 @@ export function HeroSection() {
                 alt="Pré-visualização do painel — modo escuro"
                 width={1200}
                 height={800}
-                className="hidden w-full rounded-xl object-cover dark:block"
+                className="hidden w-full rounded-xl object-contain md:object-cover max-h-[320px] sm:max-h-[420px] md:max-h-none dark:block"
                 priority
               />
 
