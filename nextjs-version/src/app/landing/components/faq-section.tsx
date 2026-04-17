@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 import { marketingSectionLead, marketingSectionTitle } from '@/lib/marketing-typography'
 import { SectionReveal } from './section-reveal'
+import { CLICKDEV_WHATSAPP_HREF } from '../landing-copy'
 
 type FaqItem = {
   value: string
@@ -98,8 +99,8 @@ const FaqSection = () => {
               Ainda ficou com alguma dúvida? Chame no WhatsApp.
             </p>
             <Button className='cursor-pointer' asChild>
-              <a href="#contact">
-                Ver outras formas de contato
+              <a href={CLICKDEV_WHATSAPP_HREF} target="_blank" rel="noopener noreferrer">
+                Abrir WhatsApp
               </a>
             </Button>
           </div>

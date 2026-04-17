@@ -77,7 +77,6 @@ export function HeroSection() {
                 words={[
                   "controle",
                   "produção",
-                  "eficiência",
                   "economia",
                 ]}
                 underline={false}

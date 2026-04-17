@@ -102,12 +102,12 @@ export function AboutMeSection() {
             <SectionReveal className="min-w-0 space-y-5" delay={0.12}>
               <p className="text-muted-foreground text-base leading-relaxed text-pretty">
                 Minha jornada começou há mais de uma década no coração da indústria, no chão de fábrica e no topo
-                de turbinas eólicas. Como montador de estruturas metálicas e, posteriormente, técnico de "O&M" especialista
+                de turbinas eólicas. Como técnico de eletrotécnica e, posteriormente, técnico de "O&M" especialista
                 multi-fabricante (Siemens Gamesa, Vestas, Suzlon), vivenciei de perto os desafios operacionais:
                 ordens de serviço perdidas, calibrações vencidas e a fragmentação de informações cruciais. Essa
                 experiência me levou a assumir a responsabilidade técnica completa de manutenção e qualidade na
                 Serena Energia, onde coordenei equipes e planejei a manutenção de parques eólicos inteiros no
-                Brasil e na Costa Rica.
+                Brasil.
               </p>
 
               <p className="text-muted-foreground text-base leading-relaxed text-pretty">

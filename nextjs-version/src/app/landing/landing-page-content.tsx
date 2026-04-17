@@ -5,7 +5,6 @@ import { LandingNavbar } from './components/navbar'
 import { HeroSection } from './components/hero-section'
 import { FeaturesSection } from './components/features-section'
 import { CTASection } from './components/cta-section'
-import { ContactSection } from './components/contact-section'
 import { FaqSection } from './components/faq-section'
 import { LandingFooter } from './components/footer'
 import { AboutSection } from './components/about-section'
@@ -33,7 +32,6 @@ export function LandingPageContent() {
         <TestimonialsVideoSection />
         <FaqSection />
         <CTASection />
-        <ContactSection />
       </main>
 
       {/* Footer */}

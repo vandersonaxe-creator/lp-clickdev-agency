@@ -3,9 +3,9 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { Separator } from '@/components/ui/separator'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
+import { Separator } from "@/components/ui/separator"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 import {
   Form,
   FormControl,
@@ -13,11 +13,17 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form"
-import { Logo } from '@/components/logo'
-import { Linkedin, MessageCircle, Heart } from 'lucide-react'
-import { cn } from '@/lib/utils'
-import { marketingHeading, marketingSectionLead, marketingWordmark } from '@/lib/marketing-typography'
-import { CLICKDEV_WHATSAPP_HREF } from '../landing-copy'
+import { Logo } from "@/components/logo"
+import { Heart, Instagram, Linkedin, Mail, MessageCircle } from "lucide-react"
+import { cn } from "@/lib/utils"
+import { marketingHeading, marketingSectionLead, marketingWordmark } from "@/lib/marketing-typography"
+import {
+  CLICKDEV_EMAIL,
+  CLICKDEV_EMAIL_HREF,
+  CLICKDEV_INSTAGRAM_HREF,
+  CLICKDEV_LINKEDIN_HREF,
+  CLICKDEV_WHATSAPP_HREF,
+} from "../landing-copy"
 
 const newsletterSchema = z.object({
   email: z.string().email({
@@ -25,25 +31,21 @@ const newsletterSchema = z.object({
   }),
 })
 
-const footerLinks = {
-  clickdev: [
-    { name: 'Sobre', href: '#sobre' },
-    { name: 'Soluções', href: '#solucoes' },
-    { name: 'Método', href: '#metodo' },
-    { name: 'Depoimentos', href: '#depoimentos' },
-    { name: 'FAQ', href: '#faq' },
-  ],
-  contato: [
-    { name: 'WhatsApp', href: CLICKDEV_WHATSAPP_HREF },
-    { name: 'Contato', href: '#contact' },
-    { name: 'Demonstração', href: '/demo' },
-  ],
-}
+const footerNavLinks = [
+  { name: "Sobre", href: "#sobre" },
+  { name: "Soluções", href: "#solucoes" },
+  { name: "Método", href: "#metodo" },
+  { name: "Depoimentos", href: "#depoimentos" },
+  { name: "FAQ", href: "#faq" },
+  { name: "Demonstração", href: "/demo" },
+] as const
 
-const socialLinks = [
-  { name: 'WhatsApp', href: CLICKDEV_WHATSAPP_HREF, icon: MessageCircle },
-  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/vanderson-machado-9630641b7/', icon: Linkedin },
-]
+const contactChannels = [
+  { display: CLICKDEV_EMAIL, href: CLICKDEV_EMAIL_HREF, icon: Mail },
+  { display: "WhatsApp", href: CLICKDEV_WHATSAPP_HREF, icon: MessageCircle },
+  { display: "LinkedIn", href: CLICKDEV_LINKEDIN_HREF, icon: Linkedin },
+  { display: "Instagram", href: CLICKDEV_INSTAGRAM_HREF, icon: Instagram },
+] as const
 
 export function LandingFooter() {
   const form = useForm<z.infer<typeof newsletterSchema>>({
@@ -54,16 +56,14 @@ export function LandingFooter() {
   })
 
   function onSubmit(values: z.infer<typeof newsletterSchema>) {
-    // Here you would typically send the email to your newsletter service
     console.log(values)
-    // Show success message and reset form
     form.reset()
   }
 
   return (
-    <footer className="border-t bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14">
-        {/* Newsletter Section */}
+    <footer id="rodape" className="border-t border-border/80 bg-muted/50 dark:bg-zinc-950/90">
+      <div className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
+        {/* Newsletter */}
         <div className="mb-10 sm:mb-12">
           <div className="mx-auto max-w-2xl text-center">
             <h3 className={cn(marketingHeading.h24, "mb-4")}>Receba novidades</h3>
@@ -71,73 +71,66 @@ export function LandingFooter() {
               Conteúdos sobre digitalização industrial, manutenção, produção e boas práticas de gestão.
             </p>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-2 max-w-md mx-auto sm:flex-row">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="mx-auto flex max-w-md flex-col gap-2 sm:flex-row"
+              >
                 <FormField
                   control={form.control}
                   name="email"
                   render={({ field }) => (
-                    <FormItem className="flex-1">
+                    <FormItem className="min-w-0 flex-1">
                       <FormControl>
-                        <Input
-                          type="email"
-                          placeholder="Seu e-mail"
-                          {...field}
-                        />
+                        <Input type="email" placeholder="Seu e-mail" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                <Button type="submit" className="cursor-pointer">Inscrever</Button>
+                <Button type="submit" className="cursor-pointer shrink-0">
+                  Inscrever
+                </Button>
               </form>
             </Form>
           </div>
         </div>
 
-        {/* Main Footer Content */}
-        <div className="grid gap-8 grid-cols-4 lg:grid-cols-6">
-          {/* Brand Column */}
-          <div className="col-span-4 lg:col-span-2 max-w-2xl">
-            <div className="flex items-center space-x-3 mb-4 max-lg:justify-center">
-              <a href="/" className="flex items-center space-x-3 cursor-pointer">
+        {/* 3 colunas: logo | nav | contato */}
+        <div className="grid w-full min-w-0 grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-8 xl:gap-12">
+          {/* Coluna 1 — marca */}
+          <div className="min-w-0 max-lg:text-center">
+            <div className="mb-4 flex items-center max-lg:justify-center">
+              <a href="/" className="flex min-w-0 cursor-pointer items-center gap-3">
                 <Logo
                   size={28}
                   className="shrink-0 opacity-95 [filter:grayscale(1)_contrast(1.05)_brightness(1.2)] drop-shadow-[0_0_10px_rgba(248,250,252,0.12)]"
                 />
-                <span className={cn(marketingWordmark, "text-[#B8B8B8] drop-shadow-[0_0_10px_rgba(248,250,252,0.10)]")}>
+                <span
+                  className={cn(
+                    marketingWordmark,
+                    "text-[#B8B8B8] drop-shadow-[0_0_10px_rgba(248,250,252,0.10)]"
+                  )}
+                >
                   <span className="font-extrabold">Click</span>{" "}
                   <span className="font-semibold opacity-90">Dev</span>
                 </span>
               </a>
             </div>
-            <p className="text-muted-foreground mb-6 max-lg:text-center max-lg:flex max-lg:justify-center">
-              Dashboards e sistemas sob medida para pequenas e médias indústrias. Produção, manutenção, ativos e metrologia com dados em tempo real.
+            <p className="text-muted-foreground text-sm leading-relaxed sm:text-base">
+              Dashboards e sistemas sob medida para pequenas e médias indústrias. Produção, manutenção, ativos e
+              metrologia com dados em tempo real.
             </p>
-            <div className="flex space-x-4 max-lg:justify-center">
-              {socialLinks.map((social) => (
-                <Button key={social.name} variant="ghost" size="icon" asChild>
-                  <a
-                    href={social.href}
-                    aria-label={social.name}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <social.icon className="h-4 w-4" />
-                  </a>
-                </Button>
-              ))}
-            </div>
           </div>
 
-          {/* Links Columns */}
-          <div className='max-md:col-span-2 lg:col-span-1'>
-            <h4 className={cn(marketingHeading.h16, "mb-4")}>Click Dev</h4>
+          {/* Coluna 2 — navegação */}
+          <div className="min-w-0 max-lg:text-center">
+            <h4 className={cn(marketingHeading.h16, "mb-4")}>Navegação</h4>
             <ul className="space-y-3">
-              {footerLinks.clickdev.map((link) => (
+              {footerNavLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {link.name}
                   </a>
@@ -146,33 +139,45 @@ export function LandingFooter() {
             </ul>
           </div>
 
-          <div className='max-md:col-span-2 lg:col-span-1'>
+          {/* Coluna 3 — contato */}
+          <div className="min-w-0 max-lg:text-center lg:text-left">
             <h4 className={cn(marketingHeading.h16, "mb-4")}>Contato</h4>
-            <ul className="space-y-3">
-              {footerLinks.contato.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
+            <ul className="flex flex-col gap-3 lg:items-start">
+              {contactChannels.map((ch) => {
+                const isMail = ch.href.startsWith("mailto:")
+                return (
+                  <li key={ch.display} className="min-w-0 w-full lg:w-full">
+                    <a
+                      href={ch.href}
+                      {...(isMail
+                        ? {}
+                        : { target: "_blank" as const, rel: "noopener noreferrer" })}
+                      className="inline-flex max-w-full items-center gap-3 text-muted-foreground transition-colors hover:text-foreground max-lg:mx-auto max-lg:justify-center lg:justify-start"
+                    >
+                      <ch.icon className="h-4 w-4 shrink-0 opacity-90" aria-hidden />
+                      <span className="min-w-0 break-words text-left text-sm font-medium sm:text-base">
+                        {ch.display}
+                      </span>
+                    </a>
+                  </li>
+                )
+              })}
             </ul>
           </div>
         </div>
 
         <Separator className="my-8" />
 
-        {/* Bottom Footer */}
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-2">
-          <div className="flex flex-col sm:flex-row items-center gap-2 text-muted-foreground text-sm">
+        <div className="flex flex-col items-center gap-2 lg:flex-row lg:justify-between">
+          <div className="flex flex-col items-center gap-2 text-center text-sm text-muted-foreground sm:flex-row sm:text-left">
             <div className="flex items-center gap-1">
               <span>Made with</span>
-              <Heart className="h-4 w-4 text-red-500 fill-current" />
+              <Heart className="h-4 w-4 fill-current text-red-500" />
               <span>by</span>
-              <a href="/" className="font-semibold text-foreground hover:text-primary transition-colors cursor-pointer">
+              <a
+                href="/"
+                className="cursor-pointer font-semibold text-foreground transition-colors hover:text-primary"
+              >
                 Click Dev
               </a>
             </div>
