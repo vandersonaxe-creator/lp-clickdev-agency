@@ -10,10 +10,10 @@ export const metadata: Metadata = {
   description: "A dashboard built with Next.js and shadcn/ui",
   icons: {
     icon: [
-      { url: "/favicon.png", media: "(prefers-color-scheme: light)" },
-      { url: "/favicon-dark.png", media: "(prefers-color-scheme: dark)" },
+      { url: "/favicon-v2.png", media: "(prefers-color-scheme: light)" },
+      { url: "/favicon-dark-v2.png", media: "(prefers-color-scheme: dark)" },
     ],
-    apple: "/favicon.png",
+    apple: "/favicon-v2.png",
   },
 };
 
