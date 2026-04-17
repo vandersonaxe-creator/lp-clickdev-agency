@@ -68,10 +68,10 @@ export function HeroSection() {
             )}
             variants={heroItem}
           >
-            Dados em tempo real para sua indústria.
+            Digitalização Industrial Sob Medida:
             <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
               {" "}
-              Produção e manutenção sob controle.
+              Menos paradas, mais controle.
             </span>
           </motion.h1>
 
