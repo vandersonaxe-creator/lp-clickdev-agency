@@ -43,7 +43,7 @@ export function CTASection() {
 
               {/* CTA Buttons */}
               <div className='flex flex-col justify-center gap-4 sm:flex-row sm:gap-6'>
-                <Button size='lg' className='cursor-pointer px-8 py-6 text-lg font-medium' asChild>
+                <Button size='lg' className='btn-primary-silver cursor-pointer px-8 py-6 text-lg font-medium' asChild>
                   <a href={CLICKDEV_WHATSAPP_HREF} target="_blank" rel="noopener noreferrer">
                     Agendar Conversa Gratuita
                   </a>

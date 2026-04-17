@@ -87,7 +87,7 @@ export function ContactSection() {
                 <p className="text-muted-foreground mb-3">
                   Fale direto com a Click Dev e agende seu diagnóstico gratuito.
                 </p>
-                <Button variant="outline" size="sm" className="cursor-pointer" asChild>
+                <Button variant="outline" size="sm" className="btn-tertiary-silver cursor-pointer" asChild>
                   <a href={CLICKDEV_WHATSAPP_HREF} target="_blank" rel="noopener noreferrer">
                     Abrir WhatsApp
                   </a>
@@ -106,7 +106,7 @@ export function ContactSection() {
                 <p className="text-muted-foreground mb-3">
                   Envie uma mensagem com o contexto do seu desafio e o melhor horário para retorno.
                 </p>
-                <Button variant="outline" size="sm" className="cursor-pointer" asChild>
+                <Button variant="outline" size="sm" className="btn-tertiary-silver cursor-pointer" asChild>
                   <a href="mailto:contato@clickdev.com.br">
                     Enviar e-mail
                   </a>
@@ -125,7 +125,7 @@ export function ContactSection() {
                 <p className="text-muted-foreground mb-3">
                   Conecte para acompanhar conteúdos e novidades sobre digitalização industrial.
                 </p>
-                <Button variant="outline" size="sm" className="cursor-pointer" asChild>
+                <Button variant="outline" size="sm" className="btn-tertiary-silver cursor-pointer" asChild>
                   <a href="#" target="_blank" rel="noopener noreferrer">
                     Abrir LinkedIn
                   </a>
@@ -218,7 +218,7 @@ export function ContactSection() {
                         </FormItem>
                       )}
                     />
-                    <Button type="submit" className="w-full cursor-pointer">
+                    <Button type="submit" className="btn-tertiary-silver w-full cursor-pointer">
                       Enviar mensagem
                     </Button>
                   </form>

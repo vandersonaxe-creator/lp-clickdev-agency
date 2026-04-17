@@ -8,7 +8,6 @@ import { motion } from "motion/react"
 import { Button } from "@/components/ui/button"
 import { BorderBeam } from "@/components/ui/border-beam"
 import { HyperspaceBackground } from "@/components/ui/hyperspace-background"
-import { StarButton } from "@/components/ui/star-button"
 import { cn } from "@/lib/utils"
 import { marketingHeroLead, marketingHeroTitle } from "@/lib/marketing-typography"
 import { CLICKDEV_WHATSAPP_HREF, DEMO_ROUTE } from "../landing-copy"
@@ -86,22 +85,33 @@ export function HeroSection() {
             className="flex flex-col gap-4 sm:flex-row sm:justify-center"
             variants={heroItem}
           >
-            <StarButton
+            <a
               href={CLICKDEV_WHATSAPP_HREF}
               target="_blank"
               rel="noopener noreferrer"
-              className="h-12 px-8 text-base font-semibold"
-              backgroundColor="#ea580c"
-              lightColor="#ffedd5"
-              duration={3.6}
-              borderWidth={2}
+              className={cn(
+                "btn-primary-silver group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-xl",
+                "px-8 text-base font-semibold"
+              )}
             >
+              <BorderBeam
+                size={88}
+                duration={14}
+                colorFrom="#f8fafc"
+                colorTo="#cbd5e1"
+                borderWidth={2}
+              />
               <span className="relative z-10 inline-flex items-center justify-center gap-2">
                 Agendar Diagnóstico Gratuito
                 <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
               </span>
-            </StarButton>
-            <Button size="lg" className="text-base cursor-pointer" variant="outline" asChild>
+            </a>
+            <Button
+              size="lg"
+              variant="outline"
+              className="btn-secondary-silver text-base cursor-pointer"
+              asChild
+            >
               <Link href={DEMO_ROUTE}>
                 <Play className="mr-2 h-4 w-4" />
                 Ver Demonstração

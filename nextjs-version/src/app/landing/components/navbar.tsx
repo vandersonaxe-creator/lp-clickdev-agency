@@ -5,6 +5,7 @@ import Link from "next/link"
 import { LayoutDashboard, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { BorderBeam } from "@/components/ui/border-beam"
+import { Logo } from "@/components/logo"
 import {
   Sheet,
   SheetContent,
@@ -42,23 +43,19 @@ function DashboardCtaLink({
       href="/dashboard"
       onClick={onClick}
       className={cn(
-        "group relative inline-flex min-h-11 items-center justify-center overflow-hidden rounded-xl",
-        "bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700",
-        "px-6 py-2.5 text-sm font-semibold tracking-[0.14em] text-white",
-        "shadow-[0_1px_0_0_rgba(255,255,255,0.12)_inset,0_8px_24px_-4px_rgba(234,88,12,0.45)]",
-        "ring-1 ring-white/15",
+        "btn-primary-silver group relative inline-flex min-h-11 items-center justify-center overflow-hidden rounded-xl",
+        "px-6 py-2.5 text-sm font-semibold tracking-[0.14em]",
         "transition-[transform,box-shadow,filter] duration-200 ease-out",
-        "hover:-translate-y-px hover:shadow-[0_1px_0_0_rgba(255,255,255,0.18)_inset,0_12px_32px_-6px_rgba(234,88,12,0.55)] hover:brightness-[1.04]",
+        "hover:-translate-y-px",
         "active:translate-y-0 active:scale-[0.99] active:brightness-[0.98]",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300/90 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         className
       )}
     >
       <BorderBeam
         size={88}
         duration={14}
-        colorFrom="#fef3c7"
-        colorTo="#fb923c"
+        colorFrom="#f8fafc"
+        colorTo="#cbd5e1"
         borderWidth={2}
       />
       <span className="relative z-10 flex items-center gap-2">
@@ -110,7 +107,15 @@ export function LandingNavbar() {
             className="flex items-center gap-2 shrink-0"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <span className={cn(marketingWordmark, "text-orange-600")}>Click Dev</span>
+            <Logo
+              size={26}
+              className="shrink-0 opacity-95 [filter:grayscale(1)_contrast(1.05)_brightness(1.2)] drop-shadow-[0_0_10px_rgba(248,250,252,0.12)]"
+              priority
+            />
+            <span className={cn(marketingWordmark, "text-[#B8B8B8] drop-shadow-[0_0_10px_rgba(248,250,252,0.10)]")}>
+              <span className="font-extrabold">Click</span>{" "}
+              <span className="font-semibold opacity-90">Dev</span>
+            </span>
           </Link>
 
           <div className="hidden md:flex flex-1 items-center justify-center gap-8 text-sm font-medium text-foreground">
@@ -143,8 +148,17 @@ export function LandingNavbar() {
               </SheetTrigger>
               <SheetContent side="right" className="w-full sm:max-w-sm">
                 <SheetHeader className="text-left border-b pb-4">
-                  <SheetTitle className={cn(marketingWordmark, "text-orange-600")}>
-                    Click Dev
+                  <SheetTitle className={cn(marketingWordmark, "text-[#B8B8B8] drop-shadow-[0_0_10px_rgba(248,250,252,0.10)]")}>
+                    <span className="flex items-center gap-2">
+                      <Logo
+                        size={22}
+                        className="shrink-0 opacity-95 [filter:grayscale(1)_contrast(1.05)_brightness(1.2)] drop-shadow-[0_0_10px_rgba(248,250,252,0.12)]"
+                      />
+                      <span>
+                        <span className="font-extrabold">Click</span>{" "}
+                        <span className="font-semibold opacity-90">Dev</span>
+                      </span>
+                    </span>
                   </SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col gap-6 pt-6">

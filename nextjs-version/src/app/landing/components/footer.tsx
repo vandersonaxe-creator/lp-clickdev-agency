@@ -97,10 +97,16 @@ export function LandingFooter() {
         <div className="grid gap-8 grid-cols-4 lg:grid-cols-6">
           {/* Brand Column */}
           <div className="col-span-4 lg:col-span-2 max-w-2xl">
-            <div className="flex items-center space-x-2 mb-4 max-lg:justify-center">
-              <a href="/" className="flex items-center space-x-2 cursor-pointer">
-                <Logo size={32} />
-                <span className={marketingWordmark}>Click Dev</span>
+            <div className="flex items-center space-x-3 mb-4 max-lg:justify-center">
+              <a href="/" className="flex items-center space-x-3 cursor-pointer">
+                <Logo
+                  size={28}
+                  className="shrink-0 opacity-95 [filter:grayscale(1)_contrast(1.05)_brightness(1.2)] drop-shadow-[0_0_10px_rgba(248,250,252,0.12)]"
+                />
+                <span className={cn(marketingWordmark, "text-[#B8B8B8] drop-shadow-[0_0_10px_rgba(248,250,252,0.10)]")}>
+                  <span className="font-extrabold">Click</span>{" "}
+                  <span className="font-semibold opacity-90">Dev</span>
+                </span>
               </a>
             </div>
             <p className="text-muted-foreground mb-6 max-lg:text-center max-lg:flex max-lg:justify-center">
