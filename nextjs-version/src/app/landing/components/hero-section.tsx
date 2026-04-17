@@ -7,6 +7,7 @@ import { motion } from "motion/react"
 import { Button } from "@/components/ui/button"
 import { BorderBeam } from "@/components/ui/border-beam"
 import { HyperspaceBackground } from "@/components/ui/hyperspace-background"
+import { RotatingWords } from "@/components/ui/rotating-words"
 import { cn } from "@/lib/utils"
 import { marketingHeroLead, marketingHeroTitle } from "@/lib/marketing-typography"
 import { CLICKDEV_WHATSAPP_HREF } from "../landing-copy"
@@ -71,7 +72,18 @@ export function HeroSection() {
             Digitalização Industrial Sob Medida:
             <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
               {" "}
-              Menos paradas, mais controle.
+              Menos paradas, mais{" "}
+              <RotatingWords
+                words={[
+                  "controle",
+                  "produção",
+                  "eficiência",
+                  "economia",
+                ]}
+                className="mx-1"
+                wordClassName="font-bold text-white"
+              />
+              .
             </span>
           </motion.h1>
 
