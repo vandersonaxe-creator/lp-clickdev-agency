@@ -8,7 +8,7 @@ import { motion } from "motion/react"
 import { Button } from "@/components/ui/button"
 import { BorderBeam } from "@/components/ui/border-beam"
 import { HyperspaceBackground } from "@/components/ui/hyperspace-background"
-import { ShimmerButton } from "@/components/ui/shimmer-button"
+import { StarButton } from "@/components/ui/star-button"
 import { cn } from "@/lib/utils"
 import { marketingHeroLead, marketingHeroTitle } from "@/lib/marketing-typography"
 import { CLICKDEV_WHATSAPP_HREF, DEMO_ROUTE } from "../landing-copy"
@@ -86,22 +86,21 @@ export function HeroSection() {
             className="flex flex-col gap-4 sm:flex-row sm:justify-center"
             variants={heroItem}
           >
-            <ShimmerButton
+            <StarButton
               href={CLICKDEV_WHATSAPP_HREF}
               target="_blank"
               rel="noopener noreferrer"
-              className="min-h-12 px-8 text-base font-semibold"
-              background="#ea580c"
-              shimmerColor="#ffedd5"
-              shimmerSize="0.035em"
-              shimmerDuration="3.6s"
-              borderRadius="0.75rem"
+              className="h-12 px-8 text-base font-semibold"
+              backgroundColor="#ea580c"
+              lightColor="#ffedd5"
+              duration={3.6}
+              borderWidth={2}
             >
               <span className="relative z-10 inline-flex items-center justify-center gap-2">
                 Agendar Diagnóstico Gratuito
                 <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
               </span>
-            </ShimmerButton>
+            </StarButton>
             <Button size="lg" className="text-base cursor-pointer" variant="outline" asChild>
               <Link href={DEMO_ROUTE}>
                 <Play className="mr-2 h-4 w-4" />
