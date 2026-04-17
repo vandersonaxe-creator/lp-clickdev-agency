@@ -34,7 +34,6 @@ const newsletterSchema = z.object({
 const footerNavLinks = [
   { name: "Sobre", href: "#sobre" },
   { name: "Soluções", href: "#solucoes" },
-  { name: "Método", href: "#metodo" },
   { name: "Depoimentos", href: "#depoimentos" },
   { name: "FAQ", href: "#faq" },
   { name: "Demonstração", href: "/demo" },

@@ -20,7 +20,6 @@ import { marketingWordmark } from "@/lib/marketing-typography"
 const navLinks = [
   { label: "Sobre", href: "#sobre" },
   { label: "Soluções", href: "#solucoes" },
-  { label: "Método", href: "#metodo" },
   { label: "Depoimentos", href: "#depoimentos" },
   { label: "FAQ", href: "#faq" },
 ] as const

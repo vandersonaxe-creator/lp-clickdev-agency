@@ -9,7 +9,6 @@ import { FaqSection } from './components/faq-section'
 import { LandingFooter } from './components/footer'
 import { AboutSection } from './components/about-section'
 import { AboutMeSection } from './components/about-me-section'
-import { MethodSection } from './components/method-section'
 import { LogoCarousel } from './components/logo-carousel'
 import { StatsSection } from './components/stats-section'
 import { TestimonialsVideoSection } from '@/components/testimonials-video'
@@ -27,7 +26,6 @@ export function LandingPageContent() {
         <AboutSection />
         <AboutMeSection />
         <FeaturesSection />
-        <MethodSection />
         <StatsSection />
         <TestimonialsVideoSection />
         <FaqSection />
