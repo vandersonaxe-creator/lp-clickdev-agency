@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, Play } from "lucide-react"
 import { motion } from "motion/react"
@@ -10,7 +9,9 @@ import { BorderBeam } from "@/components/ui/border-beam"
 import { HyperspaceBackground } from "@/components/ui/hyperspace-background"
 import { cn } from "@/lib/utils"
 import { marketingHeroLead, marketingHeroTitle } from "@/lib/marketing-typography"
-import { CLICKDEV_WHATSAPP_HREF, DEMO_ROUTE } from "../landing-copy"
+import { CLICKDEV_WHATSAPP_HREF } from "../landing-copy"
+
+const DASHBOARD_DEMO_URL = "https://www.clickdev.com.br/dashboard"
 
 const heroStagger = {
   hidden: { opacity: 0 },
@@ -112,10 +113,10 @@ export function HeroSection() {
               className="btn-secondary-silver text-base cursor-pointer"
               asChild
             >
-              <Link href={DEMO_ROUTE}>
+              <a href={DASHBOARD_DEMO_URL} target="_blank" rel="noopener noreferrer">
                 <Play className="mr-2 h-4 w-4" />
                 Ver Demonstração
-              </Link>
+              </a>
             </Button>
           </motion.div>
         </motion.div>
@@ -158,9 +159,14 @@ export function HeroSection() {
                   className="h-16 w-16 cursor-pointer rounded-full p-0 transition-transform hover:scale-105"
                   asChild
                 >
-                  <Link href={DEMO_ROUTE} aria-label="Abrir demonstração">
+                  <a
+                    href={DASHBOARD_DEMO_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Abrir dashboard demonstrativo"
+                  >
                     <Play className="h-6 w-6 fill-current" />
-                  </Link>
+                  </a>
                 </Button>
               </div>
             </div>
