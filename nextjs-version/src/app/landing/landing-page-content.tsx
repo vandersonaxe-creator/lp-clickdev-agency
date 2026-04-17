@@ -4,7 +4,6 @@ import React from 'react'
 import { LandingNavbar } from './components/navbar'
 import { HeroSection } from './components/hero-section'
 import { FeaturesSection } from './components/features-section'
-import { TestimonialsSection } from './components/testimonials-section'
 import { CTASection } from './components/cta-section'
 import { ContactSection } from './components/contact-section'
 import { FaqSection } from './components/faq-section'
@@ -30,7 +29,6 @@ export function LandingPageContent() {
         <FeaturesSection />
         <MethodSection />
         <StatsSection />
-        <TestimonialsSection />
         <FaqSection />
         <CTASection />
         <ContactSection />
