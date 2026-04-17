@@ -2,11 +2,10 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Play, Star } from "lucide-react"
+import { ArrowRight, Play } from "lucide-react"
 import { motion } from "motion/react"
 
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { BorderBeam } from "@/components/ui/border-beam"
 import { HyperspaceBackground } from "@/components/ui/hyperspace-background"
 import { ShimmerButton } from "@/components/ui/shimmer-button"
@@ -59,38 +58,21 @@ export function HeroSection() {
           initial="hidden"
           animate="show"
         >
-          <motion.div className="mb-6 flex justify-center sm:mb-8" variants={heroItem}>
-            <Badge variant="outline" className="px-4 py-2 border-foreground">
-              <Star className="mr-2 h-3 w-3 fill-current" />
-              Digitalização industrial sob medida para PMEs
-              <ArrowRight className="ml-2 h-3 w-3" />
-            </Badge>
-          </motion.div>
+          <motion.div className="mb-6 flex justify-center sm:mb-8" variants={heroItem} />
 
           <motion.h1
             className={cn(marketingHeroTitle, "mb-5 text-balance sm:mb-6")}
             variants={heroItem}
           >
-            Transforme sua Indústria com Dados em Tempo Real:
+            Dados em tempo real para sua indústria.
             <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
               {" "}
-              Otimize Produção e Manutenção.
+              Produção e manutenção sob controle.
             </span>
           </motion.h1>
 
           <motion.div variants={heroItem}>
-            <p
-              className={cn(
-                marketingHeroLead,
-                "mx-auto mb-8 max-w-2xl text-balance sm:mb-10 hidden md:block"
-              )}
-            >
-              Dashboards e sistemas sob medida para Pequenas e Médias Empresas. Elimine planilhas confusas,
-              reduza custos operacionais e tenha o controle total da sua produção e manutenção com soluções
-              inteligentes e intuitivas. Resultados comprovados: redução de até 30% em paradas não planejadas e
-              aumento de 15% na eficiência operacional.
-            </p>
-            <p className={cn(marketingHeroLead, "mx-auto mb-8 max-w-2xl text-balance sm:mb-10 md:hidden")}>
+            <p className={cn(marketingHeroLead, "mx-auto mb-8 max-w-2xl text-balance sm:mb-10")}>
               Sistemas e dashboards sob medida para PMEs. Menos paradas, mais controle e dados em tempo real na
               produção e na manutenção.
             </p>
@@ -117,7 +99,7 @@ export function HeroSection() {
             <Button size="lg" className="text-base cursor-pointer" variant="outline" asChild>
               <Link href={DEMO_ROUTE}>
                 <Play className="mr-2 h-4 w-4" />
-                Ver Demonstração do PCM Forge
+                Ver Demonstração
               </Link>
             </Button>
           </motion.div>
@@ -161,7 +143,7 @@ export function HeroSection() {
                   className="h-16 w-16 cursor-pointer rounded-full p-0 transition-transform hover:scale-105"
                   asChild
                 >
-                  <Link href={DEMO_ROUTE} aria-label="Abrir demonstração do PCM Forge">
+                  <Link href={DEMO_ROUTE} aria-label="Abrir demonstração">
                     <Play className="h-6 w-6 fill-current" />
                   </Link>
                 </Button>

@@ -12,7 +12,7 @@ export default function DemoPage() {
             Demonstração
           </Badge>
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
-            Dashboard demonstrativo do PCM Forge
+            Dashboard demonstrativo
           </h1>
           <p className="text-muted-foreground text-base sm:text-lg mb-10">
             Veja um exemplo de dashboard e navegue pelos indicadores. O link abre em nova aba para você não perder
