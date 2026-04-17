@@ -30,6 +30,7 @@ const footerLinks = {
     { name: 'Sobre', href: '#sobre' },
     { name: 'Soluções', href: '#solucoes' },
     { name: 'Método', href: '#metodo' },
+    { name: 'Depoimentos', href: '#depoimentos' },
     { name: 'FAQ', href: '#faq' },
   ],
   contato: [
@@ -41,7 +42,7 @@ const footerLinks = {
 
 const socialLinks = [
   { name: 'WhatsApp', href: CLICKDEV_WHATSAPP_HREF, icon: MessageCircle },
-  { name: 'LinkedIn', href: '#', icon: Linkedin },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/vanderson-machado-9630641b7/', icon: Linkedin },
 ]
 
 export function LandingFooter() {

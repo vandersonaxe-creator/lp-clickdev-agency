@@ -126,7 +126,11 @@ export function ContactSection() {
                   Conecte para acompanhar conteúdos e novidades sobre digitalização industrial.
                 </p>
                 <Button variant="outline" size="sm" className="btn-tertiary-silver cursor-pointer" asChild>
-                  <a href="#" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://www.linkedin.com/in/vanderson-machado-9630641b7/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Abrir LinkedIn
                   </a>
                 </Button>
