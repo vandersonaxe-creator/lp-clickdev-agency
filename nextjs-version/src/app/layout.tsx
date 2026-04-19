@@ -2,8 +2,9 @@ import type { Metadata } from "next"
 import "./globals.css"
 
 import { ThemeProvider } from "@/components/theme-provider"
+import { Toaster } from "@/components/ui/sonner"
 import { SidebarConfigProvider } from "@/contexts/sidebar-context"
-import { inter } from "@/lib/fonts"
+import { dmSans, jetbrainsMono } from "@/lib/fonts"
 
 export const metadata: Metadata = {
   title: "Click Dev — Digitalização Industrial Sob Medida",
@@ -47,10 +48,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} antialiased`}>
-      <body className={inter.className}>
+    <html
+      lang="pt-BR"
+      className={`${dmSans.variable} ${jetbrainsMono.variable} antialiased`}
+    >
+      <body className={`${dmSans.className} font-sans`}>
         <ThemeProvider defaultTheme="dark" storageKey="nextjs-ui-theme">
           <SidebarConfigProvider>{children}</SidebarConfigProvider>
+          <Toaster richColors position="top-center" />
         </ThemeProvider>
       </body>
     </html>
