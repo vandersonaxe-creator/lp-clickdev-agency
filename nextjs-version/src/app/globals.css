@@ -335,3 +335,35 @@ html {
 .pcm-bar-grow-h {
   animation: pcmBarGrowH 0.8s ease-out forwards;
 }
+
+/* Planejamento anual — tooltip leve (data-planning-tip) sem portal */
+.planning-cell-tip[data-planning-tip]:is(:hover, :focus-visible)::after {
+  content: attr(data-planning-tip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  z-index: 50;
+  width: max-content;
+  max-width: min(280px, 70vw);
+  transform: translateX(-50%);
+  border-radius: 8px;
+  border: 1px solid oklch(1 0 0 / 12%);
+  background: oklch(0.205 0 0);
+  padding: 6px 10px;
+  font-size: 11px;
+  line-height: 1.35;
+  color: oklch(0.985 0 0);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+.dark .planning-cell-tip[data-planning-tip]:is(:hover, :focus-visible)::after {
+  background: oklch(0.269 0 0);
+  color: oklch(0.985 0 0);
+}
+
+@media (hover: none) {
+  .planning-cell-tip[data-planning-tip]:is(:hover, :focus-visible)::after {
+    content: none;
+  }
+}

@@ -1,13 +1,5 @@
-import { CalendarRange } from "lucide-react"
-
-import { PcmModulePlaceholder } from "@/components/pcm/pcm-module-placeholder"
+import { PlanningPageContent } from "@/components/planning/planning-page-content"
 
 export default function PlanningPage() {
-  return (
-    <PcmModulePlaceholder
-      icon={CalendarRange}
-      title="Planejamento"
-      description="Cronogramas, backlog preventivo e alocação de recursos."
-    />
-  )
+  return <PlanningPageContent />
 }
