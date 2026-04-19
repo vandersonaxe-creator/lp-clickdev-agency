@@ -11,16 +11,14 @@ export function SiteFooter() {
             <Heart className="h-4 w-4 fill-red-500 text-red-500" />
             <span>by</span>
             <Link
-              href="https://shadcnstore.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium text-foreground hover:text-primary transition-colors"
+              href="/"
+              className="font-medium text-foreground transition-colors hover:text-primary"
             >
-              ShadcnStore Team
+              Click Dev
             </Link>
           </div>
           <p className="text-xs text-muted-foreground">
-            Building beautiful, accessible blocks, templates and dashboards for modern web applications.
+            Digitalização industrial e inteligência operacional.
           </p>
         </div>
       </div>

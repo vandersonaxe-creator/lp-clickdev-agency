@@ -2,18 +2,17 @@
 
 import * as React from "react"
 import {
-  AlertTriangle,
-  Bell,
+  BellRing,
+  Building2,
   CalendarClock,
   CalendarRange,
   ClipboardList,
   FileCheck,
+  FolderTree,
   Gauge,
-  History,
   LayoutDashboard,
   LayoutPanelLeft,
-  Settings,
-  Tag,
+  Shield,
   Wrench,
 } from "lucide-react"
 import Link from "next/link"
@@ -100,11 +99,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           className="mt-4"
           label="Administração"
           items={[
-            { title: "Categorias", url: "/settings/categories", icon: Tag },
-            { title: "Logs de Usuários", url: "/settings/logs", icon: History },
-            { title: "Avisos", url: "/settings/notices", icon: Bell },
-            { title: "Alertas", url: "/settings/alerts", icon: AlertTriangle },
-            { title: "Configurações", url: "/settings", icon: Settings },
+            { title: "Categorias e Locais", url: "/settings/categories", icon: FolderTree },
+            { title: "Regras de Alerta", url: "/settings/alerts", icon: BellRing },
+            { title: "Usuários e Permissões", url: "/settings/users", icon: Shield },
+            { title: "Empresa", url: "/settings", icon: Building2 },
           ]}
         />
       </SidebarContent>

@@ -76,7 +76,7 @@ export function PricingSection() {
             Choose your plan
           </h2>
           <p className={cn(marketingSectionLead, "mb-8")}>
-            Start building with our free components or upgrade to Pro for access to premium templates and advanced features.
+            Start with the plan that fits your operation and scale as your team grows.
           </p>
 
           {/* Billing Toggle */}

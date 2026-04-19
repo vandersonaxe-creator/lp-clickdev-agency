@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "question": "What is ShadcnStore Admin?",
-    "answer": "ShadcnStore Admin is a comprehensive admin dashboard template built with React, TypeScript, and shadcn/ui components. It provides a complete solution for managing your e-commerce store or business operations.",
+    "question": "What is Click PCM?",
+    "answer": "Click PCM is an operational dashboard for industrial digitalization. It helps teams monitor KPIs, workflows, and alerts in one place, built with React, TypeScript, and modern UI components.",
     "category": "General"
   },
   {
@@ -26,7 +26,7 @@
   {
     "id": 5,
     "question": "How do I contact support?",
-    "answer": "You can contact our support team through the support page, by email at support@shadcnstore.com, or through the live chat feature available 24/7.",
+    "answer": "You can contact our technical team from the in-app help options or via WhatsApp using the contact channel provided in the product.",
     "category": "General"
   },
   {

@@ -381,3 +381,16 @@ html {
   scrollbar-color: color-mix(in oklab, var(--muted-foreground) 35%, transparent)
     transparent;
 }
+
+/* Theme toggle pill — neon glow (header) */
+.theme-pill-glow-dark {
+  box-shadow:
+    0 0 12px rgba(56, 189, 248, 0.2),
+    0 0 4px rgba(56, 189, 248, 0.1);
+}
+
+.theme-pill-glow-light {
+  box-shadow:
+    0 0 12px rgba(251, 191, 36, 0.15),
+    0 0 4px rgba(251, 191, 36, 0.1);
+}
