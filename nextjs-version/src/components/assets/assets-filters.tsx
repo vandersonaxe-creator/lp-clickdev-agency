@@ -52,7 +52,7 @@ const LOCATION_OPTIONS: { value: string; label: string }[] = [
   { value: "Galpão 2", label: "Galpão 2" },
   { value: "Galpão 3", label: "Galpão 3" },
   { value: "Lab. Metrologia", label: "Lab. Metrologia" },
-  { value: "Planta IPB-GR", label: "Planta IPB-GR" },
+  { value: "Planta Forge", label: "Planta Forge" },
 ]
 
 export function AssetsFilters({

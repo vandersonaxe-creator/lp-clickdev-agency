@@ -35,7 +35,7 @@ export function PcmKpiSection() {
           PCM Industrial
         </h1>
         <p className="text-[12px] font-normal text-muted-foreground">
-          KPIs e indicadores — dados de demonstração
+          Forge Indústria · KPIs e indicadores (demonstração)
         </p>
       </div>
 

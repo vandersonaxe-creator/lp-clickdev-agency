@@ -24,7 +24,7 @@ export type PlanningAssetRow = {
   name: string
   criticality: Criticality
   /** Valor do filtro Área/Localização */
-  areaFilter: "galpao-1" | "galpao-2" | "galpao-3" | "planta-ipb"
+  areaFilter: "galpao-1" | "galpao-2" | "galpao-3" | "planta-forge"
   /** Título do grupo na UI */
   groupTitle: string
   technician: PlanningTechnician
@@ -414,8 +414,8 @@ function buildRows2026(): PlanningAssetRow[] {
       tag: "BAT-001",
       name: "Batedeira Antiga",
       criticality: "B",
-      areaFilter: "planta-ipb",
-      groupTitle: "PLANTA IPB-GR",
+      areaFilter: "planta-forge",
+      groupTitle: "PLANTA FORGE",
       technician: "Técnico 2",
       months: fill(y, {
         2: {
@@ -476,7 +476,7 @@ export function getPlanningKpis(year: number): PlanningKpiSnapshot {
   return PLANNING_KPI_BY_YEAR[year] ?? PLANNING_KPI_BY_YEAR[2026]
 }
 
-export type PlanningAreaFilter = "all" | "galpao-1" | "galpao-2" | "galpao-3" | "planta-ipb"
+export type PlanningAreaFilter = "all" | "galpao-1" | "galpao-2" | "galpao-3" | "planta-forge"
 
 export type PlanningFilters = {
   area: PlanningAreaFilter

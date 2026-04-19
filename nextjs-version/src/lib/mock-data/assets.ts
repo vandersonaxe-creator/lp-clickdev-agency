@@ -63,7 +63,7 @@ export const ASSETS_MOCK: IndustrialAsset[] = [
     type: "equipment",
     manufacturer: "Caterpillar",
     model: "GEP208",
-    location: "Planta IPB-GR",
+    location: "Planta Forge",
     criticality: "A",
     status: "active",
   },
@@ -216,7 +216,7 @@ export type TreeNode =
 export const ASSETS_TREE_MOCK: TreeNode = {
   kind: "location",
   id: "planta",
-  label: "Planta IPB-GR",
+  label: "Planta Forge",
   count: 54,
   children: [
     {
