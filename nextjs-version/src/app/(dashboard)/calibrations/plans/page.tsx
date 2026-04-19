@@ -1,13 +1,5 @@
-import { FileCheck } from "lucide-react"
-
-import { PcmModulePlaceholder } from "@/components/pcm/pcm-module-placeholder"
+import { PlansPageContent } from "@/components/calibrations/plans-page-content"
 
 export default function CalibrationPlansPage() {
-  return (
-    <PcmModulePlaceholder
-      icon={FileCheck}
-      title="Plano metrológico"
-      description="Planejamento e controle de calibrações e rastreabilidade."
-    />
-  )
+  return <PlansPageContent />
 }

@@ -1,13 +1,5 @@
-import { Gauge } from "lucide-react"
-
-import { PcmModulePlaceholder } from "@/components/pcm/pcm-module-placeholder"
+import { CalibrationsPageContent } from "@/components/calibrations/calibrations-page-content"
 
 export default function CalibrationsPage() {
-  return (
-    <PcmModulePlaceholder
-      icon={Gauge}
-      title="Metrologia"
-      description="Instrumentos, status de calibração e conformidade."
-    />
-  )
+  return <CalibrationsPageContent />
 }
