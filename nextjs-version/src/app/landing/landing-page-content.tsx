@@ -11,11 +11,13 @@ import { TestimonialsSection } from "./components/testimonials-section"
 import { FaqSection } from "./components/faq-section"
 import { CTASection } from "./components/cta-section"
 import { LandingFooter } from "./components/footer"
+import { ScrollJourney } from "./components/scroll-journey"
 
 export function LandingPageContent() {
   return (
     <div className="min-h-screen bg-background">
       <LandingNavbar />
+      <ScrollJourney />
 
       <main>
         <HeroSection />

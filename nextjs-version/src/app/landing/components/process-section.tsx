@@ -15,9 +15,8 @@ import {
   marketingSectionPadding,
   marketingSectionTitle,
 } from "@/lib/marketing-typography"
+import { fadeUp, inViewDefault, stagger } from "../motion-presets"
 import { Eyebrow } from "./eyebrow"
-
-const EASE = [0.22, 1, 0.36, 1] as const
 
 const steps = [
   {
@@ -88,14 +87,15 @@ export function ProcessSection() {
             className="pointer-events-none absolute left-0 right-0 top-[42px] hidden h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent lg:block"
           />
 
-          <ol className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5">
-            {steps.map((step, index) => (
+          <motion.ol
+            variants={stagger}
+            {...inViewDefault}
+            className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5"
+          >
+            {steps.map((step) => (
               <motion.li
                 key={step.n}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, ease: EASE, delay: index * 0.06 }}
+                variants={fadeUp}
                 className="group relative"
               >
                 <div className="relative flex flex-col items-start">
@@ -122,7 +122,7 @@ export function ProcessSection() {
                 </div>
               </motion.li>
             ))}
-          </ol>
+          </motion.ol>
         </div>
       </div>
     </section>

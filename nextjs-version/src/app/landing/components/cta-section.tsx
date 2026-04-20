@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { ArrowRight, MessageCircle, Play } from "lucide-react"
-import { motion } from "motion/react"
+import { motion, useReducedMotion } from "motion/react"
 
 import { BorderBeam } from "@/components/ui/border-beam"
 import { Button } from "@/components/ui/button"
@@ -19,11 +19,13 @@ import {
   CLICKDEV_WHATSAPP_HREF,
   DEMO_ROUTE,
 } from "../landing-copy"
+import { EASE } from "../motion-presets"
 import { Eyebrow } from "./eyebrow"
-
-const EASE = [0.22, 1, 0.36, 1] as const
+import { MouseSpotlight } from "./mouse-spotlight"
 
 export function CTASection() {
+  const reduced = useReducedMotion()
+
   return (
     <section
       id="contato"
@@ -42,15 +44,35 @@ export function CTASection() {
           )}
         >
           <BorderBeam
-            size={340}
-            duration={18}
-            delay={1}
-            borderWidth={1.5}
+            size={380}
+            duration={26}
+            delay={0}
+            borderWidth={1.2}
             colorFrom="#a78bfa"
             colorTo="#6366f1"
           />
 
-          <DotPattern className="opacity-30" size="md" fadeStyle="ellipse" />
+          {!reduced && (
+            <motion.div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_10%,oklch(0.6_0.2_290/0.28),transparent_60%)]"
+              animate={{ opacity: [0.55, 1, 0.55] }}
+              transition={{
+                duration: 7,
+                ease: "easeInOut",
+                repeat: Infinity,
+              }}
+            />
+          )}
+
+          <DotPattern className="opacity-25" size="md" fadeStyle="ellipse" />
+
+          <MouseSpotlight
+            size={720}
+            opacity={0.16}
+            zIndex={0}
+            className="absolute inset-0"
+          />
 
           <div className="relative">
             <Eyebrow align="center">Diagnóstico gratuito</Eyebrow>
@@ -85,7 +107,8 @@ export function CTASection() {
                 rel="noopener noreferrer"
                 className={cn(
                   "btn-primary-silver group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-xl",
-                  "px-7 text-base font-semibold"
+                  "px-7 text-base font-semibold",
+                  "transition-transform duration-300 hover:-translate-y-0.5"
                 )}
               >
                 <BorderBeam
@@ -94,6 +117,10 @@ export function CTASection() {
                   colorFrom="#f8fafc"
                   colorTo="#cbd5e1"
                   borderWidth={2}
+                />
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 transition-[opacity,transform] duration-700 group-hover:translate-x-full group-hover:opacity-100"
                 />
                 <span className="relative z-10 inline-flex items-center gap-2">
                   <MessageCircle className="h-4 w-4" aria-hidden />

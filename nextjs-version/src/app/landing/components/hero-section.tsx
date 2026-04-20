@@ -1,9 +1,15 @@
 "use client"
 
+import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, CheckCircle2, LineChart, Play } from "lucide-react"
-import { motion } from "motion/react"
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "motion/react"
 
 import { Button } from "@/components/ui/button"
 import { BorderBeam } from "@/components/ui/border-beam"
@@ -12,26 +18,8 @@ import { cn } from "@/lib/utils"
 import { marketingHeroLead } from "@/lib/marketing-typography"
 import { landingMedia } from "@/lib/landing-media"
 import { CLICKDEV_WHATSAPP_HREF, DEMO_ROUTE } from "../landing-copy"
+import { EASE, fadeUp, stagger } from "../motion-presets"
 import { Eyebrow } from "./eyebrow"
-
-const EASE = [0.22, 1, 0.36, 1] as const
-
-const stagger = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.04 },
-  },
-}
-
-const item = {
-  hidden: { opacity: 0, y: 22 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: EASE },
-  },
-}
 
 const proofBullets = [
   "10+ anos em operação industrial",
@@ -40,23 +28,43 @@ const proofBullets = [
 ] as const
 
 export function HeroSection() {
+  const reduced = useReducedMotion()
+  const sectionRef = React.useRef<HTMLElement>(null)
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  })
+
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "14%"])
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-4%"])
+  const mockupY = useTransform(scrollYProgress, [0, 1], ["0%", "-6%"])
+  const mockupScale = useTransform(scrollYProgress, [0, 1], [1, 0.98])
+  const chip1Y = useTransform(scrollYProgress, [0, 1], ["0%", "-24%"])
+  const chip2Y = useTransform(scrollYProgress, [0, 1], ["0%", "-14%"])
+
   return (
     <section
       id="hero"
+      ref={sectionRef}
       className="relative overflow-hidden bg-background pt-20 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-28"
     >
-      <div className="pointer-events-none absolute inset-0 z-0">
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0"
+        style={reduced ? undefined : { y: bgY }}
+      >
         <HyperspaceBackground
-          starTrailOpacity={0.42}
+          starTrailOpacity={0.38}
           starSpeed={0.9}
           starSize={0.4}
           starColor="#ffffff"
           className="[mask-image:linear-gradient(to_bottom,black_45%,black_78%,transparent_100%)]"
         />
-      </div>
+      </motion.div>
 
       <div
-        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-background/85 via-background/55 to-background"
+        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-background/70 via-background/35 to-background"
         aria-hidden
       />
       <div
@@ -66,18 +74,21 @@ export function HeroSection() {
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14"
+          className="mx-auto grid max-w-[1440px] grid-cols-1 items-center gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20"
           variants={stagger}
           initial="hidden"
           animate="show"
         >
-          <div className="text-left">
-            <motion.div variants={item}>
+          <motion.div
+            className="text-left"
+            style={reduced ? undefined : { y: textY }}
+          >
+            <motion.div variants={fadeUp}>
               <Eyebrow>Sistemas sob medida · PCM · Metrologia</Eyebrow>
             </motion.div>
 
             <motion.h1
-              variants={item}
+              variants={fadeUp}
               className={cn(
                 "mt-6 text-balance font-bold tracking-[-0.035em]",
                 "text-[36px] leading-[1.05] sm:text-[52px] lg:text-[64px] lg:leading-[1.02]"
@@ -97,19 +108,19 @@ export function HeroSection() {
             </motion.h1>
 
             <motion.p
-              variants={item}
+              variants={fadeUp}
               className={cn(
                 marketingHeroLead,
                 "mt-6 max-w-xl text-balance"
               )}
             >
-              Construo sistemas web sob medida para indústrias que ainda rodam em
-              planilha, papel e memória. Manutenção, metrologia, ativos e PCM no
-              mesmo painel — com rastreabilidade de verdade.
+              Construo sistemas web sob medida para indústrias que ainda rodam
+              em planilha, papel e memória. Manutenção, metrologia, ativos e
+              PCM no mesmo painel — com rastreabilidade de verdade.
             </motion.p>
 
             <motion.div
-              variants={item}
+              variants={fadeUp}
               className="mt-8 flex flex-col gap-3 sm:flex-row"
             >
               <a
@@ -150,7 +161,7 @@ export function HeroSection() {
             </motion.div>
 
             <motion.ul
-              variants={item}
+              variants={fadeUp}
               className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground"
             >
               {proofBullets.map((text) => (
@@ -163,47 +174,64 @@ export function HeroSection() {
                 </li>
               ))}
             </motion.ul>
-          </div>
+          </motion.div>
 
           <motion.div
-            variants={item}
-            className="relative mx-auto w-full max-w-[640px] lg:max-w-none"
+            variants={fadeUp}
+            className="relative mx-auto w-full max-w-[820px] lg:max-w-none lg:-mr-10 xl:-mr-20 2xl:-mr-32"
+            style={
+              reduced ? undefined : { y: mockupY, scale: mockupScale }
+            }
           >
             <div
               aria-hidden
-              className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-[radial-gradient(ellipse_70%_60%_at_50%_40%,oklch(0.6_0.2_290/0.25),transparent_65%)] blur-2xl"
+              className="pointer-events-none absolute -inset-32 rounded-[4rem] bg-[radial-gradient(ellipse_55%_50%_at_50%_50%,oklch(0.9_0.12_290/0.32),oklch(0.62_0.24_290/0.22)_42%,transparent_72%)] blur-[80px]"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -inset-12 rounded-[3rem] bg-[radial-gradient(ellipse_60%_55%_at_50%_55%,oklch(0.65_0.22_290/0.4),transparent_70%)] blur-2xl"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -bottom-14 left-1/2 h-24 w-[75%] -translate-x-1/2 rounded-[100%] bg-[oklch(0.82_0.12_290/0.35)] blur-3xl dark:bg-[oklch(0.85_0.15_290/0.3)]"
             />
 
-            <div className="relative overflow-hidden rounded-2xl border border-border/70 bg-card/60 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.7)] backdrop-blur-sm">
+            <div
+              className={cn(
+                "relative overflow-hidden rounded-2xl border border-white/10 bg-background",
+                "shadow-[0_50px_100px_-20px_rgba(0,0,0,0.45),0_30px_60px_-15px_oklch(0.62_0.22_290/0.55),0_0_60px_-10px_oklch(0.75_0.18_290/0.35),0_0_0_1px_rgba(255,255,255,0.05)_inset]",
+                "dark:shadow-[0_60px_140px_-20px_rgba(0,0,0,0.85),0_40px_80px_-15px_oklch(0.62_0.22_290/0.6),0_0_80px_-10px_oklch(0.8_0.15_290/0.4),0_0_0_1px_rgba(255,255,255,0.07)_inset]"
+              )}
+            >
               <BorderBeam
-                size={260}
-                duration={16}
+                size={300}
+                duration={20}
                 delay={3}
                 borderWidth={1.5}
                 colorFrom="#a78bfa"
                 colorTo="#6366f1"
               />
 
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"
+              />
+
               <Image
                 src={landingMedia.heroLight}
                 alt="Dashboard Click Dev — painel de manutenção e metrologia"
-                width={1400}
-                height={900}
-                className="block w-full object-cover dark:hidden"
+                width={1600}
+                height={1000}
+                className="relative block w-full dark:hidden"
                 priority
               />
               <Image
                 src={landingMedia.heroDark}
                 alt="Dashboard Click Dev — painel de manutenção e metrologia"
-                width={1400}
-                height={900}
-                className="hidden w-full object-cover dark:block"
+                width={1600}
+                height={1000}
+                className="relative hidden w-full dark:block"
                 priority
-              />
-
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-background/95"
               />
             </div>
 
@@ -211,6 +239,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: EASE, delay: 0.6 }}
+              style={reduced ? undefined : { y: chip1Y }}
               className={cn(
                 "absolute -left-4 bottom-6 hidden sm:flex",
                 "items-center gap-3 rounded-xl border border-border/70 bg-background/80 px-4 py-3",
@@ -234,6 +263,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: -12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: EASE, delay: 0.75 }}
+              style={reduced ? undefined : { y: chip2Y }}
               className={cn(
                 "absolute -right-3 top-6 hidden md:flex",
                 "items-center gap-2 rounded-full border border-border/70 bg-background/80 px-3 py-1.5",

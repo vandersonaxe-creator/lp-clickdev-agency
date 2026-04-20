@@ -21,9 +21,8 @@ import {
   marketingSectionPadding,
   marketingSectionTitle,
 } from "@/lib/marketing-typography"
+import { fadeUp, inViewDefault, stagger } from "../motion-presets"
 import { Eyebrow } from "./eyebrow"
-
-const EASE = [0.22, 1, 0.36, 1] as const
 
 const profileImages = [
   {
@@ -94,14 +93,12 @@ export function FounderSection() {
       />
 
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, ease: EASE }}
-            className="relative"
-          >
+        <motion.div
+          variants={stagger}
+          {...inViewDefault}
+          className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14"
+        >
+          <motion.div variants={fadeUp} className="relative">
             <div
               aria-hidden
               className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-[radial-gradient(ellipse_60%_70%_at_50%_50%,oklch(0.6_0.2_290/0.18),transparent_60%)] blur-2xl"
@@ -154,13 +151,7 @@ export function FounderSection() {
             </Card>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, ease: EASE, delay: 0.1 }}
-            className="min-w-0"
-          >
+          <motion.div variants={fadeUp} className="min-w-0">
             <Eyebrow>Fundador · Click Dev</Eyebrow>
             <h2
               className={cn(marketingSectionTitle, "mt-5 text-balance")}
@@ -188,7 +179,7 @@ export function FounderSection() {
               {credentials.map((c) => (
                 <li
                   key={c.title}
-                  className="rounded-xl border border-border/70 bg-card/50 p-4"
+                  className="group rounded-xl border border-border/70 bg-card/50 p-4 transition-all duration-400 hover:-translate-y-0.5 hover:border-violet-500/40 hover:bg-card/70"
                 >
                   <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-violet-500/30 bg-violet-500/10 text-violet-300">
                     <c.icon className="h-4 w-4" aria-hidden />
@@ -220,7 +211,7 @@ export function FounderSection() {
               ))}
             </div>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

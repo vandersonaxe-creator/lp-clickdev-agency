@@ -10,9 +10,8 @@ import {
   marketingSectionPadding,
   marketingSectionTitle,
 } from "@/lib/marketing-typography"
+import { fadeUp, inViewDefault, stagger } from "../motion-presets"
 import { Eyebrow } from "./eyebrow"
-
-const EASE = [0.22, 1, 0.36, 1] as const
 
 type Testimonial = {
   name: string
@@ -72,13 +71,11 @@ export function TestimonialsSection() {
         </div>
 
         <motion.article
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: EASE }}
+          variants={fadeUp}
+          {...inViewDefault}
           className="relative mx-auto mt-14 max-w-5xl"
         >
-          <div className="relative overflow-hidden rounded-2xl border border-border/70 bg-card/60 p-8 sm:p-10 lg:p-14">
+          <div className="group relative overflow-hidden rounded-2xl border border-border/70 bg-card/60 p-8 transition-all duration-500 hover:border-violet-500/40 hover:shadow-[0_40px_100px_-40px_oklch(0.55_0.22_290/0.45)] sm:p-10 lg:p-14">
             <BorderBeam
               size={300}
               duration={18}
@@ -118,19 +115,16 @@ export function TestimonialsSection() {
           </div>
         </motion.article>
 
-        <div className="mx-auto mt-6 grid max-w-5xl grid-cols-1 gap-5 md:grid-cols-2">
-          {support.map((t, index) => (
+        <motion.div
+          variants={stagger}
+          {...inViewDefault}
+          className="mx-auto mt-6 grid max-w-5xl grid-cols-1 gap-5 md:grid-cols-2"
+        >
+          {support.map((t) => (
             <motion.article
               key={t.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{
-                duration: 0.5,
-                ease: EASE,
-                delay: 0.08 + index * 0.06,
-              }}
-              className="flex flex-col rounded-2xl border border-border/70 bg-card/40 p-6 sm:p-7"
+              variants={fadeUp}
+              className="flex flex-col rounded-2xl border border-border/70 bg-card/40 p-6 transition-all duration-500 hover:-translate-y-0.5 hover:border-violet-500/30 hover:bg-card/60 hover:shadow-[0_20px_50px_-30px_oklch(0.55_0.22_290/0.35)] sm:p-7"
             >
               <blockquote className="flex-1">
                 <p className="text-sm leading-relaxed text-foreground/90 text-pretty sm:text-base">
@@ -151,7 +145,7 @@ export function TestimonialsSection() {
               </footer>
             </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

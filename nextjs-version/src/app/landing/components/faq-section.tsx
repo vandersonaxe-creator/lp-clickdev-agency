@@ -8,11 +8,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { motion } from "motion/react"
+
 import { cn } from "@/lib/utils"
 import {
   marketingSectionPadding,
   marketingSectionTitle,
 } from "@/lib/marketing-typography"
+import { fadeUp, inViewDefault, stagger } from "../motion-presets"
 import { Eyebrow } from "./eyebrow"
 
 type FaqItem = {
@@ -64,48 +67,62 @@ export function FaqSection() {
           </h2>
         </div>
 
-        <div className="mx-auto mt-12 max-w-3xl">
+        <motion.div
+          variants={stagger}
+          {...inViewDefault}
+          className="mx-auto mt-12 max-w-3xl"
+        >
           <Accordion type="single" collapsible className="space-y-3">
             {faqItems.map((item) => (
-              <AccordionItem
-                key={item.value}
-                value={item.value}
-                className={cn(
-                  "overflow-hidden rounded-xl border border-border/70 bg-card/40",
-                  "data-[state=open]:border-violet-500/40 data-[state=open]:bg-card/60",
-                  "transition-colors"
-                )}
-              >
-                <AccordionTrigger
+              <motion.div key={item.value} variants={fadeUp}>
+                <AccordionItem
+                  value={item.value}
                   className={cn(
-                    "group w-full cursor-pointer items-center justify-between gap-4 px-5 py-5 text-left",
-                    "hover:no-underline focus-visible:ring-0 focus-visible:ring-offset-0",
-                    "data-[state=open]:pb-3",
-                    "[&>svg:last-child]:hidden"
+                    "group/item relative overflow-hidden rounded-xl border border-border/70 bg-card/40",
+                    "transition-all duration-300",
+                    "hover:border-border hover:bg-card/55",
+                    "data-[state=open]:border-violet-500/40 data-[state=open]:bg-card/60 data-[state=open]:shadow-[0_10px_40px_-20px_oklch(0.55_0.22_290/0.35)]"
                   )}
                 >
-                  <span className="text-base font-semibold tracking-tight text-foreground sm:text-lg">
-                    {item.question}
-                  </span>
                   <span
                     aria-hidden
                     className={cn(
-                      "relative inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg",
-                      "border border-border/70 bg-background/40 text-muted-foreground",
-                      "transition-colors group-hover:border-violet-500/40 group-hover:text-violet-300",
-                      "group-data-[state=open]:border-violet-500/40 group-data-[state=open]:text-violet-300"
+                      "pointer-events-none absolute left-0 top-0 h-full w-[2px] origin-top scale-y-0 bg-gradient-to-b from-violet-400 via-violet-500 to-violet-600",
+                      "transition-transform duration-400 ease-out",
+                      "group-data-[state=open]/item:scale-y-100"
+                    )}
+                  />
+                  <AccordionTrigger
+                    className={cn(
+                      "group w-full cursor-pointer items-center justify-between gap-4 px-5 py-5 text-left",
+                      "hover:no-underline focus-visible:ring-0 focus-visible:ring-offset-0",
+                      "data-[state=open]:pb-3",
+                      "[&>svg:last-child]:hidden"
                     )}
                   >
-                    <Plus className="h-4 w-4 transition-transform duration-300 group-data-[state=open]:rotate-45" />
-                  </span>
-                </AccordionTrigger>
-                <AccordionContent className="px-5 pb-5 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
+                    <span className="text-base font-semibold tracking-tight text-foreground sm:text-lg">
+                      {item.question}
+                    </span>
+                    <span
+                      aria-hidden
+                      className={cn(
+                        "relative inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg",
+                        "border border-border/70 bg-background/40 text-muted-foreground",
+                        "transition-colors group-hover:border-violet-500/40 group-hover:text-violet-300",
+                        "group-data-[state=open]:border-violet-500/40 group-data-[state=open]:text-violet-300"
+                      )}
+                    >
+                      <Plus className="h-4 w-4 transition-transform duration-300 group-data-[state=open]:rotate-45" />
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-5 pb-5 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
             ))}
           </Accordion>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

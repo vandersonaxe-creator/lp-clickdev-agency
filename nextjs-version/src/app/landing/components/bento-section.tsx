@@ -23,23 +23,8 @@ import {
   marketingSectionPadding,
   marketingSectionTitle,
 } from "@/lib/marketing-typography"
+import { fadeUp, stagger } from "../motion-presets"
 import { Eyebrow } from "./eyebrow"
-
-const EASE = [0.22, 1, 0.36, 1] as const
-
-const stagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.08 } },
-}
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: EASE },
-  },
-}
 
 /** Paleta violet unificada — uma cor só em toda a bento. */
 const VIOLET = {
@@ -47,6 +32,16 @@ const VIOLET = {
   to: "#6366f1",
   mid: "#8b5cf6",
 } as const
+
+/**
+ * Hover premium: borda responde, sombra violet aprofunda,
+ * micro translate-y. Timing consistente em todos os cards.
+ */
+const bentoHover =
+  "transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-[0_30px_70px_-30px_oklch(0.55_0.22_290/0.35)]"
+
+const cardFrame =
+  "group relative h-full overflow-hidden rounded-2xl border border-border/70 hover:border-violet-500/40"
 
 function SectionHeader() {
   return (
@@ -91,9 +86,12 @@ export function BentoSection({ className }: { className?: string }) {
           viewport={{ once: true, amount: 0.1 }}
           className="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-5 sm:mt-14 md:grid-cols-12 md:gap-6"
         >
-          <motion.div variants={item} className="md:col-span-8">
+          <motion.div
+            variants={fadeUp}
+            className={cn("md:col-span-8", bentoHover)}
+          >
             <MagicCard
-              className="relative h-full overflow-hidden rounded-2xl border border-border/70"
+              className={cardFrame}
               gradientFrom={VIOLET.from}
               gradientTo={VIOLET.to}
               gradientColor={VIOLET.mid}
@@ -156,9 +154,12 @@ export function BentoSection({ className }: { className?: string }) {
             </MagicCard>
           </motion.div>
 
-          <motion.div variants={item} className="md:col-span-4">
+          <motion.div
+            variants={fadeUp}
+            className={cn("md:col-span-4", bentoHover)}
+          >
             <MagicCard
-              className="h-full rounded-2xl border border-border/70"
+              className={cardFrame}
               gradientFrom={VIOLET.from}
               gradientTo={VIOLET.to}
               gradientColor={VIOLET.mid}
@@ -216,9 +217,12 @@ export function BentoSection({ className }: { className?: string }) {
             </MagicCard>
           </motion.div>
 
-          <motion.div variants={item} className="md:col-span-5">
+          <motion.div
+            variants={fadeUp}
+            className={cn("md:col-span-5", bentoHover)}
+          >
             <MagicCard
-              className="h-full rounded-2xl border border-border/70"
+              className={cardFrame}
               gradientFrom={VIOLET.from}
               gradientTo={VIOLET.to}
               gradientColor={VIOLET.mid}
@@ -258,9 +262,12 @@ export function BentoSection({ className }: { className?: string }) {
             </MagicCard>
           </motion.div>
 
-          <motion.div variants={item} className="md:col-span-7">
+          <motion.div
+            variants={fadeUp}
+            className={cn("md:col-span-7", bentoHover)}
+          >
             <MagicCard
-              className="h-full rounded-2xl border border-border/70"
+              className={cardFrame}
               gradientFrom={VIOLET.from}
               gradientTo={VIOLET.to}
               gradientColor={VIOLET.mid}
