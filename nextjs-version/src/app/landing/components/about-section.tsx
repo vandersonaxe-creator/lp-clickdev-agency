@@ -52,8 +52,58 @@ export function AboutSection() {
             <Card key={index} className='group shadow-xs py-2'>
               <CardContent className='p-8'>
                 <div className='flex flex-col items-center text-center'>
-                  <CardDecorator>
-                    <value.icon className='h-6 w-6' aria-hidden />
+                  <CardDecorator centerClassName={index === 0 || index === 1 || index === 2 || index === 3 ? "h-16 w-16 rounded-lg" : undefined}>
+                    {index === 0 ? (
+                      <video
+                        className="h-full w-full scale-125 object-cover"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        aria-label="Animação ilustrativa"
+                      >
+                        <source src="/landing/value-1.mp4" type="video/mp4" />
+                      </video>
+                    ) : index === 1 ? (
+                      <video
+                        className="h-full w-full scale-125 object-cover"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        aria-label="Animação ilustrativa"
+                      >
+                        <source src="/landing/value-2.mp4" type="video/mp4" />
+                      </video>
+                    ) : index === 2 ? (
+                      <video
+                        className="h-full w-full scale-125 object-cover"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        aria-label="Animação ilustrativa"
+                      >
+                        <source src="/landing/value-3.mp4" type="video/mp4" />
+                      </video>
+                    ) : index === 3 ? (
+                      <video
+                        className="h-full w-full scale-110 object-contain"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        aria-label="Animação ilustrativa"
+                      >
+                        <source src="/landing/value-4.mp4" type="video/mp4" />
+                      </video>
+                    ) : (
+                      <value.icon className='h-6 w-6' aria-hidden />
+                    )}
                   </CardDecorator>
                   <h3 className={cn(marketingCardTitle, 'mt-6 text-balance')}>{value.title}</h3>
                   <p className='text-muted-foreground mt-3 text-sm'>{value.description}</p>

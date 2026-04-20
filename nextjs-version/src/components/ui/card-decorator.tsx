@@ -1,6 +1,12 @@
 import type { ReactNode } from 'react'
 
-export const CardDecorator = ({ children }: { children: ReactNode }) => (
+type CardDecoratorProps = {
+  children: ReactNode
+  /** Optional class override for center container (e.g. size). */
+  centerClassName?: string
+}
+
+export const CardDecorator = ({ children, centerClassName }: CardDecoratorProps) => (
   <div className='relative mx-auto h-36 w-36'>
     {/* Light Mode Dot Pattern */}
     <div
@@ -10,7 +16,14 @@ export const CardDecorator = ({ children }: { children: ReactNode }) => (
     {/* Light Mode Radial Fade */}
     <div aria-hidden className='to-card absolute inset-0 bg-radial from-transparent' />
     {/* Center Icon Container */}
-    <div className='bg-background absolute inset-0 m-auto flex h-12 w-12 items-center justify-center rounded-md border shadow-xs'>
+    <div
+      className={[
+        "bg-background absolute inset-0 m-auto flex h-12 w-12 items-center justify-center rounded-md border shadow-xs overflow-hidden",
+        centerClassName,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
       {children}
     </div>
   </div>
