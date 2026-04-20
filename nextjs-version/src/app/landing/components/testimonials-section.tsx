@@ -3,7 +3,6 @@
 import { Card, CardContent } from '@/components/ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
-import { BorderBeam } from '@/components/ui/border-beam'
 import { cn } from '@/lib/utils'
 import { marketingSectionLead, marketingSectionTitle } from '@/lib/marketing-typography'
 import { SectionReveal } from './section-reveal'
@@ -22,23 +21,23 @@ const testimonials: Testimonial[] = [
     role: "Gerente de Operações",
     image: "/landing/wiltontestemunha.svg",
     quote:
-      "“A digitalização precisa falar a língua de quem está na operação. Com a Click Dev, conseguimos organizar informações, reduzir retrabalho e ganhar clareza para decidir com dados — sem perder o ritmo do chão de fábrica.”",
+      "A digitalização precisa falar a língua de quem está na operação. Com a Click Dev, conseguimos organizar informações, reduzir retrabalho e ganhar clareza para decidir com dados – sem perder o ritmo do chão de fábrica.",
     approved: true,
   },
   {
-    name: "Cliente (autorizado)",
-    role: "Gestor de Manutenção",
-    image: "https://notion-avatars.netlify.app/api/avatar?preset=male-1",
+    name: "Anne Braga",
+    role: "Gerente de Qualidade Industrial",
+    image: "/images/testimonials/anne-braga.png",
     quote:
-      "“Saímos de planilhas para um painel único: preventivas, corretivas e pendências ficaram visíveis. Hoje consigo cobrar execução com rastreabilidade e prioridade.”",
+      "A Click Dev mudou completamente nossa rotina de qualidade. Os alertas automáticos de calibração e o histórico digital acabaram com a correria antes das auditorias. Tudo fica rastreável em um clique — ganhamos tempo, reduzimos não-conformidades e ainda passamos mais credibilidade para os clientes.",
     approved: true,
   },
   {
-    name: "Cliente (autorizado)",
-    role: "Qualidade / Metrologia",
-    image: "https://notion-avatars.netlify.app/api/avatar?preset=female-2",
+    name: "Luiz Paulo C. Cardoso",
+    role: "Gerente de Manutenção Industrial",
+    image: "/images/testimonials/luiz-paulo.png",
     quote:
-      "“O Kanban de calibrações e os alertas antes do vencimento reduziram correria. Em auditoria, certificado e histórico estão na mão — sem procurar em pasta.”",
+      "Saímos das planilhas e ganhamos um painel único que mostra preventivas, corretivas e o status de todos os ativos em tempo real. Conseguimos reduzir paradas não planejadas e a equipe agora cobra execução com prioridade e rastreabilidade. É o tipo de ferramenta que quem está no chão de fábrica realmente sente a diferença.",
     approved: true,
   },
 ]
@@ -66,14 +65,8 @@ export function TestimonialsSection() {
           {visibleTestimonials.map((testimonial, index) => (
             <Card
               key={index}
-              className={cn(
-                'relative mb-6 break-inside-avoid overflow-hidden shadow-none lg:mb-4',
-                index === 0 && 'ring-1 ring-primary/20'
-              )}
+              className={cn('relative mb-6 break-inside-avoid overflow-hidden shadow-none lg:mb-4')}
             >
-              {index === 0 ? (
-                <BorderBeam size={220} duration={10} delay={2} borderWidth={2} colorFrom="#f97316" colorTo="#a855f7" />
-              ) : null}
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <Avatar className="bg-muted size-12 shrink-0">
