@@ -1,40 +1,34 @@
 "use client"
 
-import React from 'react'
-import { LandingNavbar } from './components/navbar'
-import { HeroSection } from './components/hero-section'
+import { LandingNavbar } from "./components/navbar"
+import { HeroSection } from "./components/hero-section"
+import { ProofStrip } from "./components/proof-strip"
+import { PainSection } from "./components/pain-section"
 import { BentoSection } from "./components/bento-section"
-import { FeaturesSection } from './components/features-section'
-import { CTASection } from './components/cta-section'
-import { FaqSection } from './components/faq-section'
-import { LandingFooter } from './components/footer'
-import { AboutSection } from './components/about-section'
-import { AboutMeSection } from './components/about-me-section'
-import { LogoCarousel } from './components/logo-carousel'
-import { StatsSection } from './components/stats-section'
+import { ProcessSection } from "./components/process-section"
+import { FounderSection } from "./components/founder-section"
 import { TestimonialsSection } from "./components/testimonials-section"
+import { FaqSection } from "./components/faq-section"
+import { CTASection } from "./components/cta-section"
+import { LandingFooter } from "./components/footer"
 
 export function LandingPageContent() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation */}
       <LandingNavbar />
 
-      {/* Main Content */}
       <main>
         <HeroSection />
-        <LogoCarousel />
+        <ProofStrip />
+        <PainSection />
         <BentoSection />
-        <FeaturesSection />
-        <AboutSection />
-        <AboutMeSection />
-        <StatsSection />
+        <ProcessSection />
+        <FounderSection />
         <TestimonialsSection />
         <FaqSection />
         <CTASection />
       </main>
 
-      {/* Footer */}
       <LandingFooter />
     </div>
   )

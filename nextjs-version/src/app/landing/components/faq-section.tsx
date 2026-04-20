@@ -1,13 +1,19 @@
 "use client"
 
-import { CircleHelp } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
-import { Badge } from '@/components/ui/badge'
-import { cn } from '@/lib/utils'
-import { marketingSectionLead, marketingSectionTitle } from '@/lib/marketing-typography'
-import { SectionReveal } from './section-reveal'
-import { CLICKDEV_WHATSAPP_HREF } from '../landing-copy'
+import { Plus } from "lucide-react"
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+import { cn } from "@/lib/utils"
+import {
+  marketingSectionPadding,
+  marketingSectionTitle,
+} from "@/lib/marketing-typography"
+import { Eyebrow } from "./eyebrow"
 
 type FaqItem = {
   value: string
@@ -17,98 +23,90 @@ type FaqItem = {
 
 const faqItems: FaqItem[] = [
   {
-    value: 'item-1',
-    question: 'Como funciona a implementação na minha indústria?',
+    value: "item-1",
+    question: "Quanto custa um projeto sob medida?",
     answer:
-      'Começamos com um diagnóstico gratuito para entender seus processos e objetivos. Depois, criamos um protótipo para validação e seguimos para a implementação sob medida com treinamento e suporte contínuo.',
+      "Depende do escopo real. Depois do diagnóstico conseguimos fechar um orçamento por blocos entregáveis — você paga pelo que entra em produção, sem pacote fechado inflado.",
   },
   {
-    value: 'item-2',
-    question: 'Vocês conseguem migrar minhas planilhas para o sistema?',
+    value: "item-2",
+    question: "Em quanto tempo começo a ver o sistema funcionando?",
     answer:
-      'Sim. Estruturamos seus dados e processos para uma transição suave de planilhas para um sistema robusto e integrado, mantendo rastreabilidade e histórico.',
+      "O protótipo navegável costuma sair nas primeiras semanas. Implantação é em ondas, com módulos entrando em uso antes do sistema estar 100% fechado — reduz risco e retrabalho.",
   },
   {
-    value: 'item-3',
-    question: 'Como a Click Dev garante a segurança dos dados e a LGPD?',
+    value: "item-3",
+    question: "Preciso parar a operação para implantar?",
     answer:
-      'Nossas soluções são desenvolvidas com foco em segurança de dados, controle de acesso e boas práticas de proteção da informação. Apoiamos a conformidade com a LGPD de acordo com a necessidade do seu cenário.',
+      "Não. A transição é feita em paralelo com a rotina atual — planilha e sistema rodam juntos até o time ganhar confiança. Nada entra em produção sem validação do gestor e do técnico.",
   },
   {
-    value: 'item-4',
-    question: 'Quanto tempo leva para colocar a solução em produção?',
+    value: "item-4",
+    question: "Como fica segurança e LGPD?",
     answer:
-      'Depende do escopo. Por isso usamos prototipagem e validação: você enxerga o sistema funcionando cedo e a evolução segue por etapas, reduzindo risco e retrabalho.',
-  },
-  {
-    value: 'item-5',
-    question: 'Qual é o retorno sobre investimento (ROI)?',
-    answer:
-      'O ROI varia, mas normalmente vem de reduzir paradas não planejadas, melhorar rastreabilidade, evitar não conformidades e aumentar eficiência com dados em tempo real. Podemos estimar ganhos no diagnóstico.',
-  },
-  {
-    value: 'item-6',
-    question: 'Vocês dão suporte após a entrega?',
-    answer:
-      'Sim. Oferecemos suporte contínuo e evoluímos o sistema conforme suas necessidades crescem, mantendo sua operação atualizada e otimizada.',
+      "Controle de acesso por papel, logs de ações e responsáveis, dados em infraestrutura dedicada e escopo de LGPD discutido no diagnóstico conforme o risco do seu cenário.",
   },
 ]
 
-const FaqSection = () => {
+export function FaqSection() {
   return (
-    <section id="faq" className="py-12 sm:py-16 lg:py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionReveal>
-        {/* Section Header */}
-        <div className="mx-auto max-w-2xl text-center mb-8 sm:mb-10">
-          <Badge variant="outline" className="mb-4">Perguntas frequentes</Badge>
-          <h2 className={cn(marketingSectionTitle, "mb-4")}>
-            Desvendando a Digitalização Industrial
+    <section
+      id="faq"
+      className={cn("relative overflow-hidden", marketingSectionPadding)}
+    >
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <Eyebrow align="center">Perguntas frequentes</Eyebrow>
+          <h2
+            className={cn(marketingSectionTitle, "mt-5 text-balance")}
+          >
+            O que a maioria pergunta antes de contratar.
           </h2>
-          <p className={marketingSectionLead}>
-            Dúvidas comuns sobre sistemas industriais, implementação, suporte, segurança de dados (LGPD) e retorno
-            sobre investimento.
-          </p>
         </div>
 
-        {/* FAQ Content */}
-        <div className="max-w-4xl mx-auto">
-          <div className='bg-transparent'>
-            <div className='p-0'>
-              <Accordion type='single' collapsible className='space-y-5'>
-                {faqItems.map(item => (
-                  <AccordionItem key={item.value} value={item.value} className='rounded-md !border bg-transparent'>
-                    <AccordionTrigger className='cursor-pointer items-center gap-4 rounded-none bg-transparent py-2 ps-3 pe-4 hover:no-underline data-[state=open]:border-b'>
-                      <div className='flex items-center gap-4'>
-                        <div className='bg-primary/10 text-primary flex size-9 shrink-0 items-center justify-center rounded-full'>
-                          <CircleHelp className='size-5' />
-                        </div>
-                        <span className='text-start font-semibold'>{item.question}</span>
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className='p-4 bg-transparent'>{item.answer}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-          </div>
-
-          {/* Contact Support CTA */}
-          <div className="text-center mt-12">
-            <p className="text-muted-foreground mb-4">
-              Ainda ficou com alguma dúvida? Chame no WhatsApp.
-            </p>
-            <Button className='cursor-pointer' asChild>
-              <a href={CLICKDEV_WHATSAPP_HREF} target="_blank" rel="noopener noreferrer">
-                Abrir WhatsApp
-              </a>
-            </Button>
-          </div>
+        <div className="mx-auto mt-12 max-w-3xl">
+          <Accordion type="single" collapsible className="space-y-3">
+            {faqItems.map((item) => (
+              <AccordionItem
+                key={item.value}
+                value={item.value}
+                className={cn(
+                  "overflow-hidden rounded-xl border border-border/70 bg-card/40",
+                  "data-[state=open]:border-violet-500/40 data-[state=open]:bg-card/60",
+                  "transition-colors"
+                )}
+              >
+                <AccordionTrigger
+                  className={cn(
+                    "group w-full cursor-pointer items-center justify-between gap-4 px-5 py-5 text-left",
+                    "hover:no-underline focus-visible:ring-0 focus-visible:ring-offset-0",
+                    "data-[state=open]:pb-3",
+                    "[&>svg:last-child]:hidden"
+                  )}
+                >
+                  <span className="text-base font-semibold tracking-tight text-foreground sm:text-lg">
+                    {item.question}
+                  </span>
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "relative inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg",
+                      "border border-border/70 bg-background/40 text-muted-foreground",
+                      "transition-colors group-hover:border-violet-500/40 group-hover:text-violet-300",
+                      "group-data-[state=open]:border-violet-500/40 group-data-[state=open]:text-violet-300"
+                    )}
+                  >
+                    <Plus className="h-4 w-4 transition-transform duration-300 group-data-[state=open]:rotate-45" />
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent className="px-5 pb-5 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
-        </SectionReveal>
       </div>
     </section>
   )
 }
-
-export { FaqSection }

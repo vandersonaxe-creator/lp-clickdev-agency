@@ -63,3 +63,16 @@ export const marketingStatValue =
 
 /** Brand wordmark in nav / footer (Heading 20). */
 export const marketingWordmark = marketingHeading.h20
+
+/**
+ * Small uppercase label used above section titles ("eyebrow").
+ * Senior-premium typography — avoids template-y badges.
+ */
+export const marketingEyebrow =
+  "text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground"
+
+/**
+ * Section container rhythm.
+ * Padding vertical consistente entre todas as seções maiores da landing.
+ */
+export const marketingSectionPadding = "py-20 sm:py-24 lg:py-32"

@@ -1,95 +1,134 @@
 "use client"
 
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { MessageCircle } from 'lucide-react'
-import { cn } from '@/lib/utils'
-import { marketingCtaTitle, marketingSectionLead } from '@/lib/marketing-typography'
-import { CLICKDEV_WHATSAPP_HREF } from '../landing-copy'
-import { SectionReveal } from './section-reveal'
+import Link from "next/link"
+import { ArrowRight, MessageCircle, Play } from "lucide-react"
+import { motion } from "motion/react"
+
+import { BorderBeam } from "@/components/ui/border-beam"
+import { Button } from "@/components/ui/button"
+import { DotPattern } from "@/components/dot-pattern"
+import { cn } from "@/lib/utils"
+import {
+  marketingCtaTitle,
+  marketingSectionLead,
+  marketingSectionPadding,
+} from "@/lib/marketing-typography"
+import {
+  CLICKDEV_EMAIL,
+  CLICKDEV_EMAIL_HREF,
+  CLICKDEV_WHATSAPP_HREF,
+  DEMO_ROUTE,
+} from "../landing-copy"
+import { Eyebrow } from "./eyebrow"
+
+const EASE = [0.22, 1, 0.36, 1] as const
 
 export function CTASection() {
   return (
-    <section className='relative overflow-hidden py-12 sm:py-16 lg:py-20 bg-muted/80'>
-      <div className="absolute inset-0 z-0">
-        <div
-          style={{
-            WebkitMaskImage:
-              "radial-gradient(ellipse 65% 65% at 50% 50%, #000 45%, transparent 100%)",
-            maskImage:
-              "radial-gradient(ellipse 65% 65% at 50% 50%, #000 45%, transparent 100%)",
-            backgroundImage:
-              "repeating-conic-gradient(var(--primary) 0%, var(--primary) 25%, transparent 0%, transparent 50%)",
-            backgroundSize: "20px 20px",
-            height: "100%",
-            left: "0",
-            opacity: "0.05",
-            pointerEvents: "none",
-            position: "absolute",
-            top: "0",
-            width: "100%",
-          }}
-        />
-      </div>
+    <section
+      id="contato"
+      className={cn("relative overflow-hidden", marketingSectionPadding)}
+    >
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: EASE }}
+          className={cn(
+            "relative mx-auto max-w-5xl overflow-hidden rounded-3xl border border-border/70",
+            "bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,oklch(0.55_0.22_290/0.2),transparent_60%),linear-gradient(to_bottom,var(--card),var(--background))]",
+            "px-6 py-16 text-center sm:px-10 sm:py-20 lg:px-16 lg:py-24"
+          )}
+        >
+          <BorderBeam
+            size={340}
+            duration={18}
+            delay={1}
+            borderWidth={1.5}
+            colorFrom="#a78bfa"
+            colorTo="#6366f1"
+          />
 
-      <div className='container relative z-10 mx-auto px-4 lg:px-8'>
-        <SectionReveal>
-        <div className='mx-auto max-w-4xl'>
-          <div className='text-center'>
-            <div className='space-y-6'>
-              {/* Badge and Stats */}
-              <div className='flex flex-col items-center gap-4'>
-                <Badge variant='outline' className='flex items-center gap-2'>
-                  <MessageCircle className='size-3' />
-                  Conversa rápida no WhatsApp
-                </Badge>
+          <DotPattern className="opacity-30" size="md" fadeStyle="ellipse" />
 
-                <div className='text-muted-foreground text-sm'>
-                  Diagnóstico gratuito e orientação inicial para sua indústria.
-                </div>
-              </div>
+          <div className="relative">
+            <Eyebrow align="center">Diagnóstico gratuito</Eyebrow>
 
-              {/* Main Content */}
-              <div className='space-y-6'>
-                <h1 className={cn(marketingCtaTitle, 'text-balance')}>
-                  Pronto para Levar sua Indústria ao Próximo Nível?
-                </h1>
+            <h2
+              className={cn(
+                marketingCtaTitle,
+                "mx-auto mt-6 max-w-3xl text-balance"
+              )}
+            >
+              Antes de qualquer proposta,{" "}
+              <span className="text-muted-foreground">
+                vamos olhar seu processo.
+              </span>
+            </h2>
 
-                <p className={cn(marketingSectionLead, 'mx-auto max-w-2xl text-balance')}>
-                  Não deixe que a falta de controle e processos manuais limitem o crescimento da sua empresa. Fale
-                  com um especialista da Click Dev e descubra como a digitalização pode transformar sua operação.
-                  Invista em tecnologia que gera resultados reais e mensuráveis.
-                </p>
-              </div>
+            <p
+              className={cn(
+                marketingSectionLead,
+                "mx-auto mt-6 max-w-2xl text-balance"
+              )}
+            >
+              30–40 minutos de conversa no WhatsApp para entender onde a
+              operação trava hoje e o que faz sentido digitalizar primeiro.
+              Sem compromisso e sem discurso de venda.
+            </p>
 
-              {/* CTA Buttons */}
-              <div className='flex flex-col justify-center gap-4 sm:flex-row sm:gap-6'>
-                <Button size='lg' className='btn-primary-silver cursor-pointer px-8 py-6 text-lg font-medium' asChild>
-                  <a href={CLICKDEV_WHATSAPP_HREF} target="_blank" rel="noopener noreferrer">
-                    Agendar Conversa Gratuita
-                  </a>
-                </Button>
-              </div>
+            <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <a
+                href={CLICKDEV_WHATSAPP_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  "btn-primary-silver group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-xl",
+                  "px-7 text-base font-semibold"
+                )}
+              >
+                <BorderBeam
+                  size={90}
+                  duration={14}
+                  colorFrom="#f8fafc"
+                  colorTo="#cbd5e1"
+                  borderWidth={2}
+                />
+                <span className="relative z-10 inline-flex items-center gap-2">
+                  <MessageCircle className="h-4 w-4" aria-hidden />
+                  Falar no WhatsApp
+                  <ArrowRight
+                    className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5"
+                    aria-hidden
+                  />
+                </span>
+              </a>
 
-              {/* Trust Indicators */}
-              <div className='text-muted-foreground flex flex-wrap items-center justify-center gap-6 text-sm'>
-                <div className='flex items-center gap-2'>
-                  <div className='size-2 rounded-full bg-green-600 dark:bg-green-400 me-1' />
-                  <span>Diagnóstico sem custo</span>
-                </div>
-                <div className='flex items-center gap-2'>
-                  <div className='size-2 rounded-full bg-blue-600 dark:bg-blue-400 me-1' />
-                  <span>Foco em operação e manutenção</span>
-                </div>
-                <div className='flex items-center gap-2'>
-                  <div className='size-2 rounded-full bg-purple-600 dark:bg-purple-400 me-1' />
-                  <span>Suporte contínuo</span>
-                </div>
-              </div>
+              <Button
+                size="lg"
+                variant="outline"
+                className="btn-secondary-silver h-12 cursor-pointer text-base"
+                asChild
+              >
+                <Link href={DEMO_ROUTE}>
+                  <Play className="mr-2 h-4 w-4" aria-hidden />
+                  Explorar dashboard
+                </Link>
+              </Button>
             </div>
+
+            <p className="mt-8 text-sm text-muted-foreground">
+              Prefere e-mail?{" "}
+              <a
+                href={CLICKDEV_EMAIL_HREF}
+                className="font-medium text-foreground underline-offset-4 transition-colors hover:text-violet-300 hover:underline"
+              >
+                {CLICKDEV_EMAIL}
+              </a>
+            </p>
           </div>
-        </div>
-        </SectionReveal>
+        </motion.div>
       </div>
     </section>
   )
