@@ -89,8 +89,7 @@ export function HeroSection() {
 
           <motion.div variants={heroItem}>
             <p className={cn(marketingHeroLead, "mx-auto mb-6 max-w-2xl text-balance sm:mb-8")}>
-              Sistemas e dashboards sob medida para PMEs. Menos paradas, mais controle e dados em tempo real na
-              produção e na manutenção.
+            Dashboards personalizados, alertas inteligentes e ordens digitais que acabam com a bagunça das planilhas.
             </p>
           </motion.div>
 

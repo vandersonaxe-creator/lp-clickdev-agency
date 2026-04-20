@@ -10,8 +10,29 @@ import { SectionReveal } from './section-reveal'
 
 export function CTASection() {
   return (
-    <section className='py-12 sm:py-16 lg:py-20 bg-muted/80'>
-      <div className='container mx-auto px-4 lg:px-8'>
+    <section className='relative overflow-hidden py-12 sm:py-16 lg:py-20 bg-muted/80'>
+      <div className="absolute inset-0 z-0">
+        <div
+          style={{
+            WebkitMaskImage:
+              "radial-gradient(ellipse 65% 65% at 50% 50%, #000 45%, transparent 100%)",
+            maskImage:
+              "radial-gradient(ellipse 65% 65% at 50% 50%, #000 45%, transparent 100%)",
+            backgroundImage:
+              "repeating-conic-gradient(var(--primary) 0%, var(--primary) 25%, transparent 0%, transparent 50%)",
+            backgroundSize: "20px 20px",
+            height: "100%",
+            left: "0",
+            opacity: "0.05",
+            pointerEvents: "none",
+            position: "absolute",
+            top: "0",
+            width: "100%",
+          }}
+        />
+      </div>
+
+      <div className='container relative z-10 mx-auto px-4 lg:px-8'>
         <SectionReveal>
         <div className='mx-auto max-w-4xl'>
           <div className='text-center'>
