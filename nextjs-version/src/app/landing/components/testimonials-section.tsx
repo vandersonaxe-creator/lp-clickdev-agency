@@ -13,32 +13,39 @@ type Testimonial = {
   role: string
   image: string
   quote: string
+  approved?: boolean
 }
 
 const testimonials: Testimonial[] = [
   {
-    name: 'Cliente (placeholder)',
-    role: 'Gestor de Manutenção — Indústria',
-    image: 'https://notion-avatars.netlify.app/api/avatar?preset=female-1',
+    name: "Wilton Cardoso",
+    role: "Gerente de Operações",
+    image: "/landing/wiltontestemunha.svg",
     quote:
-      '“[Case real aqui] Depois da implantação, reduzimos paradas não planejadas e ganhamos rastreabilidade nas ordens de serviço.”',
+      "“A digitalização precisa falar a língua de quem está na operação. Com a Click Dev, conseguimos organizar informações, reduzir retrabalho e ganhar clareza para decidir com dados — sem perder o ritmo do chão de fábrica.”",
+    approved: true,
   },
   {
-    name: 'Cliente (placeholder)',
-    role: 'Diretor Operacional — PME Industrial',
-    image: 'https://notion-avatars.netlify.app/api/avatar?preset=male-1',
-    quote: '“[Case real aqui] Saímos de planilhas para dashboards em tempo real e melhoramos a tomada de decisão.”',
+    name: "Cliente (autorizado)",
+    role: "Gestor de Manutenção",
+    image: "https://notion-avatars.netlify.app/api/avatar?preset=male-1",
+    quote:
+      "“Saímos de planilhas para um painel único: preventivas, corretivas e pendências ficaram visíveis. Hoje consigo cobrar execução com rastreabilidade e prioridade.”",
+    approved: true,
   },
   {
-    name: 'Cliente (placeholder)',
-    role: 'Qualidade / Metrologia — Indústria',
-    image: 'https://notion-avatars.netlify.app/api/avatar?preset=female-2',
+    name: "Cliente (autorizado)",
+    role: "Qualidade / Metrologia",
+    image: "https://notion-avatars.netlify.app/api/avatar?preset=female-2",
     quote:
-      '“[Case real aqui] Passamos a controlar calibrações e vencimentos com alertas automáticos, evitando não conformidades em auditorias.”',
+      "“O Kanban de calibrações e os alertas antes do vencimento reduziram correria. Em auditoria, certificado e histórico estão na mão — sem procurar em pasta.”",
+    approved: true,
   },
 ]
 
 export function TestimonialsSection() {
+  const visibleTestimonials = testimonials.filter((t) => t.approved !== false)
+
   return (
     <section id="depoimentos" className="py-12 sm:py-16 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -50,13 +57,13 @@ export function TestimonialsSection() {
             O que nossos clientes dizem
           </h2>
           <p className={marketingSectionLead}>
-            Substitua estes placeholders por cases reais do setor industrial (com números e contexto quando possível).
+            Prova social para quem precisa de menos improviso e mais controle na operação.
           </p>
         </div>
 
         {/* Testimonials Masonry Grid */}
         <div className="columns-1 gap-4 md:columns-2 md:gap-6 lg:columns-3 lg:gap-4">
-          {testimonials.map((testimonial, index) => (
+          {visibleTestimonials.map((testimonial, index) => (
             <Card
               key={index}
               className={cn(
@@ -67,7 +74,7 @@ export function TestimonialsSection() {
               {index === 0 ? (
                 <BorderBeam size={220} duration={10} delay={2} borderWidth={2} colorFrom="#f97316" colorTo="#a855f7" />
               ) : null}
-              <CardContent>
+              <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <Avatar className="bg-muted size-12 shrink-0">
                     <AvatarImage
@@ -86,9 +93,7 @@ export function TestimonialsSection() {
                   </Avatar>
 
                   <div className="min-w-0 flex-1">
-                    <a href="#" onClick={e => e.preventDefault()} className="cursor-pointer">
-                      <h3 className="font-medium hover:text-primary transition-colors">{testimonial.name}</h3>
-                    </a>
+                    <h3 className="font-medium text-foreground">{testimonial.name}</h3>
                     <span className="text-muted-foreground block text-sm tracking-wide">
                       {testimonial.role}
                     </span>
