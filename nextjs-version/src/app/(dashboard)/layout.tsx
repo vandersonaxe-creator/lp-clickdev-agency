@@ -2,6 +2,7 @@
 
 import React from "react";
 import { AppSidebar } from "@/components/app-sidebar";
+import { ExitIntentWhatsAppPopup } from "@/components/exit-intent-whatsapp-popup";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
@@ -71,6 +72,8 @@ export default function DashboardLayout({
         open={themeCustomizerOpen}
         onOpenChange={setThemeCustomizerOpen}
       />
+
+      <ExitIntentWhatsAppPopup />
     </SidebarProvider>
   );
 }

@@ -18,7 +18,6 @@ import {
 import Link from "next/link"
 import { Logo } from "@/components/logo"
 import { NavPcmGroup } from "@/components/nav-pcm"
-import { SidebarNotification } from "@/components/sidebar-notification"
 import { marketingWordmark } from "@/lib/marketing-typography"
 import { cn } from "@/lib/utils"
 
@@ -107,7 +106,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         />
       </SidebarContent>
       <SidebarFooter>
-        <SidebarNotification />
         <NavUser user={user} />
       </SidebarFooter>
     </Sidebar>
