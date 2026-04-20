@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link"
 import { ArrowRight, MessageCircle, Play } from "lucide-react"
 import { motion, useReducedMotion } from "motion/react"
 
@@ -138,10 +137,14 @@ export function CTASection() {
                 className="btn-secondary-silver h-12 cursor-pointer text-base"
                 asChild
               >
-                <Link href={DEMO_ROUTE}>
+                <a
+                  href={DEMO_ROUTE}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Play className="mr-2 h-4 w-4" aria-hidden />
                   Explorar dashboard
-                </Link>
+                </a>
               </Button>
             </div>
 

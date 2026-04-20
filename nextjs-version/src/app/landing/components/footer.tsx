@@ -46,8 +46,8 @@ export function LandingFooter() {
       />
 
       <div className="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
-        <div className="grid w-full min-w-0 grid-cols-1 gap-10 lg:grid-cols-[1.2fr_0.9fr_1fr] lg:gap-12">
-          <div className="min-w-0">
+        <div className="grid w-full min-w-0 grid-cols-1 gap-10 text-center lg:grid-cols-[1.2fr_0.9fr_1fr] lg:gap-12 lg:text-left">
+          <div className="min-w-0 flex flex-col items-center lg:items-start">
             <a
               href="/"
               className="inline-flex items-center gap-3"
@@ -101,7 +101,7 @@ export function LandingFooter() {
             >
               Contato
             </h4>
-            <ul className="space-y-3">
+            <ul className="flex flex-col items-center gap-3 lg:items-start">
               {contactChannels.map((ch) => {
                 const isMail = ch.href.startsWith("mailto:")
                 return (
@@ -133,7 +133,7 @@ export function LandingFooter() {
 
         <Separator className="my-10 bg-border/70" />
 
-        <div className="flex flex-col items-start justify-between gap-3 text-xs text-muted-foreground sm:flex-row sm:items-center sm:text-sm">
+        <div className="flex flex-col items-center justify-between gap-3 text-center text-xs text-muted-foreground sm:flex-row sm:items-center sm:text-left sm:text-sm">
           <p>
             © {year} Click Dev · Sistemas sob medida para operação industrial.
           </p>

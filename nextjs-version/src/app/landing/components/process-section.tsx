@@ -98,7 +98,7 @@ export function ProcessSection() {
                 variants={fadeUp}
                 className="group relative"
               >
-                <div className="relative flex flex-col items-start">
+                <div className="relative flex flex-col items-center text-center lg:items-start lg:text-left">
                   <div className="relative z-10 flex h-[84px] w-[84px] items-center justify-center rounded-2xl border border-border/70 bg-card/60 backdrop-blur-sm transition-colors group-hover:border-violet-500/40">
                     <div
                       aria-hidden
@@ -116,7 +116,7 @@ export function ProcessSection() {
                   <h3 className="mt-1 text-base font-semibold tracking-tight text-foreground">
                     {step.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground text-pretty">
+                  <p className="mt-2 max-w-[38ch] text-sm leading-relaxed text-muted-foreground text-pretty lg:max-w-none">
                     {step.description}
                   </p>
                 </div>

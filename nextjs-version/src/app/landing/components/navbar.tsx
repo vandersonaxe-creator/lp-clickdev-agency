@@ -148,7 +148,13 @@ export function LandingNavbar() {
               size="sm"
               className="text-muted-foreground hover:text-foreground"
             >
-              <Link href={DEMO_ROUTE}>Ver demo</Link>
+              <a
+                href={DEMO_ROUTE}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ver demo
+              </a>
             </Button>
             <PrimaryCtaLink />
           </div>
@@ -204,7 +210,13 @@ export function LandingNavbar() {
                     className="btn-secondary-silver w-full"
                     onClick={() => setMobileOpen(false)}
                   >
-                    <Link href={DEMO_ROUTE}>Ver demo</Link>
+                    <a
+                      href={DEMO_ROUTE}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Ver demo
+                    </a>
                   </Button>
                   <PrimaryCtaLink
                     className="w-full"

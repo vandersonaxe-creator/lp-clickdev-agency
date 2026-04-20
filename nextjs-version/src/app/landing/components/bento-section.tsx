@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
 import { motion } from "motion/react"
 import {
   BellRing,
@@ -23,6 +22,7 @@ import {
   marketingSectionPadding,
   marketingSectionTitle,
 } from "@/lib/marketing-typography"
+import { DEMO_ROUTE } from "../landing-copy"
 import { fadeUp, stagger } from "../motion-presets"
 import { Eyebrow } from "./eyebrow"
 
@@ -124,7 +124,13 @@ export function BentoSection({ className }: { className?: string }) {
                     size="sm"
                     className="btn-tertiary-silver mt-5 cursor-pointer"
                   >
-                    <Link href="/dashboard">Explorar dashboard</Link>
+                    <a
+                      href={DEMO_ROUTE}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Explorar dashboard
+                    </a>
                   </Button>
                 </div>
 
@@ -210,7 +216,13 @@ export function BentoSection({ className }: { className?: string }) {
                     variant="outline"
                     className="btn-tertiary-silver w-full cursor-pointer"
                   >
-                    <Link href="/work-orders">Ver Ordens de Serviço</Link>
+                    <a
+                      href={DEMO_ROUTE}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Ver Ordens de Serviço
+                    </a>
                   </Button>
                 </div>
               </div>
