@@ -15,7 +15,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { ModeToggle } from "@/components/mode-toggle"
 import { cn } from "@/lib/utils"
 import { marketingWordmark } from "@/lib/marketing-typography"
 import { CLICKDEV_WHATSAPP_HREF, DEMO_ROUTE } from "../landing-copy"
@@ -143,7 +142,6 @@ export function LandingNavbar() {
           </div>
 
           <div className="hidden shrink-0 items-center gap-2 md:flex">
-            <ModeToggle variant="ghost" />
             <Button
               asChild
               variant="outline"
@@ -164,7 +162,6 @@ export function LandingNavbar() {
           </div>
 
           <div className="flex items-center gap-2 md:hidden">
-            <ModeToggle variant="ghost" />
             <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
               <SheetTrigger asChild>
                 <Button
