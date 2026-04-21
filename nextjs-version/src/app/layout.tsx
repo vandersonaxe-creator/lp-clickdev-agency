@@ -55,7 +55,6 @@ export default function RootLayout({
       <body className={`${dmSans.className} font-sans`}>
         <ThemeProvider
           defaultTheme="dark"
-          forcedTheme="dark"
           storageKey="nextjs-ui-theme"
         >
           <SidebarConfigProvider>{children}</SidebarConfigProvider>
