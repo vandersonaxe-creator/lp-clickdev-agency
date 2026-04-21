@@ -1,12 +1,11 @@
 "use client"
 
-import { Factory, Gauge, ShieldCheck, Wind, Wrench } from "lucide-react"
+import { Factory, Gauge, ShieldCheck, Wrench } from "lucide-react"
 import { motion } from "motion/react"
 
 import { cn } from "@/lib/utils"
 
 const credentials = [
-  { icon: Wind, label: "Multi-fabricante eólico — Siemens · Vestas · Suzlon" },
   { icon: Wrench, label: "Planejamento e execução de PCM industrial" },
   { icon: Gauge, label: "Controle metrológico e calibrações rastreáveis" },
   { icon: Factory, label: "Dashboards em operação no chão de fábrica" },
