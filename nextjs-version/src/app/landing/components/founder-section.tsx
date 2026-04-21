@@ -156,7 +156,7 @@ export function FounderSection() {
             <h2
               className={cn(marketingSectionTitle, "mt-5 text-balance")}
             >
-              Engenheiro de operação antes de ser dev.
+              Lider de operação e manutenção antes de ser dev.
             </h2>
 
             <div className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground text-pretty">
@@ -167,7 +167,7 @@ export function FounderSection() {
                 parques industriais no Brasil.
               </p>
               <p>
-                A Click Dev nasceu da mesma dor que o seu time vive todo dia:
+                A Click Dev nasceu da mesma dor que o seu time vivia todo dia:
                 OS perdida, calibração vencendo, informação espalhada. Hoje
                 traduzo essa experiência em sistema — código que entende
                 manutenção, metrologia e execução em campo, não só interface
