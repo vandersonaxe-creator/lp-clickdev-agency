@@ -20,13 +20,22 @@ export default function DemoPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="cursor-pointer" asChild>
+            <Button
+              size="lg"
+              className="cursor-pointer focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-transparent"
+              asChild
+            >
               <a href="https://www.fastshopping.net/dashboard" target="_blank" rel="noopener noreferrer">
                 Abrir dashboard demonstrativo
                 <ExternalLink className="ml-2 h-4 w-4" />
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="cursor-pointer" asChild>
+            <Button
+              size="lg"
+              variant="outline"
+              className="cursor-pointer focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-transparent"
+              asChild
+            >
               <Link href="/">
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Voltar para o site

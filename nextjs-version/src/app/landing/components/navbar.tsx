@@ -4,7 +4,6 @@ import { useState, type ReactNode } from "react"
 import Link from "next/link"
 import { ArrowRight, Menu, MessageCircle } from "lucide-react"
 
-import { DemoAnimatedBorder } from "@/components/demo-animated-border"
 import { Button } from "@/components/ui/button"
 import { BorderBeam } from "@/components/ui/border-beam"
 import { Logo } from "@/components/logo"
@@ -146,7 +145,7 @@ export function LandingNavbar() {
               asChild
               variant="outline"
               size="sm"
-              className="relative overflow-visible text-muted-foreground hover:text-foreground"
+              className="relative overflow-visible text-muted-foreground hover:text-foreground focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-transparent"
             >
               <a
                 href={DEMO_ROUTE}
@@ -154,7 +153,6 @@ export function LandingNavbar() {
                 rel="noopener noreferrer"
                 className="relative inline-flex items-center justify-center"
               >
-                <DemoAnimatedBorder />
                 <span className="relative z-10">Ver demo</span>
               </a>
             </Button>
@@ -208,7 +206,7 @@ export function LandingNavbar() {
                   <Button
                     asChild
                     variant="outline"
-                    className="btn-secondary-silver relative w-full overflow-visible"
+                    className="btn-secondary-silver relative w-full overflow-visible focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-transparent"
                     onClick={() => setMobileOpen(false)}
                   >
                     <a
@@ -217,7 +215,6 @@ export function LandingNavbar() {
                       rel="noopener noreferrer"
                       className="relative inline-flex items-center justify-center"
                     >
-                      <DemoAnimatedBorder />
                       <span className="relative z-10">Ver demo</span>
                     </a>
                   </Button>

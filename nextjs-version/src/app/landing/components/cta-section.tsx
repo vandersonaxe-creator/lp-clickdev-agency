@@ -3,7 +3,6 @@
 import { ArrowRight, MessageCircle, Play } from "lucide-react"
 import { motion, useReducedMotion } from "motion/react"
 
-import { DemoAnimatedBorder } from "@/components/demo-animated-border"
 import { BorderBeam } from "@/components/ui/border-beam"
 import { Button } from "@/components/ui/button"
 import { DotPattern } from "@/components/dot-pattern"
@@ -135,7 +134,7 @@ export function CTASection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="btn-secondary-silver relative h-12 cursor-pointer overflow-visible text-base"
+                className="btn-secondary-silver relative h-12 cursor-pointer overflow-visible text-base focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-transparent"
                 asChild
               >
                 <a
@@ -144,7 +143,6 @@ export function CTASection() {
                   rel="noopener noreferrer"
                   className="relative inline-flex items-center justify-center"
                 >
-                  <DemoAnimatedBorder />
                   <span className="relative z-10 inline-flex items-center">
                     <Play className="mr-2 h-4 w-4" aria-hidden />
                     Explorar dashboard

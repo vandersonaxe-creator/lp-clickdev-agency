@@ -10,7 +10,6 @@ import {
   useTransform,
 } from "motion/react"
 
-import { DemoAnimatedBorder } from "@/components/demo-animated-border"
 import { Button } from "@/components/ui/button"
 import { BorderBeam } from "@/components/ui/border-beam"
 import { HyperspaceBackground } from "@/components/ui/hyperspace-background"
@@ -150,7 +149,7 @@ export function HeroSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="btn-secondary-silver relative h-12 cursor-pointer overflow-visible text-base"
+                className="btn-secondary-silver relative h-12 cursor-pointer overflow-visible text-base focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-transparent"
                 asChild
               >
                 <a
@@ -159,7 +158,6 @@ export function HeroSection() {
                   rel="noopener noreferrer"
                   className="relative inline-flex items-center justify-center"
                 >
-                  <DemoAnimatedBorder />
                   <span className="relative z-10 inline-flex items-center">
                     <Play className="mr-2 h-4 w-4" aria-hidden />
                     Ver demo real

@@ -10,7 +10,6 @@ import {
   UserCog,
 } from "lucide-react"
 
-import { DemoAnimatedBorder } from "@/components/demo-animated-border"
 import { BorderBeam } from "@/components/ui/border-beam"
 import { Button } from "@/components/ui/button"
 import { MagicCard } from "@/components/ui/magic-card"
@@ -153,7 +152,7 @@ export function BentoSection({ className }: { className?: string }) {
                     asChild
                     variant="outline"
                     size="sm"
-                    className="btn-tertiary-silver relative mt-6 cursor-pointer overflow-visible"
+                    className="btn-tertiary-silver relative mt-6 cursor-pointer overflow-visible focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-transparent"
                   >
                     <a
                       href={DEMO_ROUTE}
@@ -161,7 +160,6 @@ export function BentoSection({ className }: { className?: string }) {
                       rel="noopener noreferrer"
                       className="relative inline-flex items-center justify-center"
                     >
-                      <DemoAnimatedBorder />
                       <span className="relative z-10">
                         Ver no painel metrológico
                       </span>
@@ -239,7 +237,7 @@ export function BentoSection({ className }: { className?: string }) {
                   <Button
                     asChild
                     variant="outline"
-                    className="btn-tertiary-silver relative w-full cursor-pointer overflow-visible"
+                    className="btn-tertiary-silver relative w-full cursor-pointer overflow-visible focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-transparent"
                   >
                     <a
                       href={DEMO_ROUTE}
@@ -247,7 +245,6 @@ export function BentoSection({ className }: { className?: string }) {
                       rel="noopener noreferrer"
                       className="relative inline-flex items-center justify-center"
                     >
-                      <DemoAnimatedBorder />
                       <span className="relative z-10">
                         Ver Ordens de Serviço
                       </span>

@@ -13,7 +13,6 @@ import {
   ShieldCheck,
 } from "lucide-react"
 
-import { DemoAnimatedBorder } from "@/components/demo-animated-border"
 import { Image3D } from "@/components/image-3d"
 import { BorderBeam } from "@/components/ui/border-beam"
 import { Button } from "@/components/ui/button"
@@ -158,7 +157,7 @@ export function OperationalEvidenceSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="btn-secondary-silver relative cursor-pointer overflow-visible"
+                className="btn-secondary-silver relative cursor-pointer overflow-visible focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-transparent"
                 asChild
               >
                 <a
@@ -167,7 +166,6 @@ export function OperationalEvidenceSection() {
                   rel="noopener noreferrer"
                   className="relative flex items-center justify-center"
                 >
-                  <DemoAnimatedBorder />
                   <span className="relative z-10 inline-flex items-center">
                     Abrir painel no sistema
                     <ArrowRight className="ms-2 size-4" aria-hidden="true" />
@@ -255,7 +253,7 @@ export function OperationalEvidenceSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="relative cursor-pointer overflow-visible"
+                className="relative cursor-pointer overflow-visible focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-transparent"
                 asChild
               >
                 <a
@@ -264,7 +262,6 @@ export function OperationalEvidenceSection() {
                   rel="noopener noreferrer"
                   className="relative inline-flex items-center justify-center"
                 >
-                  <DemoAnimatedBorder />
                   <span className="relative z-10">Ver plano no dashboard</span>
                 </a>
               </Button>
