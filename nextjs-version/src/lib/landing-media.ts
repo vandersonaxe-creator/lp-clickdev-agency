@@ -3,7 +3,7 @@
  *
  * **Hero** — Ordens de Serviço (execução).
  *
- * **Seção estilo Marketplace Features** — somente 2 imagens de metrologia
+ * **Seção evidência operacional** — somente 2 imagens de metrologia
  * (Painel + Plano); light/dark usam o mesmo PNG onde não há variante clara.
  */
 export const landingMedia = {

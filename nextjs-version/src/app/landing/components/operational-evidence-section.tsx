@@ -9,15 +9,23 @@ import {
   Filter,
   Gauge,
   LayoutGrid,
+  MessageCircle,
   ShieldCheck,
 } from "lucide-react"
 
 import { DemoAnimatedBorder } from "@/components/demo-animated-border"
 import { Image3D } from "@/components/image-3d"
-import { Badge } from "@/components/ui/badge"
+import { BorderBeam } from "@/components/ui/border-beam"
 import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
+import {
+  marketingSectionLead,
+  marketingSectionPadding,
+  marketingSectionTitle,
+} from "@/lib/marketing-typography"
 import { landingMedia } from "@/lib/landing-media"
 import { CLICKDEV_WHATSAPP_HREF, DEMO_ROUTE } from "../landing-copy"
+import { Eyebrow } from "./eyebrow"
 
 const mainFeatures = [
   {
@@ -74,24 +82,28 @@ const secondaryFeatures = [
 ] as const
 
 /**
- * Mesma composição da seção **Marketplace Features** do template
- * (`vite-version/.../features-section.tsx`): header + dois blocos 50/50
- * com Image3D, lista em grid 2 colunas e CTAs. Conteúdo Click Dev + só 2 prints
- * de metrologia (Painel Metrológico / Plano Metrológico).
+ * Header + dois blocos 50/50 com Image3D, grid de benefícios e CTAs.
+ * Conteúdo Click Dev — prints de metrologia (Painel / Plano).
  */
 export function OperationalEvidenceSection() {
   return (
-    <section id="evidencia" className="bg-muted/30 py-24 sm:py-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header — espelha o template */}
+    <section
+      id="evidencia"
+      className={cn("relative overflow-hidden", marketingSectionPadding)}
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-[8%] h-[420px] bg-[radial-gradient(ellipse_55%_45%_at_50%_35%,oklch(0.55_0.22_290/0.1),transparent_65%)]"
+      />
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-16 max-w-2xl text-center">
-          <Badge variant="outline" className="mb-4">
-            Marketplace Features
-          </Badge>
-          <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
+          <Eyebrow align="center">Evidência operacional</Eyebrow>
+          <h2
+            className={cn(marketingSectionTitle, "mt-5 text-balance")}
+          >
             Metrologia e PCM com a mesma seriedade do chão de fábrica
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className={cn(marketingSectionLead, "mt-4 text-balance")}>
             Do painel de urgência ao plano detalhado: instrumentos, prazos e
             calibradoras no mesmo sistema — sem planilha paralela e sem
             surpresa em auditoria.
@@ -122,11 +134,11 @@ export function OperationalEvidenceSection() {
               {mainFeatures.map((feature, index) => (
                 <li
                   key={index}
-                  className="group flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-accent/5"
+                  className="group flex items-start gap-3 rounded-xl border border-transparent p-2 transition-colors hover:border-violet-500/25 hover:bg-violet-500/[0.06]"
                 >
                   <div className="mt-0.5 flex shrink-0 items-center justify-center">
                     <feature.icon
-                      className="size-5 text-primary"
+                      className="size-5 text-violet-400/90"
                       aria-hidden="true"
                     />
                   </div>
@@ -193,11 +205,11 @@ export function OperationalEvidenceSection() {
               {secondaryFeatures.map((feature, index) => (
                 <li
                   key={index}
-                  className="group flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-accent/5"
+                  className="group flex items-start gap-3 rounded-xl border border-transparent p-2 transition-colors hover:border-violet-500/25 hover:bg-violet-500/[0.06]"
                 >
                   <div className="mt-0.5 flex shrink-0 items-center justify-center">
                     <feature.icon
-                      className="size-5 text-primary"
+                      className="size-5 text-violet-400/90"
                       aria-hidden="true"
                     />
                   </div>
@@ -214,17 +226,32 @@ export function OperationalEvidenceSection() {
             </ul>
 
             <div className="flex flex-col gap-4 pt-2 pe-4 sm:flex-row">
-              <Button size="lg" className="cursor-pointer" asChild>
-                <a
-                  href={CLICKDEV_WHATSAPP_HREF}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center"
-                >
+              <a
+                href={CLICKDEV_WHATSAPP_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  "btn-primary-silver group relative inline-flex h-12 min-h-11 cursor-pointer items-center justify-center overflow-hidden rounded-xl",
+                  "px-7 text-base font-semibold",
+                  "transition-transform duration-200 hover:-translate-y-px active:translate-y-0 active:scale-[0.99]"
+                )}
+              >
+                <BorderBeam
+                  size={90}
+                  duration={14}
+                  colorFrom="#f8fafc"
+                  colorTo="#cbd5e1"
+                  borderWidth={2}
+                />
+                <span className="relative z-10 inline-flex items-center gap-2">
+                  <MessageCircle className="size-4 shrink-0" aria-hidden />
                   Agendar diagnóstico
-                  <ArrowRight className="ms-2 size-4" aria-hidden="true" />
-                </a>
-              </Button>
+                  <ArrowRight
+                    className="size-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
+                    aria-hidden
+                  />
+                </span>
+              </a>
               <Button
                 size="lg"
                 variant="outline"
