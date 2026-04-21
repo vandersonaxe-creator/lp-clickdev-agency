@@ -114,13 +114,13 @@ export function LandingNavbar() {
           >
             <Logo
               size={24}
-              className="shrink-0 opacity-95 [filter:grayscale(1)_contrast(1.05)_brightness(1.2)] drop-shadow-[0_0_10px_rgba(248,250,252,0.12)]"
+              className="shrink-0 opacity-95 [filter:grayscale(1)_contrast(1.05)] dark:[filter:grayscale(1)_contrast(1.05)_brightness(1.2)] dark:drop-shadow-[0_0_10px_rgba(248,250,252,0.12)]"
               priority
             />
             <span
               className={cn(
                 marketingWordmark,
-                "text-[15px] text-[#B8B8B8] drop-shadow-[0_0_10px_rgba(248,250,252,0.10)]"
+                "text-[15px] text-foreground/80 dark:text-[#B8B8B8] dark:drop-shadow-[0_0_10px_rgba(248,250,252,0.10)]"
               )}
             >
               <span className="font-extrabold">Click</span>{" "}
@@ -175,13 +175,13 @@ export function LandingNavbar() {
                   <SheetTitle
                     className={cn(
                       marketingWordmark,
-                      "text-[#B8B8B8] drop-shadow-[0_0_10px_rgba(248,250,252,0.10)]"
+                      "text-foreground/80 dark:text-[#B8B8B8] dark:drop-shadow-[0_0_10px_rgba(248,250,252,0.10)]"
                     )}
                   >
                     <span className="flex items-center gap-2">
                       <Logo
                         size={22}
-                        className="shrink-0 opacity-95 [filter:grayscale(1)_contrast(1.05)_brightness(1.2)] drop-shadow-[0_0_10px_rgba(248,250,252,0.12)]"
+                        className="shrink-0 opacity-95 [filter:grayscale(1)_contrast(1.05)] dark:[filter:grayscale(1)_contrast(1.05)_brightness(1.2)] dark:drop-shadow-[0_0_10px_rgba(248,250,252,0.12)]"
                       />
                       <span>
                         <span className="font-extrabold">Click</span>{" "}
@@ -195,7 +195,7 @@ export function LandingNavbar() {
                     <NavAnchor
                       key={item.href}
                       href={item.href}
-                      className="py-3 text-base font-medium text-foreground/90 transition-colors hover:text-violet-300"
+                      className="py-3 text-base font-medium text-foreground/90 transition-colors hover:text-violet-700 dark:hover:text-violet-300"
                       onNavigate={() => setMobileOpen(false)}
                     >
                       {item.label}

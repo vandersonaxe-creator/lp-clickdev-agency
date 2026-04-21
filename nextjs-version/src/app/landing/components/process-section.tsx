@@ -105,7 +105,7 @@ export function ProcessSection() {
                       className="pointer-events-none absolute inset-0 rounded-2xl bg-[radial-gradient(ellipse_50%_40%_at_50%_0%,oklch(0.6_0.2_290/0.15),transparent_70%)] opacity-0 transition-opacity group-hover:opacity-100"
                     />
                     <step.icon
-                      className="relative h-7 w-7 text-foreground/80 transition-colors group-hover:text-violet-300"
+                      className="relative h-7 w-7 text-foreground/80 transition-colors group-hover:text-violet-700 dark:group-hover:text-violet-300"
                       aria-hidden
                     />
                   </div>

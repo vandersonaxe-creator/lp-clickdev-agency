@@ -56,12 +56,12 @@ export function LandingFooter() {
             >
               <Logo
                 size={26}
-                className="shrink-0 opacity-95 [filter:grayscale(1)_contrast(1.05)_brightness(1.2)] drop-shadow-[0_0_10px_rgba(248,250,252,0.12)]"
+                className="shrink-0 opacity-95 [filter:grayscale(1)_contrast(1.05)] dark:[filter:grayscale(1)_contrast(1.05)_brightness(1.2)] dark:drop-shadow-[0_0_10px_rgba(248,250,252,0.12)]"
               />
               <span
                 className={cn(
                   marketingWordmark,
-                  "text-[#B8B8B8] drop-shadow-[0_0_10px_rgba(248,250,252,0.10)]"
+                  "text-foreground/80 dark:text-[#B8B8B8] dark:drop-shadow-[0_0_10px_rgba(248,250,252,0.10)]"
                 )}
               >
                 <span className="font-extrabold">Click</span>{" "}
@@ -118,7 +118,7 @@ export function LandingFooter() {
                       className="group inline-flex max-w-full items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
                     >
                       <ch.icon
-                        className="h-4 w-4 shrink-0 opacity-80 transition-colors group-hover:text-violet-300"
+                        className="h-4 w-4 shrink-0 opacity-80 transition-colors group-hover:text-violet-700 dark:group-hover:text-violet-300"
                         aria-hidden
                       />
                       <span className="min-w-0 break-words text-left font-medium">

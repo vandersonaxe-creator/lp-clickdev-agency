@@ -114,10 +114,10 @@ export function PainSection() {
             />
             <div className="relative">
               <div className="flex items-center gap-3">
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-violet-400/40 bg-violet-500/10 text-violet-300">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-violet-400/40 bg-violet-500/10 text-violet-700 dark:text-violet-300">
                   <Check className="h-4 w-4" aria-hidden />
                 </span>
-                <h3 className="text-base font-semibold uppercase tracking-[0.16em] text-violet-300">
+                <h3 className="text-base font-semibold uppercase tracking-[0.16em] text-violet-700 dark:text-violet-300">
                   Depois da Click Dev
                 </h3>
               </div>

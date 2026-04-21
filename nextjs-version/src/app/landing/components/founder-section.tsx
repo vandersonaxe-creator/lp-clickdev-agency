@@ -181,7 +181,7 @@ export function FounderSection() {
                   key={c.title}
                   className="group rounded-xl border border-border/70 bg-card/50 p-4 transition-all duration-400 hover:-translate-y-0.5 hover:border-violet-500/40 hover:bg-card/70"
                 >
-                  <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-violet-500/30 bg-violet-500/10 text-violet-300">
+                  <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-violet-500/30 bg-violet-500/10 text-violet-700 dark:text-violet-300">
                     <c.icon className="h-4 w-4" aria-hidden />
                   </div>
                   <h3 className="mt-3 text-sm font-semibold tracking-tight text-foreground">

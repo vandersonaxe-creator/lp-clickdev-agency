@@ -108,8 +108,8 @@ export function FaqSection() {
                       className={cn(
                         "relative inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg",
                         "border border-border/70 bg-background/40 text-muted-foreground",
-                        "transition-colors group-hover:border-violet-500/40 group-hover:text-violet-300",
-                        "group-data-[state=open]:border-violet-500/40 group-data-[state=open]:text-violet-300"
+                        "transition-colors group-hover:border-violet-500/40 group-hover:text-violet-700 dark:group-hover:text-violet-300",
+                        "group-data-[state=open]:border-violet-500/40 group-data-[state=open]:text-violet-700 dark:group-data-[state=open]:text-violet-300"
                       )}
                     >
                       <Plus className="h-4 w-4 transition-transform duration-300 group-data-[state=open]:rotate-45" />

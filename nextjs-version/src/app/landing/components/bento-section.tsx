@@ -105,7 +105,7 @@ export function BentoSection({ className }: { className?: string }) {
               />
               <div className="relative flex h-full flex-col">
                 <div className="p-6 sm:p-8">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-violet-300/90">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-violet-700/90 dark:text-violet-300/90">
                     Painel metrológico
                   </p>
                   <h3 className="mt-2 text-xl font-semibold tracking-tight text-balance sm:text-2xl">
@@ -172,7 +172,7 @@ export function BentoSection({ className }: { className?: string }) {
                     Capturas reais deste fluxo estão na seção{" "}
                     <a
                       href="#evidencia"
-                      className="font-medium text-foreground underline-offset-4 transition-colors hover:text-violet-300 hover:underline"
+                      className="font-medium text-foreground underline-offset-4 transition-colors hover:text-violet-700 dark:hover:text-violet-300 hover:underline"
                     >
                       Evidência operacional
                     </a>
@@ -195,10 +195,10 @@ export function BentoSection({ className }: { className?: string }) {
               gradientOpacity={0.2}
             >
               <div className="flex h-full flex-col p-6 sm:p-8">
-                <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-violet-500/30 bg-violet-500/10 text-violet-300">
+                <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-violet-500/30 bg-violet-500/10 text-violet-700 dark:text-violet-300">
                   <ClipboardCheck className="h-5 w-5" aria-hidden />
                 </div>
-                <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-violet-300/90">
+                <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-violet-700/90 dark:text-violet-300/90">
                   Execução do técnico
                 </p>
                 <h3 className="mt-1 text-xl font-semibold tracking-tight text-balance">
@@ -267,7 +267,7 @@ export function BentoSection({ className }: { className?: string }) {
               gradientOpacity={0.18}
             >
               <div className="p-6 sm:p-8">
-                <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-violet-500/30 bg-violet-500/10 text-violet-300">
+                <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-violet-500/30 bg-violet-500/10 text-violet-700 dark:text-violet-300">
                   <BellRing className="h-5 w-5" aria-hidden />
                 </div>
                 <h3 className="mt-4 text-lg font-semibold tracking-tight text-balance">
@@ -313,7 +313,7 @@ export function BentoSection({ className }: { className?: string }) {
             >
               <div className="grid h-full grid-cols-1 gap-6 p-6 sm:grid-cols-2 sm:p-8">
                 <div>
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-violet-500/30 bg-violet-500/10 text-violet-300">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-violet-500/30 bg-violet-500/10 text-violet-700 dark:text-violet-300">
                     <QrCode className="h-5 w-5" aria-hidden />
                   </div>
                   <h3 className="mt-4 text-lg font-semibold tracking-tight text-balance">

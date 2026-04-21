@@ -155,7 +155,7 @@ export function CTASection() {
               Prefere e-mail?{" "}
               <a
                 href={CLICKDEV_EMAIL_HREF}
-                className="font-medium text-foreground underline-offset-4 transition-colors hover:text-violet-300 hover:underline"
+                className="font-medium text-foreground underline-offset-4 transition-colors hover:text-violet-700 dark:hover:text-violet-300 hover:underline"
               >
                 {CLICKDEV_EMAIL}
               </a>
