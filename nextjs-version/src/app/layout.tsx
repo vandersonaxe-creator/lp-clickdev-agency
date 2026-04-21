@@ -53,7 +53,11 @@ export default function RootLayout({
       className={`${dmSans.variable} ${jetbrainsMono.variable} antialiased`}
     >
       <body className={`${dmSans.className} font-sans`}>
-        <ThemeProvider defaultTheme="dark" storageKey="nextjs-ui-theme">
+        <ThemeProvider
+          defaultTheme="dark"
+          forcedTheme="dark"
+          storageKey="nextjs-ui-theme"
+        >
           <SidebarConfigProvider>{children}</SidebarConfigProvider>
           <Toaster richColors position="top-center" />
         </ThemeProvider>
