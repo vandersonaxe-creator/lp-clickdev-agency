@@ -49,7 +49,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:pr-1"
             >
-              <Link href="/" className="flex min-w-0 items-center gap-2 overflow-hidden">
+              <Link
+                href="/dashboard"
+                className="flex min-w-0 items-center gap-2 overflow-hidden"
+              >
                 <Logo
                   size={26}
                   className="shrink-0 opacity-95 [filter:grayscale(1)_contrast(1.05)_brightness(1.2)] drop-shadow-[0_0_10px_rgba(248,250,252,0.12)]"
