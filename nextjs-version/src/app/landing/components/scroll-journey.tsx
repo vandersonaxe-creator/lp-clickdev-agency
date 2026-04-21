@@ -13,6 +13,7 @@ type Stop = {
 const stops: Stop[] = [
   { id: "hero", label: "Início" },
   { id: "dores", label: "Onde trava" },
+  { id: "evidencia", label: "Evidência" },
   { id: "produto", label: "Produto" },
   { id: "processo", label: "Processo" },
   { id: "autoridade", label: "Autoridade" },

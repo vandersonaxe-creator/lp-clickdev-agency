@@ -18,6 +18,7 @@ import {
 } from "../landing-copy"
 
 const footerNavLinks = [
+  { name: "Evidência", href: "#evidencia" },
   { name: "Produto", href: "#produto" },
   { name: "Processo", href: "#processo" },
   { name: "Autoridade", href: "#autoridade" },

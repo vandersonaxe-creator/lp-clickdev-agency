@@ -20,6 +20,7 @@ import { marketingWordmark } from "@/lib/marketing-typography"
 import { CLICKDEV_WHATSAPP_HREF, DEMO_ROUTE } from "../landing-copy"
 
 const navLinks = [
+  { label: "Evidência", href: "#evidencia" },
   { label: "Produto", href: "#produto" },
   { label: "Processo", href: "#processo" },
   { label: "Autoridade", href: "#autoridade" },

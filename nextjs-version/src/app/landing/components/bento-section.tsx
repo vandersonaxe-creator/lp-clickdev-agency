@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import { motion } from "motion/react"
 import {
   BellRing,
@@ -16,7 +15,6 @@ import { Button } from "@/components/ui/button"
 import { MagicCard } from "@/components/ui/magic-card"
 import { DotPattern } from "@/components/dot-pattern"
 import { cn } from "@/lib/utils"
-import { landingMedia } from "@/lib/landing-media"
 import {
   marketingSectionLead,
   marketingSectionPadding,
@@ -108,53 +106,75 @@ export function BentoSection({ className }: { className?: string }) {
               <div className="relative flex h-full flex-col">
                 <div className="p-6 sm:p-8">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-violet-300/90">
-                    Visão do gestor
+                    Painel metrológico
                   </p>
                   <h3 className="mt-2 text-xl font-semibold tracking-tight text-balance sm:text-2xl">
-                    Atrasos, vencimentos e prioridades em uma tela só.
+                    Vencidos, vencendo e válidos — antes de virar não
+                    conformidade.
                   </h3>
                   <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground text-pretty sm:text-base">
-                    O que está atrasado, o que vai vencer e onde sua equipe
-                    precisa atuar hoje. Sem abrir planilha, sem cobrar técnico
-                    por status.
+                    Urgência operacional em colunas: o que já passou do prazo,
+                    o que vence em breve e o que está em dia. Decisão rápida,
+                    sem inventário em planilha.
                   </p>
+                  <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <span
+                        aria-hidden
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-red-400/90"
+                      />
+                      <span className="text-foreground/90">
+                        Coluna de vencidos com dias em atraso — prioridade
+                        máxima.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span
+                        aria-hidden
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-400/90"
+                      />
+                      <span className="text-foreground/90">
+                        Vencendo em 30 dias — agenda antes da auditoria.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span
+                        aria-hidden
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400/90"
+                      />
+                      <span className="text-foreground/90">
+                        Válidos com próxima data — baseline para PCM.
+                      </span>
+                    </li>
+                  </ul>
+
                   <Button
                     asChild
                     variant="outline"
                     size="sm"
-                    className="btn-tertiary-silver mt-5 cursor-pointer"
+                    className="btn-tertiary-silver mt-6 cursor-pointer"
                   >
                     <a
                       href={DEMO_ROUTE}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Explorar dashboard
+                      Ver no painel metrológico
                     </a>
                   </Button>
                 </div>
 
-                <div className="relative mt-auto overflow-hidden border-t border-border/60 bg-muted/20">
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute -top-12 left-1/2 h-24 w-[80%] -translate-x-1/2 rounded-full bg-violet-500/25 blur-3xl"
-                  />
-                  <div className="relative aspect-[16/9] w-full">
-                    <Image
-                      src={landingMedia.bentoGestorLight}
-                      alt="Painel do gestor — modo claro"
-                      fill
-                      className="object-cover object-top dark:hidden"
-                      sizes="(max-width: 1024px) 100vw, 800px"
-                    />
-                    <Image
-                      src={landingMedia.bentoGestorDark}
-                      alt="Painel do gestor — modo escuro"
-                      fill
-                      className="hidden object-cover object-top dark:block"
-                      sizes="(max-width: 1024px) 100vw, 800px"
-                    />
-                  </div>
+                <div className="relative mt-auto border-t border-border/60 bg-muted/15 px-6 py-5 sm:px-8">
+                  <p className="text-xs leading-relaxed text-muted-foreground">
+                    Capturas reais deste fluxo estão na seção{" "}
+                    <a
+                      href="#evidencia"
+                      className="font-medium text-foreground underline-offset-4 transition-colors hover:text-violet-300 hover:underline"
+                    >
+                      Evidência operacional
+                    </a>
+                    . Aqui o foco é o que muda na decisão do gestor.
+                  </p>
                 </div>
               </div>
             </MagicCard>

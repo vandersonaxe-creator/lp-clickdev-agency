@@ -4,6 +4,7 @@ import { LandingNavbar } from "./components/navbar"
 import { HeroSection } from "./components/hero-section"
 import { ProofStrip } from "./components/proof-strip"
 import { PainSection } from "./components/pain-section"
+import { OperationalEvidenceSection } from "./components/operational-evidence-section"
 import { BentoSection } from "./components/bento-section"
 import { ProcessSection } from "./components/process-section"
 import { FounderSection } from "./components/founder-section"
@@ -23,6 +24,7 @@ export function LandingPageContent() {
         <HeroSection />
         <ProofStrip />
         <PainSection />
+        <OperationalEvidenceSection />
         <BentoSection />
         <ProcessSection />
         <FounderSection />

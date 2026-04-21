@@ -221,19 +221,11 @@ export function HeroSection() {
               />
 
               <Image
-                src={landingMedia.heroLight}
-                alt="Dashboard Click Dev — painel de manutenção e metrologia"
-                width={1600}
-                height={1000}
-                className="relative block w-full dark:hidden"
-                priority
-              />
-              <Image
                 src={landingMedia.heroDark}
-                alt="Dashboard Click Dev — painel de manutenção e metrologia"
+                alt="Click Dev — Ordens de Serviço com prioridades, responsáveis e status"
                 width={1600}
                 height={1000}
-                className="relative hidden w-full dark:block"
+                className="relative block w-full"
                 priority
               />
             </div>

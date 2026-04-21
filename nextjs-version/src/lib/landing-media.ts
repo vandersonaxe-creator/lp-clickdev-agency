@@ -1,16 +1,17 @@
 /**
- * Imagens da landing — troque aqui quando tiver prints dedicados do dashboard.
+ * Imagens da landing — prints reais do produto (Click Dev).
  *
- * **Hero** — já usa os mesmos arquivos da raiz de `public/`.
+ * **Hero** — Ordens de Serviço (execução).
  *
- * **Bento (card “Visão do gestor”)** — para um recorte que mostre só a tela relevante:
- * 1. Exporte PNG (ex.: 1600×1000 ou proporção 16:10), modo claro e escuro.
- * 2. Salve como `public/landing/bento-gestor-light.png` e `...-dark.png`.
- * 3. Altere `bentoGestorLight` / `bentoGestorDark` abaixo para esses caminhos.
+ * **Seção estilo Marketplace Features** — somente 2 imagens de metrologia
+ * (Painel + Plano); light/dark usam o mesmo PNG onde não há variante clara.
  */
 export const landingMedia = {
-  heroLight: "/dashboard-light.png",
-  heroDark: "/dashboard-dark.png",
-  bentoGestorLight: "/dashboard-light.png",
-  bentoGestorDark: "/dashboard-dark.png",
+  heroLight: "/landing/evidencia-ordens-de-servico.png",
+  heroDark: "/landing/evidencia-ordens-de-servico.png",
+
+  metrologyPainelLight: "/landing/evidencia-painel-metrologico.png",
+  metrologyPainelDark: "/landing/evidencia-painel-metrologico.png",
+  metrologyPlanoLight: "/landing/evidencia-plano-metrologico.png",
+  metrologyPlanoDark: "/landing/evidencia-plano-metrologico.png",
 } as const

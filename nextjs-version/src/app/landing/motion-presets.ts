@@ -35,6 +35,14 @@ export const stagger: Variants = {
   show: { transition: { staggerChildren: 0.08, delayChildren: 0.04 } },
 }
 
+/** Cards em evidência: principal primeiro, secundários logo em seguida. */
+export const staggerEvidence: Variants = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.1, delayChildren: 0.06 },
+  },
+}
+
 /** Para seções que entram na viewport. */
 export const inViewDefault = {
   initial: "hidden",
