@@ -134,12 +134,9 @@ export function LandingFooter() {
 
         <Separator className="my-10 bg-border/70" />
 
-        <div className="flex flex-col items-center justify-between gap-3 text-center text-xs text-muted-foreground sm:flex-row sm:items-center sm:text-left sm:text-sm">
+        <div className="flex justify-center text-center text-xs text-muted-foreground sm:text-sm">
           <p>
             © {year} Click Dev · Sistemas sob medida para operação industrial.
-          </p>
-          <p className="text-muted-foreground/80">
-            Projetado e desenvolvido com padrão sênior.
           </p>
         </div>
       </div>
