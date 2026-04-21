@@ -12,6 +12,7 @@ import {
   ShieldCheck,
 } from "lucide-react"
 
+import { DemoAnimatedBorder } from "@/components/demo-animated-border"
 import { Image3D } from "@/components/image-3d"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -142,15 +143,23 @@ export function OperationalEvidenceSection() {
             </ul>
 
             <div className="flex flex-col gap-4 pt-2 pe-4 sm:flex-row">
-              <Button size="lg" className="cursor-pointer" asChild>
+              <Button
+                size="lg"
+                variant="outline"
+                className="btn-secondary-silver relative cursor-pointer overflow-visible"
+                asChild
+              >
                 <a
                   href={DEMO_ROUTE}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center"
+                  className="relative flex items-center justify-center"
                 >
-                  Abrir painel no sistema
-                  <ArrowRight className="ms-2 size-4" aria-hidden="true" />
+                  <DemoAnimatedBorder />
+                  <span className="relative z-10 inline-flex items-center">
+                    Abrir painel no sistema
+                    <ArrowRight className="ms-2 size-4" aria-hidden="true" />
+                  </span>
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="cursor-pointer" asChild>
@@ -216,13 +225,20 @@ export function OperationalEvidenceSection() {
                   <ArrowRight className="ms-2 size-4" aria-hidden="true" />
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="cursor-pointer" asChild>
+              <Button
+                size="lg"
+                variant="outline"
+                className="relative cursor-pointer overflow-visible"
+                asChild
+              >
                 <a
                   href={DEMO_ROUTE}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="relative inline-flex items-center justify-center"
                 >
-                  Ver plano no dashboard
+                  <DemoAnimatedBorder />
+                  <span className="relative z-10">Ver plano no dashboard</span>
                 </a>
               </Button>
             </div>

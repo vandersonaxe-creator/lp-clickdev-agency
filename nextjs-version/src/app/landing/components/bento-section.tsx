@@ -10,6 +10,7 @@ import {
   UserCog,
 } from "lucide-react"
 
+import { DemoAnimatedBorder } from "@/components/demo-animated-border"
 import { BorderBeam } from "@/components/ui/border-beam"
 import { Button } from "@/components/ui/button"
 import { MagicCard } from "@/components/ui/magic-card"
@@ -152,14 +153,18 @@ export function BentoSection({ className }: { className?: string }) {
                     asChild
                     variant="outline"
                     size="sm"
-                    className="btn-tertiary-silver mt-6 cursor-pointer"
+                    className="btn-tertiary-silver relative mt-6 cursor-pointer overflow-visible"
                   >
                     <a
                       href={DEMO_ROUTE}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="relative inline-flex items-center justify-center"
                     >
-                      Ver no painel metrológico
+                      <DemoAnimatedBorder />
+                      <span className="relative z-10">
+                        Ver no painel metrológico
+                      </span>
                     </a>
                   </Button>
                 </div>
@@ -234,14 +239,18 @@ export function BentoSection({ className }: { className?: string }) {
                   <Button
                     asChild
                     variant="outline"
-                    className="btn-tertiary-silver w-full cursor-pointer"
+                    className="btn-tertiary-silver relative w-full cursor-pointer overflow-visible"
                   >
                     <a
                       href={DEMO_ROUTE}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="relative inline-flex items-center justify-center"
                     >
-                      Ver Ordens de Serviço
+                      <DemoAnimatedBorder />
+                      <span className="relative z-10">
+                        Ver Ordens de Serviço
+                      </span>
                     </a>
                   </Button>
                 </div>
