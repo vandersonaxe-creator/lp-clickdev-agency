@@ -36,12 +36,6 @@ export function Step4Diagnostico({
         </h2>
       </header>
 
-      <section className="rounded-2xl border border-blue-100 bg-white p-5 shadow-sm md:p-6">
-        <p className="text-base leading-relaxed text-slate-700 md:text-lg">
-          {diagnostico.resumo_situacao}
-        </p>
-      </section>
-
       <section className="space-y-4">
         <h3 className="text-sm font-medium uppercase tracking-wide text-slate-500">
           3 caminhos possíveis
@@ -52,74 +46,30 @@ export function Step4Diagnostico({
               key={caminho.titulo}
               className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-md md:p-6"
             >
-              <div className="flex flex-col gap-3">
-                <div className="space-y-2">
-                  <SeloPapel papel={caminho.papel} />
-                  <h4 className="text-lg font-semibold text-slate-900">
-                    {caminho.titulo}
-                  </h4>
-                </div>
-
-                <p className="text-base leading-relaxed text-slate-700">
-                  {caminho.descricao}
-                </p>
-
-                <div className="mt-1 border-t border-slate-100 pt-4">
-                  <div className="grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4">
-                    <div className="rounded-lg border border-slate-200 bg-white p-3">
-                      <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
-                        🕐 Tempo
-                      </p>
-                      <p className="mt-1 text-sm leading-relaxed text-slate-700">
-                        {caminho.impacto_tempo}
-                      </p>
-                    </div>
-                    <div className="rounded-lg border border-slate-200 bg-white p-3">
-                      <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
-                        💰 Econômico
-                      </p>
-                      <p className="mt-1 text-sm leading-relaxed text-slate-700">
-                        {caminho.impacto_economico}
-                      </p>
-                    </div>
-                    <div className="rounded-lg border border-slate-200 bg-white p-3">
-                      <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
-                        👥 Organizacional
-                      </p>
-                      <p className="mt-1 text-sm leading-relaxed text-slate-700">
-                        {caminho.impacto_organizacional}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+              <div className="space-y-2">
+                <SeloPapel papel={caminho.papel} />
+                <h4 className="text-lg font-semibold text-slate-900">
+                  {caminho.titulo}
+                </h4>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="rounded-2xl border border-blue-200 bg-blue-50 p-5 md:p-6">
-        <div className="flex items-start gap-2">
-          <span className="mt-0.5 text-lg" aria-hidden>
-            🎯
-          </span>
-          <div className="space-y-2">
-            <p className="text-sm font-medium uppercase tracking-wide text-slate-500">
-              Por onde recomendamos começar
-            </p>
-            <p className="text-xl font-semibold text-blue-900">
-              {diagnostico.recomendacao_inicial.caminho_sugerido}
-            </p>
-            <p className="text-base leading-relaxed text-slate-700">
-              {diagnostico.recomendacao_inicial.justificativa}
-            </p>
-          </div>
-        </div>
-      </section>
-
       <div className="mt-8 border-t border-slate-100 pt-6">
         <p className="text-base font-medium text-slate-800 md:text-lg">
           {diagnostico.proximo_passo}
+        </p>
+      </div>
+
+      <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 md:p-6">
+        <p className="text-base font-medium text-slate-900">
+          Quer transformar isso em um plano claro de execução?
+        </p>
+        <p className="mt-2 text-base leading-relaxed text-slate-700">
+          Em 30 minutos, eu te ajudo a escolher o melhor ponto de partida, estimar impacto e
+          definir o que faz sentido priorizar — sem conversa fiada.
         </p>
       </div>
 
@@ -142,6 +92,9 @@ export function Step4Diagnostico({
             Continuar no WhatsApp
           </a>
         </div>
+        <p className="mx-auto mt-2 w-full max-w-4xl text-xs text-slate-500">
+          📱 Enviamos uma mensagem no seu WhatsApp com o resumo. Se preferir, também mandamos por email.
+        </p>
         {!calUrl && (
           <p className="mx-auto mt-2 w-full max-w-4xl text-xs text-slate-500">
             Defina <code>NEXT_PUBLIC_CAL_URL</code> para habilitar o botão de agendamento.
