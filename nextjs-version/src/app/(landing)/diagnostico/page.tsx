@@ -24,10 +24,6 @@ export default async function DiagnosticoPage() {
       </div>
 
       <header className="space-y-4">
-        <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-xs font-medium text-slate-600 shadow-sm backdrop-blur dark:border-slate-200 dark:bg-white/80 dark:text-slate-600">
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-600" aria-hidden />
-          Diagnóstico gratuito
-        </div>
         <div className="space-y-2">
           <h1 className="text-pretty text-3xl font-semibold tracking-tight sm:text-4xl">
             Entenda por onde começar:
