@@ -2,7 +2,7 @@
 
 import { useState, type ReactNode } from "react"
 import Link from "next/link"
-import { ArrowRight, Menu, MessageCircle } from "lucide-react"
+import { ArrowRight, Menu, Sparkles } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { BorderBeam } from "@/components/ui/border-beam"
@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/sheet"
 import { cn } from "@/lib/utils"
 import { marketingWordmark } from "@/lib/marketing-typography"
-import { CLICKDEV_WHATSAPP_HREF, DEMO_ROUTE } from "../landing-copy"
+import { DEMO_ROUTE } from "../landing-copy"
 
 const navLinks = [
   { label: "Evidência", href: "#evidencia" },
@@ -35,17 +35,15 @@ function smoothScrollTo(targetId: string) {
 function PrimaryCtaLink({
   className,
   onClick,
-  label = "Falar no WhatsApp",
+  label = "Fazer diagnóstico",
 }: {
   className?: string
   onClick?: () => void
   label?: string
 }) {
   return (
-    <a
-      href={CLICKDEV_WHATSAPP_HREF}
-      target="_blank"
-      rel="noopener noreferrer"
+    <Link
+      href="/diagnostico"
       onClick={onClick}
       className={cn(
         "btn-primary-silver group relative inline-flex min-h-11 items-center justify-center overflow-hidden rounded-xl",
@@ -63,14 +61,14 @@ function PrimaryCtaLink({
         borderWidth={2}
       />
       <span className="relative z-10 flex items-center gap-2">
-        <MessageCircle className="size-4 shrink-0" aria-hidden />
+        <Sparkles className="size-4 shrink-0" aria-hidden />
         {label}
         <ArrowRight
           className="size-3.5 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
           aria-hidden
         />
       </span>
-    </a>
+    </Link>
   )
 }
 

@@ -12,6 +12,7 @@ import {
   Gauge,
   LayoutDashboard,
   LayoutPanelLeft,
+  Sparkles,
   Shield,
   Wrench,
 } from "lucide-react"
@@ -78,6 +79,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             { title: "Dashboard 1", url: "/dashboard", icon: LayoutDashboard },
             { title: "Dashboard 2", url: "/dashboard-2", icon: LayoutPanelLeft },
           ]}
+        />
+        <NavPcmGroup
+          className="mt-4"
+          label="Ações"
+          items={[{ title: "Diagnóstico", url: "/diagnostico", icon: Sparkles }]}
         />
         <NavPcmGroup
           className="mt-4"

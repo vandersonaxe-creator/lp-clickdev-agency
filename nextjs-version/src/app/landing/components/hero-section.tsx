@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { ArrowRight, CheckCircle2, LineChart, Play } from "lucide-react"
 import {
   motion,
@@ -122,10 +123,8 @@ export function HeroSection() {
               variants={fadeUp}
               className="mt-8 flex flex-col gap-3 sm:flex-row"
             >
-              <a
-                href={CLICKDEV_WHATSAPP_HREF}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/diagnostico"
                 className={cn(
                   "btn-primary-silver group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-xl",
                   "px-7 text-base font-semibold"
@@ -145,7 +144,7 @@ export function HeroSection() {
                     aria-hidden
                   />
                 </span>
-              </a>
+              </Link>
               <Button
                 size="lg"
                 variant="outline"
