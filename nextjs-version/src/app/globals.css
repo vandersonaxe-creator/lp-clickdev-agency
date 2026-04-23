@@ -510,3 +510,24 @@ html {
 .clickdev-driver-popover .driver-popover-close-btn.clickdev-driver-close:hover {
   filter: brightness(1.06);
 }
+
+/* Diagnóstico — CTA de agendamento (atenção, sem exagero) */
+@keyframes clickdev-diag-cta-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 18px 45px -20px rgba(37, 99, 235, 0.55),
+      0 0 0 0 rgba(99, 102, 241, 0.18);
+  }
+  50% {
+    box-shadow:
+      0 22px 60px -22px rgba(99, 102, 241, 0.65),
+      0 0 0 10px rgba(99, 102, 241, 0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .clickdev-diag-cta-pulse {
+    animation: clickdev-diag-cta-pulse 2.4s ease-in-out infinite;
+  }
+}

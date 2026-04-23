@@ -1,8 +1,7 @@
 "use client"
 
-import * as React from "react"
+import { Calendar } from "lucide-react"
 
-import { getWhatsAppHref } from "@/lib/validators"
 import type { DiagnosticoEstruturado } from "@/types/diagnostico"
 import { SeloPapel } from "../components/SeloPapel"
 
@@ -19,14 +18,7 @@ export function Step4Diagnostico({
   nome: string
 }) {
   const calUrl = process.env.NEXT_PUBLIC_CAL_URL
-  const fallbackNumber = process.env.NEXT_PUBLIC_WHATSAPP_FALLBACK
   const primeiroNome = firstName(nome)
-
-  const waHref = React.useMemo(() => {
-    const headline = diagnostico.resumo_situacao.slice(0, 160)
-    const msg = `Olá! Eu sou ${nome}. Recebi meu pré-diagnóstico e quero aprofundar.\n\nResumo: ${headline}`
-    return getWhatsAppHref(fallbackNumber ?? null, msg)
-  }, [diagnostico.resumo_situacao, nome, fallbackNumber])
 
   return (
     <div className="space-y-6 pb-28 md:space-y-8">
@@ -74,32 +66,30 @@ export function Step4Diagnostico({
       </div>
 
       <div className="fixed inset-x-0 bottom-0 z-20 border-t border-slate-200 bg-white/85 px-4 py-3 backdrop-blur shadow-[0_-4px_16px_rgba(0,0,0,0.04)] sm:px-6">
-        <div className="mx-auto flex w-full max-w-4xl flex-col gap-2 sm:flex-row">
-          <a
-            href={calUrl ?? "#"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-h-12 flex-1 items-center justify-center rounded-xl bg-blue-600 px-6 text-base font-semibold text-white shadow-sm transition hover:bg-blue-700"
-          >
-            Agendar reunião de 30min (gratuita)
-          </a>
-          <a
-            href={waHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-h-12 flex-1 items-center justify-center rounded-xl border border-slate-200 bg-white px-6 text-base font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50"
-          >
-            Continuar no WhatsApp
-          </a>
+        <div className="mx-auto flex w-full max-w-4xl flex-col gap-2">
+          {calUrl ? (
+            <a
+              href={calUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="clickdev-diag-cta-pulse group relative inline-flex min-h-14 w-full items-center justify-center overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-600 bg-[length:200%_100%] px-6 text-base font-extrabold text-white transition-[transform,box-shadow,filter,background-position] duration-200 hover:brightness-110 active:scale-[0.99] sm:min-h-[3.5rem] motion-reduce:shadow-none"
+            >
+              <span
+                className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 transition duration-700 [transition-timing-function:cubic-bezier(0.2,0.8,0.2,1)] group-hover:translate-x-full group-hover:opacity-100"
+                aria-hidden
+              />
+              <Calendar className="mr-2 h-5 w-5 shrink-0 opacity-95" aria-hidden />
+              Agendar (30 min · gratuito)
+            </a>
+          ) : (
+            <div
+              className="inline-flex min-h-14 w-full cursor-not-allowed items-center justify-center rounded-2xl border border-slate-200 bg-slate-100 px-6 text-center text-sm font-semibold text-slate-500"
+              role="status"
+            >
+              Defina <code className="mx-1 rounded bg-white px-1.5 py-0.5 text-xs">NEXT_PUBLIC_CAL_URL</code> para habilitar o agendamento
+            </div>
+          )}
         </div>
-        <p className="mx-auto mt-2 w-full max-w-4xl text-xs text-slate-500">
-          📱 Enviamos uma mensagem no seu WhatsApp com o resumo. Se preferir, também mandamos por email.
-        </p>
-        {!calUrl && (
-          <p className="mx-auto mt-2 w-full max-w-4xl text-xs text-slate-500">
-            Defina <code>NEXT_PUBLIC_CAL_URL</code> para habilitar o botão de agendamento.
-          </p>
-        )}
       </div>
     </div>
   )
