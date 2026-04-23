@@ -5,8 +5,9 @@ import { useRouter, useSearchParams } from "next/navigation"
 
 const STORAGE_KEY = "clickdev_demo_tour_seen"
 
-function getStepTarget(step: number) {
-  if (step === 4) {
+function getStepTarget(stepIndex: number) {
+  // stepIndex é 0-indexed (activeIndex do driver.js)
+  if (stepIndex === 3) {
     return (
       document.querySelector('[data-slot="sidebar-container"]') ??
       document.querySelector('[data-sidebar="trigger"]')
@@ -14,16 +15,16 @@ function getStepTarget(step: number) {
   }
 
   const map: Record<number, string> = {
-    1: '[data-tour="kpis"]',
-    2: '[data-tour="maintenance"]',
-    3: '[data-tour="metrology"]',
+    0: '[data-tour="kpis"]',
+    1: '[data-tour="maintenance"]',
+    2: '[data-tour="metrology"]',
   }
 
-  return document.querySelector(map[step])
+  return document.querySelector(map[stepIndex])
 }
 
-function scrollTargetIntoView(step: number) {
-  const el = getStepTarget(step)
+function scrollTargetIntoView(stepIndex: number) {
+  const el = getStepTarget(stepIndex)
   if (!el) return
   try {
     el.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" })
@@ -52,7 +53,49 @@ export function DashboardTour() {
       const mod = await import("driver.js")
       if (destroyed) return
 
-      const driver = mod.driver({
+      const hasDesktopSidebar = !!document.querySelector(
+        '[data-slot="sidebar-container"]'
+      )
+      const sidebarSelector = hasDesktopSidebar
+        ? '[data-slot="sidebar-container"]'
+        : '[data-sidebar="trigger"]'
+
+      const steps = [
+        {
+          element: '[data-tour="kpis"]',
+          popover: {
+            title: "Visão rápida da operação",
+            description:
+              "Aqui você enxerga em segundos os principais indicadores da sua operação: ativos, ordens de serviço, atrasos, calibrações vencidas e desempenho geral.",
+          },
+        },
+        {
+          element: '[data-tour="maintenance"]',
+          popover: {
+            title: "Controle da manutenção",
+            description:
+              "Nesta área, você acompanha ordens de serviço, preventivas atrasadas e prioridades da manutenção, reduzindo perda de controle e retrabalho.",
+          },
+        },
+        {
+          element: '[data-tour="metrology"]',
+          popover: {
+            title: "Metrologia e conformidade",
+            description:
+              "Aqui o sistema ajuda a controlar calibrações, vencimentos e rastreabilidade metrológica, evitando não conformidades e correria antes de auditorias.",
+          },
+        },
+        {
+          element: sidebarSelector,
+          popover: {
+            title: "Sistema completo e integrado",
+            description:
+              "Pelo menu, você acessa os módulos da operação, como ativos, planos, ordens de serviço, metrologia, alertas e usuários. Agora você pode explorar o dashboard livremente.",
+          },
+        },
+      ]
+
+      const driverObj = mod.driver({
         animate: true,
         overlayOpacity: 0.7,
         stageRadius: 14,
@@ -64,6 +107,7 @@ export function DashboardTour() {
         nextBtnText: "Próximo",
         prevBtnText: "Voltar",
         doneBtnText: "Explorar dashboard",
+        steps,
         onPopoverRender: (popover) => {
           // driver.js 1.x doesn't support closeBtnText. We rewrite the close button label.
           if (popover?.closeButton) {
@@ -72,8 +116,8 @@ export function DashboardTour() {
             popover.closeButton.classList.add("clickdev-driver-close")
           }
         },
-        onHighlightStarted: ({ config }) => {
-          scrollTargetIntoView(Number(config?.step))
+        onHighlightStarted: (_element, _step, { state }) => {
+          scrollTargetIntoView(state.activeIndex ?? 0)
         },
         onDestroyed: () => {
           window.localStorage.setItem(STORAGE_KEY, "true")
@@ -81,60 +125,8 @@ export function DashboardTour() {
         },
       })
 
-      driver.setSteps([
-        {
-          element: '[data-tour="kpis"]',
-          popover: {
-            title: "Visão rápida da operação",
-            description:
-              "Aqui você enxerga em segundos os principais indicadores da sua operação: ativos, ordens de serviço, atrasos, calibrações vencidas e desempenho geral.",
-          },
-          step: 1,
-        },
-        {
-          element: '[data-tour="maintenance"]',
-          popover: {
-            title: "Controle da manutenção",
-            description:
-              "Nesta área, você acompanha ordens de serviço, preventivas atrasadas e prioridades da manutenção, reduzindo perda de controle e retrabalho.",
-          },
-          step: 2,
-        },
-        {
-          element: '[data-tour="metrology"]',
-          popover: {
-            title: "Metrologia e conformidade",
-            description:
-              "Aqui o sistema ajuda a controlar calibrações, vencimentos e rastreabilidade metrológica, evitando não conformidades e correria antes de auditorias.",
-          },
-          step: 3,
-        },
-        {
-          element: '[data-slot="sidebar-container"]',
-          popover: {
-            title: "Sistema completo e integrado",
-            description:
-              "Pelo menu, você acessa os módulos da operação, como ativos, planos, ordens de serviço, metrologia, alertas e usuários. Agora você pode explorar o dashboard livremente.",
-          },
-          step: 4,
-        },
-      ])
-
-      // Fallback para mobile (sidebar em Sheet)
-      if (!document.querySelector('[data-slot="sidebar-container"]')) {
-        driver.getConfig().steps?.splice(3, 1, {
-          element: '[data-sidebar="trigger"]',
-          popover: {
-            title: "Sistema completo e integrado",
-            description:
-              "Pelo menu, você acessa os módulos da operação, como ativos, planos, ordens de serviço, metrologia, alertas e usuários. Agora você pode explorar o dashboard livremente.",
-          },
-          step: 4,
-        } as any)
-      }
-
-      scrollTargetIntoView(1)
-      driver.drive()
+      scrollTargetIntoView(0)
+      driverObj.drive()
     })()
 
     return () => {
