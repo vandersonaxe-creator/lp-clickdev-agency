@@ -117,7 +117,11 @@ export function Step4Diagnostico({
         </div>
       </section>
 
-      <p className="text-sm italic text-slate-600">{diagnostico.proximo_passo}</p>
+      <div className="mt-8 border-t border-slate-100 pt-6">
+        <p className="text-base font-medium text-slate-800 md:text-lg">
+          {diagnostico.proximo_passo}
+        </p>
+      </div>
 
       <div className="fixed inset-x-0 bottom-0 z-20 border-t border-slate-200 bg-white/85 px-4 py-3 backdrop-blur shadow-[0_-4px_16px_rgba(0,0,0,0.04)] sm:px-6">
         <div className="mx-auto flex w-full max-w-4xl flex-col gap-2 sm:flex-row">
