@@ -37,7 +37,7 @@ export function ExitIntentWhatsAppPopup({
 
   const markSeenAndOpen = React.useCallback(() => {
     try {
-      sessionStorage.setItem(SEEN_KEY, "1")
+      localStorage.setItem(SEEN_KEY, "1")
     } catch {
       // ignore
     }
@@ -48,7 +48,7 @@ export function ExitIntentWhatsAppPopup({
     if (typeof window === "undefined") return
 
     try {
-      if (sessionStorage.getItem(SEEN_KEY) === "1") return
+      if (localStorage.getItem(SEEN_KEY) === "1") return
     } catch {
       // ignore
     }
