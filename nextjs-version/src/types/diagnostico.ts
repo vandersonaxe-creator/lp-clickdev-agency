@@ -18,14 +18,15 @@ export type DiagnosticoGerarRequest = DiagnosticoLeadData & {
   referrer?: string
 }
 
-export type Esforco = "baixo" | "medio" | "alto"
-export type ImpactoNivel = "pequeno" | "moderado" | "alto" | "transformador"
+export type PapelEstrategico =
+  | "primeiro_passo"
+  | "base_estrutural"
+  | "salto_estrategico"
 
 export interface CaminhoSolucao {
   titulo: string
   descricao: string
-  esforco: Esforco
-  prazo_estimado: string
+  papel: PapelEstrategico
   impacto_tempo: string
   impacto_economico: string
   impacto_organizacional: string

@@ -3,22 +3,12 @@
 import * as React from "react"
 
 import { getWhatsAppHref } from "@/lib/validators"
-import type { DiagnosticoEstruturado, Esforco } from "@/types/diagnostico"
+import type { DiagnosticoEstruturado } from "@/types/diagnostico"
+import { SeloPapel } from "../components/SeloPapel"
 
 function firstName(fullName: string) {
   const p = fullName.trim().split(/\s+/).filter(Boolean)
   return p[0] ?? fullName
-}
-
-function badgeStyles(esforco: Esforco) {
-  switch (esforco) {
-    case "baixo":
-      return "bg-green-50 text-green-700 border-green-200"
-    case "medio":
-      return "bg-amber-50 text-amber-700 border-amber-200"
-    case "alto":
-      return "bg-red-50 text-red-700 border-red-200"
-  }
 }
 
 export function Step4Diagnostico({
@@ -41,9 +31,6 @@ export function Step4Diagnostico({
   return (
     <div className="space-y-6 pb-28 md:space-y-8">
       <header className="space-y-2">
-        <p className="text-sm font-medium uppercase tracking-wide text-slate-500">
-          Pré-diagnóstico personalizado
-        </p>
         <h2 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl">
           Olá, {primeiroNome}. Aqui está o que identificamos:
         </h2>
@@ -67,22 +54,10 @@ export function Step4Diagnostico({
             >
               <div className="flex flex-col gap-3">
                 <div className="space-y-2">
+                  <SeloPapel papel={caminho.papel} />
                   <h4 className="text-lg font-semibold text-slate-900">
                     {caminho.titulo}
                   </h4>
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span
-                      className={[
-                        "inline-flex items-center rounded-md border px-2.5 py-1 text-xs font-medium",
-                        badgeStyles(caminho.esforco),
-                      ].join(" ")}
-                    >
-                      Esforço: {caminho.esforco}
-                    </span>
-                    <span className="inline-flex items-center rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-700">
-                      Prazo: {caminho.prazo_estimado}
-                    </span>
-                  </div>
                 </div>
 
                 <p className="text-base leading-relaxed text-slate-700">

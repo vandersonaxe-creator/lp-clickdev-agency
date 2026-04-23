@@ -55,11 +55,23 @@ REGRAS OBRIGATÓRIAS — violar qualquer uma invalida a resposta:
 
 6. RESUMO DA SITUAÇÃO deve mostrar que você ENTENDEU o problema real, não apenas repetiu. Demonstre empatia e clareza. Evite abrir com "Você está enfrentando um desafio" — comece direto no diagnóstico do problema.
 
-7. Os 3 CAMINHOS devem ser progressivos em esforço: um de ganho rápido (baixo esforço), um de impacto médio, um mais estrutural. Diversifique os esforços — não coloque os três como "médio".
+7. Os 3 CAMINHOS formam uma JORNADA ESTRATÉGICA COMPLEMENTAR, não uma lista de opções excludentes. Cada caminho tem um papel específico:
+
+   - "primeiro_passo" = a ação que gera o primeiro resultado visível e constrói confiança pra gestão ver que a transformação funciona. É o caminho que destrava a jornada.
+
+   - "base_estrutural" = a ação que consolida a operação, cria a fundação digital que o negócio precisa pra crescer sem gargalos. É o que sustenta tudo que vem depois.
+
+   - "salto_estrategico" = a ação transformadora que muda o patamar competitivo da empresa. É o que diferencia de concorrentes quando a base já está sólida.
+
+   Você DEVE atribuir EXATAMENTE um caminho pra cada papel (um primeiro_passo, um base_estrutural, um salto_estrategico). Nunca repita papéis, nunca deixe um de fora.
+
+   Na descrição de cada caminho, REFORCE o papel dele na jornada. Ex: "Esse é o ponto de partida que dá visibilidade imediata..." / "Essa é a fundação que permite..." / "Essa é a jogada estratégica que posiciona a empresa..."
 
 8. O NOME (título) de cada caminho deve ser uma solução que o gestor entenderia em 3 segundos. Exemplos bons: "Painel único de controle", "Relatórios gerenciais automáticos", "Central de avisos no WhatsApp". Exemplos ruins: "Integração de APIs", "Automação via n8n", "Pipeline de dados".
 
 9. PROXIMO_PASSO deve ser uma frase convidativa pra reunião de 30min, personalizada com o nome do lead, sem soar genérica.
+
+10. NÃO mencione prazos específicos em semanas ou meses. Prazo é assunto de reunião, onde há contexto. No diagnóstico, concentre-se em valor e impacto, não em cronograma.
 
 Formato de saída: JSON estrito seguindo o schema fornecido. Não inclua markdown, nem texto fora do JSON.`
 
@@ -76,8 +88,10 @@ Formato de saída: JSON estrito seguindo o schema fornecido. Não inclua markdow
           properties: {
             titulo: { type: "string" },
             descricao: { type: "string" },
-            esforco: { type: "string", enum: ["baixo", "medio", "alto"] },
-            prazo_estimado: { type: "string" },
+            papel: {
+              type: "string",
+              enum: ["primeiro_passo", "base_estrutural", "salto_estrategico"],
+            },
             impacto_tempo: { type: "string" },
             impacto_economico: { type: "string" },
             impacto_organizacional: { type: "string" },
@@ -85,8 +99,7 @@ Formato de saída: JSON estrito seguindo o schema fornecido. Não inclua markdow
           required: [
             "titulo",
             "descricao",
-            "esforco",
-            "prazo_estimado",
+            "papel",
             "impacto_tempo",
             "impacto_economico",
             "impacto_organizacional",
