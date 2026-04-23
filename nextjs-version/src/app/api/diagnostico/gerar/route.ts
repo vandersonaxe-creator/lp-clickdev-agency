@@ -4,7 +4,7 @@ import { z } from "zod"
 import type { DiagnosticoGerarRequest } from "@/types/diagnostico"
 import { sanitizePlainText, normalizeWhatsappBR } from "@/lib/validators"
 import { inferUFfromWhatsappE164 } from "@/lib/ddd-to-uf"
-import { gerarDiagnostico } from "@/lib/gemini"
+import { gerarDiagnostico } from "@/lib/ai"
 import { supabaseServiceRole } from "@/lib/supabase/server"
 
 const UtmSchema = z
@@ -28,6 +28,7 @@ const BodySchema = z.object({
 
 export async function POST(req: Request) {
   let parsed: DiagnosticoGerarRequest | null = null
+  const isDev = process.env.NODE_ENV !== "production"
 
   try {
     const json = (await req.json()) as unknown
@@ -75,22 +76,44 @@ export async function POST(req: Request) {
       .single()
 
     if (leadErr || !leadRow?.id) {
+      if (leadErr) {
+        console.error("[diagnostico] db_insert_failed", {
+          code: (leadErr as any).code ?? null,
+          message: leadErr.message,
+          details: (leadErr as any).details ?? null,
+          hint: (leadErr as any).hint ?? null,
+        })
+      } else {
+        console.error("[diagnostico] db_insert_failed: missing id", { leadRow })
+      }
       return NextResponse.json(
-        { ok: false, error: "db_insert_failed" },
+        {
+          ok: false,
+          error: "db_insert_failed",
+          ...(isDev
+            ? {
+                detail: leadErr
+                  ? {
+                      code: (leadErr as any).code ?? null,
+                      message: leadErr.message,
+                      details: (leadErr as any).details ?? null,
+                      hint: (leadErr as any).hint ?? null,
+                    }
+                  : { message: "missing lead id" },
+              }
+            : {}),
+        },
         { status: 500 }
       )
     }
 
     const leadId = leadRow.id as string
 
-    // 2) Gera diagnóstico com Gemini (server-side).
-    const gem = await gerarDiagnostico(
-      { gargalo, nome: body.nome, uf },
-      { timeoutMs: 25_000 }
-    )
+    // 2) Gera diagnóstico com OpenAI (server-side), retornando JSON estruturado.
+    const ai = await gerarDiagnostico({ gargalo, nome: body.nome, uf })
 
-    if (!gem.ok) {
-      // Fire-and-forget n8n (com falha do Gemini também).
+    if ("error" in ai) {
+      // Fire-and-forget n8n (com falha do diagnóstico também).
       const webhook = process.env.N8N_WEBHOOK_DIAGNOSTICO
       if (webhook) {
         void fetch(webhook, {
@@ -102,27 +125,37 @@ export async function POST(req: Request) {
             ddd,
             uf_inferida: uf,
             diagnostico: null,
-            diagnostico_error: gem.error,
+            diagnostico_error: ai.error,
           }),
         }).catch(() => {})
       }
 
       return NextResponse.json(
-        { ok: false, error: gem.error, leadId },
+        { ok: false, error: ai.error, leadId },
         { status: 200 }
       )
     }
 
+    const { diagnostico, tokens, tempoMs } = ai
+
     // 3) Atualiza lead com diagnóstico + métricas.
-    await supabase
+    const { error: updateErr } = await supabase
       .from("diagnostico_leads")
       .update({
-        diagnostico_gerado: gem.markdown,
-        diagnostico_tokens_used: gem.tokensUsed,
-        diagnostico_tempo_ms: gem.tempoMs,
+        diagnostico_gerado: JSON.stringify(diagnostico),
+        diagnostico_json: diagnostico,
+        diagnostico_tokens_used: tokens,
+        diagnostico_tempo_ms: tempoMs,
         updated_at: new Date().toISOString(),
       })
       .eq("id", leadId)
+    if (updateErr) {
+      console.error("[diagnostico] db_update_failed", {
+        leadId,
+        code: (updateErr as any).code ?? null,
+        message: updateErr.message,
+      })
+    }
 
     // 4) Dispara webhook n8n (não bloqueante).
     const webhook = process.env.N8N_WEBHOOK_DIAGNOSTICO
@@ -135,9 +168,9 @@ export async function POST(req: Request) {
           ...parsed,
           ddd,
           uf_inferida: uf,
-          diagnostico: gem.markdown,
-          tokensUsed: gem.tokensUsed,
-          tempoMs: gem.tempoMs,
+          diagnostico,
+          tokensUsed: tokens,
+          tempoMs,
         }),
       }).catch(() => {})
     }
@@ -146,9 +179,9 @@ export async function POST(req: Request) {
       {
         ok: true,
         leadId,
-        diagnostico: gem.markdown,
-        tokensUsed: gem.tokensUsed,
-        tempoMs: gem.tempoMs,
+        diagnostico,
+        tokensUsed: tokens,
+        tempoMs,
       },
       { status: 200 }
     )
@@ -156,6 +189,7 @@ export async function POST(req: Request) {
     if (e instanceof z.ZodError) {
       return NextResponse.json({ ok: false, error: "invalid_payload" }, { status: 400 })
     }
+    console.error("[diagnostico] server_error", e)
     return NextResponse.json({ ok: false, error: "server_error" }, { status: 500 })
   }
 }

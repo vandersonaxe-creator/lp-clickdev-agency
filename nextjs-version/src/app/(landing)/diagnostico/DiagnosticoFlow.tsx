@@ -8,7 +8,7 @@ import { Step1Gargalo } from "./steps/Step1Gargalo"
 import { Step2Identificacao } from "./steps/Step2Identificacao"
 import { Step3Gerando } from "./steps/Step3Gerando"
 import { Step4Diagnostico } from "./steps/Step4Diagnostico"
-import type { DiagnosticoLeadData, DiagnosticoUtmData } from "@/types/diagnostico"
+import type { DiagnosticoEstruturado, DiagnosticoLeadData, DiagnosticoUtmData } from "@/types/diagnostico"
 import { getUtmFromLocation, getReferrerSafe } from "@/lib/tracking"
 import { track } from "@/lib/tracking"
 import { getWhatsAppHref } from "@/lib/validators"
@@ -20,7 +20,7 @@ type FlowState =
   | {
       step: "diagnostico"
       data: DiagnosticoLeadData
-      diagnostico: string
+      diagnostico: DiagnosticoEstruturado
       leadId: string
       tokensUsed: number | null
       tempoMs: number | null
@@ -38,7 +38,7 @@ type Action =
   | { type: "GERAR_START" }
   | {
       type: "GERAR_SUCCESS"
-      diagnostico: string
+      diagnostico: DiagnosticoEstruturado
       leadId: string
       tokensUsed: number | null
       tempoMs: number | null
@@ -188,7 +188,7 @@ export function DiagnosticoFlow() {
 
         dispatch({
           type: "GERAR_SUCCESS",
-          diagnostico: json.diagnostico as string,
+          diagnostico: json.diagnostico as DiagnosticoEstruturado,
           leadId: json.leadId as string,
           tokensUsed: (json.tokensUsed ?? null) as number | null,
           tempoMs: (json.tempoMs ?? tempoMs) as number | null,
