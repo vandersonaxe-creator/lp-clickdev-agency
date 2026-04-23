@@ -30,7 +30,7 @@ export function Step4Diagnostico({
 
   return (
     <div className="space-y-6 pb-28 md:space-y-8">
-      <header className="space-y-2">
+      <header className="space-y-3">
         <h2 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl">
           Olá, {primeiroNome}. Aqui está o que identificamos:
         </h2>
