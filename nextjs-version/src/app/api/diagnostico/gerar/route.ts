@@ -5,6 +5,7 @@ import type { DiagnosticoGerarRequest } from "@/types/diagnostico"
 import { sanitizePlainText, normalizeWhatsappBR } from "@/lib/validators"
 import { inferUFfromWhatsappE164 } from "@/lib/ddd-to-uf"
 import { gerarDiagnostico } from "@/lib/ai"
+import { dispararDiagnosticoN8n } from "@/lib/n8n"
 import { supabaseServiceRole } from "@/lib/supabase/server"
 
 const UtmSchema = z
@@ -157,23 +158,14 @@ export async function POST(req: Request) {
       })
     }
 
-    // 4) Dispara webhook n8n (não bloqueante).
-    const webhook = process.env.N8N_WEBHOOK_DIAGNOSTICO
-    if (webhook) {
-      void fetch(webhook, {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          leadId,
-          ...parsed,
-          ddd,
-          uf_inferida: uf,
-          diagnostico,
-          tokensUsed: tokens,
-          tempoMs,
-        }),
-      }).catch(() => {})
-    }
+    // 4) Dispara n8n (não bloqueante).
+    void dispararDiagnosticoN8n({
+      leadId,
+      nome: body.nome,
+      whatsapp: whatsappE164,
+      email: body.email,
+      diagnostico,
+    }).catch((err) => console.error("[n8n] Erro fire-and-forget:", err))
 
     return NextResponse.json(
       {
