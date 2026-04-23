@@ -186,6 +186,11 @@ export function DiagnosticoFlow() {
           tokens_usados: json?.tokensUsed ?? null,
         })
 
+        track("diagnostico_dispatchado_n8n", {
+          ...(utm ?? {}),
+          lead_id: json.leadId as string,
+        })
+
         dispatch({
           type: "GERAR_SUCCESS",
           diagnostico: json.diagnostico as DiagnosticoEstruturado,
