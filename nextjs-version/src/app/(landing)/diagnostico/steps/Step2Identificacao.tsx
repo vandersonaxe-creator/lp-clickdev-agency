@@ -4,6 +4,16 @@ import * as React from "react"
 
 import { normalizeWhatsappBR, validateEmail, validateNome, validateWhatsappBR } from "@/lib/validators"
 
+function stripBrazilCountryCode(input: string) {
+  const digits = input.replace(/\D/g, "")
+  if (digits.startsWith("55")) {
+    const without = digits.slice(2)
+    // Preserve formatting intent: rebuild from digits (light) by returning raw digits.
+    return without
+  }
+  return digits.length ? digits : input
+}
+
 export function Step2Identificacao({
   defaultNome,
   defaultWhatsapp,
@@ -18,7 +28,7 @@ export function Step2Identificacao({
   onSubmit: (payload: { nome: string; whatsapp: string; email: string }) => void | Promise<void>
 }) {
   const [nome, setNome] = React.useState(defaultNome)
-  const [whatsapp, setWhatsapp] = React.useState(defaultWhatsapp)
+  const [whatsapp, setWhatsapp] = React.useState(stripBrazilCountryCode(defaultWhatsapp))
   const [email, setEmail] = React.useState(defaultEmail)
   const [touched, setTouched] = React.useState(false)
 
@@ -27,7 +37,7 @@ export function Step2Identificacao({
   const emailTrim = email.trim()
 
   const nomeOk = validateNome(nomeTrim)
-  const whatsappOk = validateWhatsappBR(whatsappTrim)
+  const whatsappOk = validateWhatsappBR(`+55 ${whatsappTrim}`)
   const emailOk = validateEmail(emailTrim)
 
   const canSubmit = nomeOk && whatsappOk && emailOk
@@ -80,14 +90,31 @@ export function Step2Identificacao({
           <label htmlFor="whatsapp" className="text-sm font-medium text-slate-700 dark:text-slate-700">
             WhatsApp
           </label>
-          <input
-            id="whatsapp"
-            value={whatsapp}
-            onChange={(e) => setWhatsapp(e.target.value)}
-            inputMode="tel"
-            placeholder="+55 (21) 9XXXX-XXXX"
-            className="h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-base text-slate-900 shadow-sm outline-none transition focus:border-blue-600 focus:ring-2 focus:ring-blue-600/15 dark:border-slate-200 dark:bg-white dark:text-slate-900"
-          />
+          <div className="flex h-11 w-full overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-600/15 dark:border-slate-200 dark:bg-white">
+            <div className="flex items-center gap-2 border-r border-slate-200 bg-slate-50 px-3 text-sm font-semibold text-slate-700">
+              <span className="text-base leading-none" aria-hidden>
+                🇧🇷
+              </span>
+              <span className="font-mono text-sm">+55</span>
+            </div>
+            <input
+              id="whatsapp"
+              value={whatsapp}
+              onChange={(e) => {
+                const v = e.target.value
+                const digits = v.replace(/\D/g, "")
+                // If user pastes "+55...", keep input as BR local part.
+                if (digits.startsWith("55")) {
+                  setWhatsapp(digits.slice(2))
+                  return
+                }
+                setWhatsapp(v)
+              }}
+              inputMode="tel"
+              placeholder="(21) 9XXXX-XXXX"
+              className="h-11 w-full bg-transparent px-3 text-base text-slate-900 outline-none dark:text-slate-900"
+            />
+          </div>
           {touched && !whatsappOk && (
             <p className="text-sm text-red-600">
               Informe um WhatsApp válido no padrão BR.
