@@ -24,25 +24,25 @@ export default async function DiagnosticoPage() {
       </div>
 
       <header className="space-y-4">
-        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm backdrop-blur">
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" aria-hidden />
+        <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-xs font-medium text-slate-600 shadow-sm backdrop-blur dark:border-slate-200 dark:bg-white/80 dark:text-slate-600">
+          <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-600" aria-hidden />
           Diagnóstico gratuito
         </div>
         <div className="space-y-2">
           <h1 className="text-pretty text-3xl font-semibold tracking-tight sm:text-4xl">
             Entenda por onde começar:
           </h1>
-          <p className="text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
+          <p className="text-pretty text-base leading-relaxed text-slate-600 sm:text-lg dark:text-slate-600">
             Responda duas perguntas rápidas. Em seguida, você recebe um pré-diagnóstico
             estruturado (sem compromisso).
           </p>
         </div>
       </header>
 
-      <section className="relative mt-8 overflow-hidden rounded-2xl border border-border bg-background/70 p-5 shadow-sm backdrop-blur sm:p-7">
+      <section className="relative mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white/80 p-5 shadow-sm backdrop-blur dark:border-slate-200 dark:bg-white/80 sm:p-7">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-600/30 to-transparent"
         />
         <DiagnosticoFlow />
       </section>

@@ -26,10 +26,10 @@ export function Step1Gargalo({
       }}
     >
       <div className="space-y-1">
-        <h2 className="text-base font-semibold text-foreground">
+        <h2 className="text-base font-semibold text-slate-900 dark:text-slate-900">
           Qual é o principal gargalo que mais atrasa sua operação hoje?
         </h2>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-slate-600 dark:text-slate-600">
           Pode explicar do seu jeito — quanto mais contexto, melhor fica o diagnóstico.
         </p>
       </div>
@@ -46,15 +46,15 @@ export function Step1Gargalo({
           minLength={MIN}
           maxLength={MAX}
           rows={5}
-          className="w-full resize-none rounded-xl border border-input bg-background px-3 py-2 text-base text-foreground shadow-sm outline-none transition focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/20"
+          className="w-full resize-none rounded-xl border border-slate-200 bg-white px-3 py-2 text-base text-slate-900 shadow-sm outline-none transition focus:border-blue-600 focus:ring-2 focus:ring-blue-600/15 dark:border-slate-200 dark:bg-white dark:text-slate-900"
         />
         <div className="flex items-center justify-between">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-slate-500 dark:text-slate-500">
             {trimmed.length < MIN
               ? "Conta um pouco mais pra eu poder te ajudar de verdade"
               : "Perfeito — já dá pra trabalhar com isso."}
           </p>
-          <p className="text-xs tabular-nums text-muted-foreground">{`${value.length}/${MAX}`}</p>
+          <p className="text-xs tabular-nums text-slate-500 dark:text-slate-500">{`${value.length}/${MAX}`}</p>
         </div>
       </div>
 
@@ -62,7 +62,7 @@ export function Step1Gargalo({
         <button
           type="submit"
           disabled={!valid}
-          className="inline-flex h-11 items-center justify-center rounded-xl bg-primary px-6 text-base font-semibold text-primary-foreground shadow-sm transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
+          className="inline-flex h-11 items-center justify-center rounded-xl bg-blue-600 px-6 text-base font-semibold text-white shadow-sm transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
         >
           Continuar
         </button>

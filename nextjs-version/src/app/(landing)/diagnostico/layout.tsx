@@ -11,7 +11,12 @@ export default function DiagnosticoLayout({
 }) {
   return (
     <ThemeProvider forcedTheme="light" defaultTheme="light" storageKey="diagnostico-theme">
-      <div className="min-h-screen bg-background text-foreground">{children}</div>
+      <div
+        className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-50 dark:text-slate-900"
+        style={{ colorScheme: "light" }}
+      >
+        {children}
+      </div>
     </ThemeProvider>
   )
 }

@@ -47,17 +47,17 @@ export function Step2Identificacao({
       }}
     >
       <div className="space-y-1">
-        <h2 className="text-base font-semibold text-foreground">
+        <h2 className="text-base font-semibold text-slate-900 dark:text-slate-900">
           Pra mandar seu diagnóstico, só preciso de:
         </h2>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-slate-600 dark:text-slate-600">
           Sem spam. Você pode seguir no WhatsApp ou agendar quando quiser.
         </p>
       </div>
 
       <div className="grid gap-3">
         <div className="space-y-1">
-          <label htmlFor="nome" className="text-sm font-medium text-foreground">
+          <label htmlFor="nome" className="text-sm font-medium text-slate-700 dark:text-slate-700">
             Nome
           </label>
           <input
@@ -65,15 +65,15 @@ export function Step2Identificacao({
             value={nome}
             onChange={(e) => setNome(e.target.value)}
             placeholder="Seu nome"
-            className="h-11 w-full rounded-xl border border-input bg-background px-3 text-base text-foreground shadow-sm outline-none transition focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/20"
+            className="h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-base text-slate-900 shadow-sm outline-none transition focus:border-blue-600 focus:ring-2 focus:ring-blue-600/15 dark:border-slate-200 dark:bg-white dark:text-slate-900"
           />
           {touched && !nomeOk && (
-            <p className="text-sm text-destructive">Digite seu nome (2–80 caracteres).</p>
+            <p className="text-sm text-red-600">Digite seu nome (2–80 caracteres).</p>
           )}
         </div>
 
         <div className="space-y-1">
-          <label htmlFor="whatsapp" className="text-sm font-medium text-foreground">
+          <label htmlFor="whatsapp" className="text-sm font-medium text-slate-700 dark:text-slate-700">
             WhatsApp
           </label>
           <input
@@ -82,17 +82,17 @@ export function Step2Identificacao({
             onChange={(e) => setWhatsapp(e.target.value)}
             inputMode="tel"
             placeholder="+55 (21) 9XXXX-XXXX"
-            className="h-11 w-full rounded-xl border border-input bg-background px-3 text-base text-foreground shadow-sm outline-none transition focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/20"
+            className="h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-base text-slate-900 shadow-sm outline-none transition focus:border-blue-600 focus:ring-2 focus:ring-blue-600/15 dark:border-slate-200 dark:bg-white dark:text-slate-900"
           />
           {touched && !whatsappOk && (
-            <p className="text-sm text-destructive">
+            <p className="text-sm text-red-600">
               Informe um WhatsApp válido no padrão BR.
             </p>
           )}
         </div>
 
         <div className="space-y-1">
-          <label htmlFor="email" className="text-sm font-medium text-foreground">
+          <label htmlFor="email" className="text-sm font-medium text-slate-700 dark:text-slate-700">
             E-mail
           </label>
           <input
@@ -101,10 +101,10 @@ export function Step2Identificacao({
             onChange={(e) => setEmail(e.target.value)}
             inputMode="email"
             placeholder="seu@email.com"
-            className="h-11 w-full rounded-xl border border-input bg-background px-3 text-base text-foreground shadow-sm outline-none transition focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/20"
+            className="h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-base text-slate-900 shadow-sm outline-none transition focus:border-blue-600 focus:ring-2 focus:ring-blue-600/15 dark:border-slate-200 dark:bg-white dark:text-slate-900"
           />
           {touched && !emailOk && (
-            <p className="text-sm text-destructive">Informe um e-mail válido.</p>
+            <p className="text-sm text-red-600">Informe um e-mail válido.</p>
           )}
         </div>
       </div>
@@ -113,14 +113,14 @@ export function Step2Identificacao({
         <button
           type="button"
           onClick={onBack}
-          className="inline-flex h-11 items-center justify-center rounded-xl border border-input bg-background px-5 text-base font-medium text-foreground shadow-sm transition hover:bg-muted/50"
+          className="inline-flex h-11 items-center justify-center rounded-xl border border-slate-200 bg-white px-5 text-base font-medium text-slate-900 shadow-sm transition hover:bg-slate-50 dark:border-slate-200 dark:bg-white dark:text-slate-900"
         >
           Voltar
         </button>
         <button
           type="submit"
           disabled={!canSubmit}
-          className="inline-flex h-11 items-center justify-center rounded-xl bg-primary px-6 text-base font-semibold text-primary-foreground shadow-sm transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
+          className="inline-flex h-11 items-center justify-center rounded-xl bg-blue-600 px-6 text-base font-semibold text-white shadow-sm transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
         >
           Gerar diagnóstico
         </button>

@@ -17,8 +17,8 @@ export function ProgressDots({
         <span
           key={i}
           className={cn(
-            "h-2 w-2 rounded-full border border-border bg-background transition-colors",
-            i <= activeIndex ? "border-primary bg-primary" : "opacity-80"
+            "h-2 w-2 rounded-full border border-slate-300 bg-white transition-colors dark:border-slate-300 dark:bg-white",
+            i <= activeIndex ? "border-blue-600 bg-blue-600" : "opacity-80"
           )}
           aria-hidden
         />

@@ -21,25 +21,25 @@ export function Step3Gerando() {
   return (
     <div className="space-y-4">
       <div className="space-y-1">
-        <h2 className="text-base font-semibold text-foreground">
+        <h2 className="text-base font-semibold text-slate-900 dark:text-slate-900">
           Gerando seu pré-diagnóstico
         </h2>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-slate-600 dark:text-slate-600">
           Isso costuma levar alguns segundos.
         </p>
       </div>
 
-      <div className="rounded-2xl border border-border bg-muted/30 p-4">
+      <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-200 dark:bg-slate-50">
         <div className="flex items-center gap-3">
           <div
-            className="h-2.5 w-2.5 animate-pulse rounded-full bg-primary"
+            className="h-2.5 w-2.5 animate-pulse rounded-full bg-blue-600"
             aria-hidden
           />
-          <p className="text-sm font-medium text-foreground/80">{MESSAGES[idx]}</p>
+          <p className="text-sm font-medium text-slate-700 dark:text-slate-700">{MESSAGES[idx]}</p>
         </div>
       </div>
 
-      <p className="text-xs text-muted-foreground">
+      <p className="text-xs text-slate-500 dark:text-slate-500">
         Se passar de 30s, você pode tentar novamente — ou seguir no WhatsApp.
       </p>
     </div>
