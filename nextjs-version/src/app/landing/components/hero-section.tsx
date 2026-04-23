@@ -17,7 +17,7 @@ import { HyperspaceBackground } from "@/components/ui/hyperspace-background"
 import { cn } from "@/lib/utils"
 import { marketingHeroLead } from "@/lib/marketing-typography"
 import { landingMedia } from "@/lib/landing-media"
-import { CLICKDEV_WHATSAPP_HREF, DEMO_ROUTE } from "../landing-copy"
+import { CLICKDEV_WHATSAPP_HREF, DASHBOARD_TOUR_ROUTE } from "../landing-copy"
 import { EASE, fadeUp, stagger } from "../motion-presets"
 import { Eyebrow } from "./eyebrow"
 
@@ -151,17 +151,15 @@ export function HeroSection() {
                 className="btn-secondary-silver relative h-12 cursor-pointer overflow-visible text-base focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-transparent"
                 asChild
               >
-                <a
-                  href={DEMO_ROUTE}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href={DASHBOARD_TOUR_ROUTE}
                   className="relative inline-flex items-center justify-center"
                 >
                   <span className="relative z-10 inline-flex items-center">
                     <Play className="mr-2 h-4 w-4" aria-hidden />
-                    Ver demo real
+                    Ver demo
                   </span>
-                </a>
+                </Link>
               </Button>
             </motion.div>
 

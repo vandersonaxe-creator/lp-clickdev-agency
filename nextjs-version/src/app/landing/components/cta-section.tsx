@@ -16,7 +16,7 @@ import {
   CLICKDEV_EMAIL,
   CLICKDEV_EMAIL_HREF,
   CLICKDEV_WHATSAPP_HREF,
-  DEMO_ROUTE,
+  DASHBOARD_TOUR_ROUTE,
 } from "../landing-copy"
 import { EASE } from "../motion-presets"
 import { Eyebrow } from "./eyebrow"
@@ -138,9 +138,7 @@ export function CTASection() {
                 asChild
               >
                 <a
-                  href={DEMO_ROUTE}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={DASHBOARD_TOUR_ROUTE}
                   className="relative inline-flex items-center justify-center"
                 >
                   <span className="relative z-10 inline-flex items-center">

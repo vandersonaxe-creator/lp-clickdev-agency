@@ -29,7 +29,7 @@ export function PcmKpiSection() {
   const conf = 82
 
   return (
-    <section className="px-4 lg:px-6">
+    <section className="px-4 lg:px-6" data-tour="kpis">
       <div className="mb-4 flex flex-col gap-1">
         <h1 className="text-[14px] font-bold leading-tight tracking-[0.02em] text-foreground">
           PCM Industrial

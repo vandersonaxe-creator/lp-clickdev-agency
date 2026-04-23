@@ -43,12 +43,12 @@ const data = {
       label: "Dashboards",
       items: [
         {
-          title: "Dashboard 1",
+          title: "Indicadores Operacionais",
           url: "/dashboard",
           icon: LayoutDashboard,
         },
         {
-          title: "Dashboard 2",
+          title: "Visão Executiva",
           url: "/dashboard-2",
           icon: LayoutPanelLeft,
         },

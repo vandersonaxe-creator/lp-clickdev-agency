@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/sheet"
 import { cn } from "@/lib/utils"
 import { marketingWordmark } from "@/lib/marketing-typography"
-import { DEMO_ROUTE } from "../landing-copy"
+import { DASHBOARD_TOUR_ROUTE } from "../landing-copy"
 
 const navLinks = [
   { label: "Evidência", href: "#evidencia" },
@@ -145,14 +145,12 @@ export function LandingNavbar() {
               size="sm"
               className="relative overflow-visible text-muted-foreground hover:text-foreground focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-transparent"
             >
-              <a
-                href={DEMO_ROUTE}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href={DASHBOARD_TOUR_ROUTE}
                 className="relative inline-flex items-center justify-center"
               >
                 <span className="relative z-10">Ver demo</span>
-              </a>
+              </Link>
             </Button>
             <PrimaryCtaLink />
           </div>
@@ -207,14 +205,12 @@ export function LandingNavbar() {
                     className="btn-secondary-silver relative w-full overflow-visible focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-transparent"
                     onClick={() => setMobileOpen(false)}
                   >
-                    <a
-                      href={DEMO_ROUTE}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href={DASHBOARD_TOUR_ROUTE}
                       className="relative inline-flex items-center justify-center"
                     >
                       <span className="relative z-10">Ver demo</span>
-                    </a>
+                    </Link>
                   </Button>
                   <PrimaryCtaLink
                     className="w-full"

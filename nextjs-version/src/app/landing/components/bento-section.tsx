@@ -20,7 +20,7 @@ import {
   marketingSectionPadding,
   marketingSectionTitle,
 } from "@/lib/marketing-typography"
-import { DEMO_ROUTE } from "../landing-copy"
+import { DASHBOARD_TOUR_ROUTE } from "../landing-copy"
 import { fadeUp, stagger } from "../motion-presets"
 import { Eyebrow } from "./eyebrow"
 
@@ -155,9 +155,7 @@ export function BentoSection({ className }: { className?: string }) {
                     className="btn-tertiary-silver relative mt-6 cursor-pointer overflow-visible focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-transparent"
                   >
                     <a
-                      href={DEMO_ROUTE}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href={DASHBOARD_TOUR_ROUTE}
                       className="relative inline-flex items-center justify-center"
                     >
                       <span className="relative z-10">
@@ -240,9 +238,7 @@ export function BentoSection({ className }: { className?: string }) {
                     className="btn-tertiary-silver relative w-full cursor-pointer overflow-visible focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-transparent"
                   >
                     <a
-                      href={DEMO_ROUTE}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href={DASHBOARD_TOUR_ROUTE}
                       className="relative inline-flex items-center justify-center"
                     >
                       <span className="relative z-10">

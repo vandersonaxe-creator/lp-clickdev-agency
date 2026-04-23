@@ -85,7 +85,10 @@ export function PcmAlertsSection() {
     <section className="px-4 pb-2 lg:px-6">
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
         {/* Preventivas atrasadas */}
-        <div className="rounded-[14px] border border-border bg-card p-4 shadow-none">
+        <div
+          className="rounded-[14px] border border-border bg-card p-4 shadow-none"
+          data-tour="maintenance"
+        >
           <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
             <h2 className="text-[14px] font-bold text-foreground">Preventivas Atrasadas</h2>
             <Badge variant="destructive" className="font-mono text-[11px]">
@@ -118,7 +121,10 @@ export function PcmAlertsSection() {
         </div>
 
         {/* Calibrações */}
-        <div className="rounded-[14px] border border-border bg-card p-4 shadow-none">
+        <div
+          className="rounded-[14px] border border-border bg-card p-4 shadow-none"
+          data-tour="metrology"
+        >
           <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
             <h2 className="text-[14px] font-bold text-foreground">Calibrações</h2>
             <Badge

@@ -8,6 +8,12 @@ export const CLICKDEV_WHATSAPP_HREF =
  */
 export const DEMO_ROUTE = "https://clickdev.com.br/dashboard"
 
+/**
+ * Demo guiada dentro do app (Next.js).
+ * Inicia o tour somente quando `tour=1`.
+ */
+export const DASHBOARD_TOUR_ROUTE = "/dashboard?tour=1"
+
 export const CLICKDEV_EMAIL = "contato@clickdev.com.br"
 export const CLICKDEV_EMAIL_HREF = `mailto:${CLICKDEV_EMAIL}`
 

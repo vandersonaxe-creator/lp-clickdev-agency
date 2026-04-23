@@ -412,3 +412,83 @@ html {
     0 0 12px rgba(251, 191, 36, 0.15),
     0 0 4px rgba(251, 191, 36, 0.1);
 }
+
+/* Dashboard tour (driver.js) — Click Dev tech card */
+.clickdev-driver-popover {
+  --clickdev-tour-bg: color-mix(in oklab, var(--card) 92%, black 8%);
+  --clickdev-tour-border: color-mix(in oklab, var(--border) 72%, white 18%);
+  background: radial-gradient(
+      120% 140% at 10% 0%,
+      oklch(0.62 0.22 290 / 0.18),
+      transparent 55%
+    ),
+    radial-gradient(
+      120% 140% at 90% 10%,
+      oklch(0.78 0.15 290 / 0.12),
+      transparent 45%
+    ),
+    var(--clickdev-tour-bg) !important;
+  border: 1px solid var(--clickdev-tour-border) !important;
+  border-radius: 16px !important;
+  box-shadow:
+    0 24px 70px -18px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.clickdev-driver-popover .driver-popover-title {
+  font-size: 14px !important;
+  line-height: 1.2 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.01em;
+  color: var(--foreground) !important;
+  margin-bottom: 4px !important;
+}
+
+.clickdev-driver-popover .driver-popover-description {
+  font-size: 12.5px !important;
+  line-height: 1.45 !important;
+  color: color-mix(in oklab, var(--muted-foreground) 92%, white 8%) !important;
+}
+
+.clickdev-driver-popover .driver-popover-progress-text {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: color-mix(in oklab, var(--muted-foreground) 88%, white 12%) !important;
+}
+
+.clickdev-driver-popover .driver-popover-footer {
+  margin-top: 10px !important;
+  gap: 8px !important;
+}
+
+.clickdev-driver-popover .driver-popover-btn {
+  border-radius: 12px !important;
+  padding: 10px 12px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  border: 1px solid color-mix(in oklab, var(--border) 72%, white 18%) !important;
+  background: color-mix(in oklab, var(--background) 68%, var(--card) 32%) !important;
+  color: var(--foreground) !important;
+}
+
+.clickdev-driver-popover .driver-popover-btn:hover {
+  filter: brightness(1.06);
+}
+
+.clickdev-driver-popover .driver-popover-btn.driver-popover-next-btn,
+.clickdev-driver-popover .driver-popover-btn.driver-popover-done-btn {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--foreground) 92%, white 8%),
+    color-mix(in oklab, var(--foreground) 70%, oklch(0.62 0.22 290) 30%)
+  ) !important;
+  color: color-mix(in oklab, var(--background) 92%, black 8%) !important;
+  border-color: transparent !important;
+  box-shadow: 0 10px 30px -18px rgba(99, 102, 241, 0.7);
+}
+
+.clickdev-driver-popover .driver-popover-btn.driver-popover-close-btn {
+  background: transparent !important;
+}
