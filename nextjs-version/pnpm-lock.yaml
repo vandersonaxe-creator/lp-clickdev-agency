@@ -114,7 +114,7 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0
       driver.js:
-        specifier: ^1.4.0
+        specifier: 1.4.0
         version: 1.4.0
       embla-carousel-react:
         specifier: ^8.6.0
