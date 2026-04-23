@@ -35,11 +35,14 @@ export function Step3Gerando() {
 
       <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-200 dark:bg-slate-50">
         <div className="flex items-center gap-3">
-          <div
-            className="h-2.5 w-2.5 animate-pulse rounded-full bg-blue-600"
-            aria-hidden
-          />
-          <p className="text-sm font-medium text-slate-700 dark:text-slate-700">{MESSAGES[idx]}</p>
+          <div className="relative grid h-9 w-9 place-items-center" aria-hidden>
+            <div className="absolute inset-0 rounded-full border-2 border-blue-200" />
+            <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-blue-600 animate-spin" />
+            <div className="h-2.5 w-2.5 animate-pulse rounded-full bg-blue-600" />
+          </div>
+          <p className="text-sm font-medium text-slate-700 dark:text-slate-700">
+            {MESSAGES[idx]}
+          </p>
         </div>
       </div>
 
