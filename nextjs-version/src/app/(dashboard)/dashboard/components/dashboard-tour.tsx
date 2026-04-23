@@ -64,7 +64,14 @@ export function DashboardTour() {
         nextBtnText: "Próximo",
         prevBtnText: "Voltar",
         doneBtnText: "Explorar dashboard",
-        closeBtnText: "Pular demo",
+        onPopoverRender: (popover) => {
+          // driver.js 1.x doesn't support closeBtnText. We rewrite the close button label.
+          if (popover?.closeButton) {
+            popover.closeButton.innerHTML = "Pular demo"
+            popover.closeButton.setAttribute("aria-label", "Pular demo")
+            popover.closeButton.classList.add("clickdev-driver-close")
+          }
+        },
         onHighlightStarted: ({ config }) => {
           scrollTargetIntoView(Number(config?.step))
         },

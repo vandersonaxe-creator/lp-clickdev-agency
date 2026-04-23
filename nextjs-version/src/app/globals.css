@@ -492,3 +492,21 @@ html {
 .clickdev-driver-popover .driver-popover-btn.driver-popover-close-btn {
   background: transparent !important;
 }
+
+/* driver.js 1.x close button is icon by default; we convert to "Pular demo" */
+.clickdev-driver-popover .driver-popover-close-btn.clickdev-driver-close {
+  width: auto !important;
+  height: auto !important;
+  padding: 6px 10px !important;
+  border-radius: 10px !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  color: color-mix(in oklab, var(--muted-foreground) 88%, white 12%) !important;
+  background: color-mix(in oklab, var(--background) 70%, var(--card) 30%) !important;
+  border: 1px solid color-mix(in oklab, var(--border) 72%, white 18%) !important;
+}
+
+.clickdev-driver-popover .driver-popover-close-btn.clickdev-driver-close:hover {
+  filter: brightness(1.06);
+}
