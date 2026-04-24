@@ -48,7 +48,12 @@ export async function POST(req: Request) {
   const calUidRaw = payload.uid
   const calUid = typeof calUidRaw === "string" ? calUidRaw : null
   if (!calUid) {
-    return NextResponse.json({ ok: false, error: "missing_uid" }, { status: 400 })
+    // Cal.com "Ping test" can send payloads without booking UID.
+    // We still validate signature, then acknowledge to avoid failing webhook setup.
+    return NextResponse.json(
+      { ok: true, ignored: true, reason: "missing_uid" },
+      { status: 200 }
+    )
   }
 
   const bookingIdVal = payload.bookingId
