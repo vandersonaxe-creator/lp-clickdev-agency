@@ -114,9 +114,9 @@ export function HeroSection() {
                 "mt-6 max-w-xl text-balance"
               )}
             >
-              Construo sistemas web sob medida para indústrias que ainda rodam
-              em planilha, papel e memória. Manutenção, metrologia, ativos e
-              PCM no mesmo painel — com rastreabilidade de verdade.
+              Construo sistemas web sob medida para operações que ainda dependem
+              de planilhas, papel e memória. Processos, ativos, manutenção e
+              controle em um só lugar — com rastreabilidade de verdade.
             </motion.p>
 
             <motion.div
